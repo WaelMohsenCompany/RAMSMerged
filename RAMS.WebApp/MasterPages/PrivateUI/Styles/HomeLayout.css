@@ -1,0 +1,650 @@
+﻿/* ** Home Page ** */
+
+/* Marque */
+.MarqueContainer
+{
+	background: url(  '../PublishingImages/Backgrounds/MarqueeBg1.gif' ) no-repeat right center;
+	height: 39px;
+	width: 670px;
+	float: right;
+	margin-top: 3px;
+}
+.Marque
+{
+	background: url(  '../PublishingImages/Backgrounds/MarqueeBg2.gif' ) no-repeat left center;
+	width: 618px;
+	padding-right: 50px;
+	padding-left: 30px;
+	height: 39px;
+}
+.Marque table
+{
+	height: 33px;
+	width: 100%;
+	vertical-align: middle;
+	margin-top: 3px;
+}
+/* Theme Selector */
+.ThemeSelectContainer
+{
+	background: #3e3e3e url( '../PublishingImages/Backgrounds/CatalogzoneBG.gif' ) no-repeat top right;
+	width: 773px;
+	overflow: hidden;
+
+}
+.ThemesDivClose
+{
+	text-align: left;
+	margin-left: 10px;
+	margin-top: 7px;
+
+}
+.ThemeSelectContainer table td
+{
+	padding: 10px 7px;
+}
+/* catalogzone */
+.CatalogZone
+{
+	width: 773px;
+	margin-top: 2px;
+	border-collapse: collapse;
+	border: 0px none #3e3e3e !important;
+	background: #3e3e3e url( '../PublishingImages/Backgrounds/CatalogzoneBG.gif' ) no-repeat;
+}
+table.CatalogZone td
+{
+	border: 0px none #3e3e3e !important;
+}
+.CatalogZoneHeader
+{
+	width: 773px;
+	border: 0px none #3e3e3e !important;
+	padding: 2px 5px !important;
+}
+.CatalogZoneHeader td
+{
+	padding: 5px 5px !important;
+}
+.CatalogZoneFooter
+{
+	width: 773px;
+	border: 0px none #3e3e3e !important;
+	background: #3e3e3e url( '../PublishingImages/Backgrounds/CatalogzoneFooter.gif' ) no-repeat bottom right;
+	padding-bottom: 6px;
+}
+.CatalogZoneFooter img
+{
+	vertical-align: middle;
+}
+.WebPartStyle
+{
+	border: 0px none #3e3e3e !important;
+}
+.WebPartStyle br
+{
+	display: none;
+}
+
+.WebPartStyle input.CatalogZoneEditUIStyle
+{
+	float: right;
+	width: 20px;
+	display: block;
+	height: 25px;
+}
+
+.WebPartStyle .CatalogZoneLabel
+{
+	float: right;
+	width: 360px;
+	display: block;
+	height: 22px;
+	margin-right: 1px;
+	margin-top: 3px;
+}
+html > /**/ body .WebPartStyle .CatalogZoneLabel
+{
+	float: none;
+	width: auto;
+	display: inline;
+	height: auto;
+}
+html > /**/ body .WebPartStyle input.CatalogZoneEditUIStyle
+{
+	float: none;
+	width: auto;
+	display: inline;
+	height: auto;
+}
+html > /**/ body .WebPartStyle br
+{
+	display: block;
+}
+
+/* Themes */
+
+.PersonlizationButtons
+{
+	width: 272px;
+	float: left;
+	padding-top: 7px;
+}
+.ChangeTheme
+{
+	width: 84px;
+	height: 32px;
+	line-height: 28px;
+	float: right;
+	/* background:  url(../PublishingImages/Buttons/btn_themes.gif) no-repeat center; */
+	background:  url(../PublishingImages/Buttons/ThemingBG.jpg) no-repeat center;
+	margin-left: 2px;
+	text-align: center;
+	width: 84px;
+	margin-right: 8px;
+
+}
+.PersonalizeLink
+{
+	width: 84px;
+	height: 32px;
+	line-height: 28px;
+	float: right;
+	/* background:  url(../PublishingImages/Buttons/btn_personalize.gif) no-repeat center; */
+	background:  url(../PublishingImages/Buttons/ThemingBG.jpg) no-repeat center;
+	margin-left: 2px;
+	text-align: center;
+	width: 84px;
+
+}
+.ResetLink
+{
+	width: 84px;
+	height: 32px;
+	line-height: 28px;
+	float: right;
+	/* background:  url(../PublishingImages/Buttons/btn_reset.gif) no-repeat center; */
+	background:  url(../PublishingImages/Buttons/ThemingBG.jpg) no-repeat center;
+
+	text-align: center;
+	width: 84px;
+}
+
+/* Zones */
+.PrimaryZone
+{
+	width: 498px;
+	float: right;
+	overflow: hidden;
+	min-height: 150px;
+
+}
+.SecondaryZone
+{
+	width: 275px;
+	float: left;
+	overflow: hidden;
+	min-height: 150px;
+	
+}
+.PrimaryZone td.WebPart
+{
+	width: 493px;
+	background: url(  '../PublishingImages/Backgrounds/MiddleWebPartBG.jpg' ) repeat-y right;
+	
+}
+.SecondaryZone td.WebPart
+{
+	width: 274px;
+	background: url(  '../PublishingImages/Backgrounds/SideWebPartBG.jpg' ) repeat-y right;
+
+}
+.PrimaryZone td.WebPartTitle, .SecondaryZone td.WebPartTitle
+
+{
+	text-align: right;
+	padding: 2px;
+	padding-right: 15px;
+	padding-left: 5px;
+	color: #FFF;
+	height: 30px;
+	border-style: none !important;
+	background-position: top right !important;
+
+}
+.PrimaryZone td.WebPartTitle span, .SecondaryZone td.WebPartTitle span
+{
+	padding: 0px;
+	margin: 0px;
+	display: block;
+	background: url('../PublishingImages/Icons/WebPartsTitleIcon.gif') no-repeat right 8px;
+	padding-right: 12px;
+	padding-top: 3px;
+
+	float: right;
+}
+.PrimaryZone td.WebPartBody
+{
+	background: url(  '../PublishingImages/Backgrounds/MiddleWebPartFooter.jpg' ) no-repeat right bottom;
+	padding: none;
+	
+}
+.SecondaryZone .WebPartBody
+{
+	background: url(  '../PublishingImages/Backgrounds/SideWebPartFooter.jpg' ) no-repeat right bottom;
+	padding: none;
+	border-style: none !important;
+	
+}
+
+.PrimaryZone .More, .SecondaryZone .More
+{
+	text-align: left;
+	padding: 0px;
+	margin: 0px;
+	
+	background: #FFF;
+	
+}
+.PrimaryZone .More a:hover, .SecondaryZone .More a:hover, .ThirdZone .More a:hover
+{
+	text-decoration: none;
+}
+.PrimaryZone .More
+{
+
+	background:  url(../PublishingImages/Backgrounds/MiddleWebPartFooter.jpg) no-repeat bottom right;
+	height: 42px;
+	line-height: 42px;
+	padding-left: 20px;
+	margin-top: 5px;
+}
+.SecondaryZone .More
+
+{
+	background:  url(../PublishingImages/Backgrounds/SideWebPartFooter.jpg) no-repeat bottom right;
+	height: 42px;
+	line-height: 42px;
+	padding-left: 20px;
+	margin-top: 2px;
+}
+.PrimaryZone br, .SecondaryZone br
+{
+	display: none;
+}
+.PartError, .EmptyError
+{
+	margin-right: 10px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+	display: block;
+}
+
+/* Web parts Templates */
+/* */
+.WebPart table.News, .WebPart table.Links
+{
+	width: 97%;
+	margin: 0px auto;
+	background: #FFF;
+}
+.WebPart div.GridView table
+{
+	width: 100%;
+	margin: 0px auto;
+}
+.NewsItem
+{
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-top: 4px;
+	margin-bottom: 10px;
+	overflow: hidden;
+
+}
+.NewsItem h3
+{
+	margin: 0px;
+	padding: 0px;
+	margin-bottom: 2px;
+}
+
+.NewsItem h3 a:hover
+{
+	text-decoration: none;
+}
+
+.NewsItem p
+{
+	margin: 0px;
+	padding: 0px;
+}
+
+.Links, .Statistics
+{
+	width: 100%;
+	margin-top: 5px;
+}
+.LinkItem
+{
+	margin-right: 10px;
+	padding: 3px 5px;
+	padding-right: 20px;
+	background: url(  '../PublishingImages/icons/ListsIcon.gif' ) no-repeat right 10px;
+}
+.LinkItem a:hover
+{
+	text-decoration: none;
+}
+/* Secondary Zone Display */
+.SecondaryZone .NewsItem h3
+{
+	margin-right: 15px;
+	padding: 3px 5px;
+	padding-right: 20px;
+	background: url(  '../PublishingImages/icons/ListsIcon.gif' ) no-repeat right 10px;
+}
+.SecondaryZone .NewsItem
+{
+	margin: 0px !important;
+}
+.SecondaryZone .NewsItem p, .SecondaryZone .NewsItem div
+{
+	
+}
+
+.SecondaryZone .NewsListItem h3
+{
+	margin-right: 15px;
+	padding: 3px 5px;
+	padding-right: 20px;
+	background: url(  '../PublishingImages/icons/ListsIcon.gif' ) no-repeat right 10px;
+}
+.SecondaryZone .NewsListItem
+{
+	margin: 0px !important;
+}
+.SecondaryZone .NewsListItem p, .SecondaryZone .NewsListItem div
+{
+	
+}
+.NewsListItem .NewsItem, .Alternative .NewsItem
+{
+	padding-left: 5px !important;
+
+}
+/* Banner Webpart */
+#WebPart_gwpBanner1 .WebPartTitle,  .gwpBanner1 .WebPartTitle
+{
+	display: none;
+}
+#WebPart_gwpBanner1 .WebPart, .gwpBanner1 .WebPart
+{
+	background: none !important;
+}
+div.Banner1
+{
+	margin-bottom: 8px;
+}
+/* News WebPart */
+.HomeNews, .HomeAccomp , .WhatsNew
+{
+	margin-top: 12px;
+	
+}
+.HomeNews  td, .HomeAccomp td
+{
+	vertical-align: top;
+}
+ .PrimaryZone .HomeNews  .NewsItem
+{
+		margin: 0px;
+		padding: 0px;
+		width: 145px;
+		padding-right: 10px;
+		overflow: hidden;
+		
+}
+.PrimaryZone .HomeAccomp  .NewsItem
+{
+		margin: 0px;
+		padding: 0px;
+		width: 220px;
+		padding-right: 10px;
+		overflow: hidden;
+
+
+}
+.PrimaryZone .HomeNews .NewsItem h3, .PrimaryZone .HomeAccomp .NewsItem h3, .PrimaryZone .WhatsNew H3
+{
+	margin: 0px;
+	padding: 0px;
+	background: url(../PublishingImages/icons/NewsIcon.gif) no-repeat right 8px; 
+	padding-right: 8px;
+	margin-top: 0px;
+	margin-bottom: 8px;
+	
+}
+.EventsDate
+{
+	background: url(../PublishingImages/icons/NewsIcon.gif) no-repeat right 8px; 	
+	padding-right: 8px;
+}
+
+.PrimaryZone .HomeNews .NewsItem img, .PrimaryZone .HomeAccomp .NewsItem img
+{
+	width: 135px;
+	margin: 5px 0px 5px 0px;
+}
+.PrimaryZone .HomeNews .Alternative
+{
+	border-right: 1px solid #dadada;
+	border-left: 1px solid #dadada;
+}
+.HomeAccomp .Alternative
+{
+	border-right: 1px solid #dadada;
+
+}
+.HomeAccomp p
+{
+	margin-left: 10px;
+
+}
+.WhatsNewItem p
+{
+	margin-right: 10px;
+}
+/* Documnet Library */
+.PrimaryZone  .DocumentLib
+{
+	width: 96%;
+	margin-right: 10px;
+	margin-left: 10px;
+	background: #FFF;
+
+}
+.SecondaryZone  .DocumentLib
+{
+	width: 96%;
+	margin: 1px auto;
+}
+.DocumentLib td.DocLibItem
+{
+	width: 50%;
+	padding: 4px 1px;
+	background: #FFF;
+}
+.DocumentLib img
+{
+	float: right;
+	margin-right: 2px;
+	margin-left: 5px;
+}
+.DocumentLib h3 
+{
+	margin: 0px;
+	padding: 0px;
+	float: right;
+	width: 200px;
+}
+/* Events */
+.Events 
+{
+	margin-top: 10px;
+	
+}
+.EventsItem
+{
+
+	margin-right: 10px;
+	margin-left: 10px;
+	margin-bottom: 15px;
+	background: #FFF;
+}
+.EventsLink
+{
+
+}
+.EventsDate
+{
+	
+
+}
+/* Statistics */
+table.StatisticsItem
+{
+	width: 98%;
+	margin: 2px auto;
+	background: #FFF url('../PublishingImages/Backgrounds/stat.jpg') no-repeat left bottom;
+	height: 80px;
+	
+}
+table.StatisticsItem td, table.WhatsNew td
+{
+	padding-left: 80px;
+	padding-right: 5px;
+	
+}
+table.StatisticsItem td a
+{
+	display: block;
+	padding-right: 20px;
+	background: url('../PublishingImages/Icons/StatIcon.gif') no-repeat right 4px;
+	line-height: 14pt;	
+}
+table.WhatsNew
+{
+	width: 95%;
+	height: 80px;
+	background: url('../PublishingImages/Backgrounds/whatisnewbg.jpg') no-repeat left bottom;
+	margin-right: 10px;
+}
+.WhatsNewItem p
+{
+	margin-left: 60px;
+}
+
+.WhatsNewItem
+{
+	margin-right: 5px;
+	margin-left: 5px;
+	margin-top: 4px;
+	margin-bottom: 10px;
+
+}
+
+/* */
+.EditWebpart
+{
+	Border: 1px solid #DDD;
+	background: #EEE;
+	width: 96%;
+	margin: 1px auto;
+	font-family: Tahoma;
+	font-size: 8pt !important;
+
+}
+.EditWebpartSelect
+{
+	width: 40px;
+	margin-right: 5px;
+	margin-left: 5px;
+}
+.EditWebpartSave
+{
+	vertical-align: middle;
+	margin-left: 5px;
+}
+.EditWebpartReset
+{
+	vertical-align: middle;
+	margin-left: 5px;
+}
+.EditWebpartCancel
+{
+	vertical-align: middle;
+	margin-left: 2px;
+}
+
+.PrimaryZoneContainer
+{
+	width: 100%;
+}
+.SecondaryZoneContainer
+{
+	width: 100%;
+}
+
+.LinksList
+{
+	width: 98%;
+	margin: 2px auto;
+	background: #FFF;
+}
+.NewsList
+{
+	width: 98%;
+	background: #FFF;
+	margin: 2px auto;
+}
+
+.LinksList h3
+{
+	margin-right: 10px;
+	padding: 3px 5px;
+	padding-right: 15px;
+	background: url(  '../PublishingImages/icons/ListsIcon.gif' ) no-repeat right 10px;
+}
+
+.SecondaryZone .NewsList h3
+{
+	margin-right: 10px;
+	padding: 3px 5px;
+	padding-right: 15px;
+	background: url(  '../PublishingImages/icons/ListsIcon.gif' ) no-repeat right 10px;
+
+}
+
+
+.LinksList p
+{
+	display: none;
+}
+
+.LinksList .NewsItem
+{
+	margin-top: 0px;
+	margin-bottom: 0px;
+}
+
+
+
+.PrimaryZoneContainer .HomeNews h3,  .PrimaryZoneContainer .HomeAccomp h3
+{
+	height: 32px;
+}
+
+
+
+

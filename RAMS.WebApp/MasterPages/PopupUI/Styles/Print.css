@@ -1,0 +1,91 @@
+﻿/*
+Created by: Rehab Genena
+Sr. UI Developer, ITWorx Egypt
+for Minstry of Labor Saudi Arabia
+Version 1.0 
+June 2008
+*/
+
+@import url('General.css');
+@import url('Fonts.css');
+@import url('Forms.css');
+@import url('DynamicMenu.css');
+
+/* */
+body 
+{
+direction: rtl !important;
+}
+.HeaderContainer
+{
+	background: #fbfbfb;
+}
+.PrintDiv
+{
+	margin: 0px auto !important;
+	padding: 5px 0px;
+	direction: rtl;
+	width: 99%;
+	
+}
+
+.PrintTable
+{
+	width: 99%;
+	margin: 2px auto !important;
+	
+	border-collapse: collapse;
+
+}
+thead
+{
+	display: table-header-group;
+}
+tfoot
+{
+	display: table-footer-group;
+}
+
+td.PrintBody, td.PrintHead, td.PrintFoot
+{
+	padding: 0px 5px;
+	border: 1px solid #EEE;
+}
+
+
+ 
+.PrintTable a
+{
+	color: #000;
+}
+/* Grids */
+ .GridView
+{
+	border: 1px solid #DDD !important;
+
+}
+
+ .GridView .GridViewHeader th,  .GridView th
+{
+	background-color: #AAA;
+}
+ .GridView .GridViewRow td,  .GridView  td
+{
+	background-color: #FFF;
+}
+.GridView .GridViewAlt td
+{
+	
+	background-color: #EEE;
+}
+ .GridView a
+{
+	color: #000;
+}
+ .GridView a:hover
+{
+	text-decoration: none;
+}
+
+
+

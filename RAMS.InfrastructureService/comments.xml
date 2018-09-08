@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>RAMS.BusinessServices</name>
+  </assembly>
+  <members>
+    <member name="" />
+    <member name="N:RAMS.BusinessServices.Post" />
+    <member name="M:RAMS.BusinessServices.Post.PostBusinessService.AcceptComplaintRequest(System.Int32,System.Int64,System.String)"> <summary>
+ Function creates Review request at MoL database (البت في بلاغ التغيب)
+ </summary>
+ <param name="runAwayRequestId">The run away request identifier.</param>
+ <param name="applicantUserIdNumber">The applicant user identifier number.</param>
+ <param name="clientIPAddress">Client IP Address</param>
+ <returns>ResponseMsg.</returns>
+ <exception cref="T:System.ArgumentException">Invalid Argument Value Exception.</exception></member>
+  </members>
+</doc>

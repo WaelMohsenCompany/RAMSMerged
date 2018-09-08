@@ -1,0 +1,911 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{36CB900E-62AB-4CAA-AB2B-7A168BAFADAB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MOL.EFDAL</RootNamespace>
+    <AssemblyName>MOL.EFDAL</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>MOL.snk</AssemblyOriginatorKeyFile>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\packages\Microsoft.Practices.EnterpriseLibrary.Common.dll.3.1.0\lib\2.0\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data, Version=3.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Practices.EnterpriseLibrary.Data.dll.3.1.0\lib\2.0\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Practices.ObjectBuilder, Version=1.0.51206.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Practices.ObjectBuilder.dll.3.1.0\lib\2.0\Microsoft.Practices.ObjectBuilder.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="Mol.DataAccessLayer, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2a52a4fd59ad0507, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MoL DLLs\Mol.DataAccessLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="Mol.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2a52a4fd59ad0507, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MoL DLLs\Mol.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="NLog">
+      <HintPath>..\packages\NLog.4.5.3\lib\net45\NLog.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ComplexTypes\CLBInMOILaborerDetails.cs" />
+    <Compile Include="ComplexTypes\GetEstablishment_Bills_Result.cs" />
+    <Compile Include="GlobalSuppressions.cs" />
+    <Compile Include="RAMS\ComplexTypes\ComplaintCreateRequestInfo.cs" />
+    <Compile Include="RAMS\ComplexTypes\ComplaintReteriveRequestInfo.cs" />
+    <Compile Include="RAMS\ComplexTypes\EstablishmentInfo.cs" />
+    <Compile Include="RAMS\ComplexTypes\LaborerInfo.cs" />
+    <Compile Include="ComplexTypes\LaborerLatestStatus.cs" />
+    <Compile Include="ComplexTypes\SP_CUST_MOL_Sec_Privilege_GetAuthorizedUserPrivileges_Result.cs" />
+    <Compile Include="ComplexTypes\SP_CUST_MOL_Sec_Privilege_GetAuthorizedUserServices_Result.cs" />
+    <Compile Include="EFUnitTest.cs" />
+    <Compile Include="Entities\AuditExtraFieldCollection.cs" />
+    <Compile Include="Entities\IAuditable.cs" />
+    <Compile Include="Entities\MOL_Sec_UserRevokePrivilege.cs" />
+    <Compile Include="Models\Active_Program_Establishment.cs" />
+    <Compile Include="Models\Bill_Status.cs" />
+    <Compile Include="Models\Channels.cs" />
+    <Compile Include="Models\CJD_Online_Requests.cs" />
+    <Compile Include="Models\CLB_Online_Requests.cs" />
+    <Compile Include="Models\CRM_ContactsView.cs" />
+    <Compile Include="Models\Enum_AccomodationStatus.cs" />
+    <Compile Include="Models\Enum_AccountManagerType.cs" />
+    <Compile Include="Models\Enum_AgentType.cs" />
+    <Compile Include="Models\Enum_AuditAction.cs" />
+    <Compile Include="Models\Enum_ChangeEstablishmentActivityRequestAction.cs" />
+    <Compile Include="Models\Enum_ChangeEstablishmentActivityRequestStatus.cs" />
+    <Compile Include="Models\Enum_ChangeJobDescriptionCommentType.cs" />
+    <Compile Include="Models\Enum_ChangeJobDescriptionRequestAction.cs" />
+    <Compile Include="Models\Enum_ChangeWorkerStatusCommentType.cs" />
+    <Compile Include="Models\Enum_CommissionerType.cs" />
+    <Compile Include="Models\Enum_CounterItemType.cs" />
+    <Compile Include="Models\Enum_CRStatus.cs" />
+    <Compile Include="Models\Enum_DrivingLicenseSecondaryType.cs" />
+    <Compile Include="Models\Enum_DrivingLicenseType.cs" />
+    <Compile Include="Models\Enum_EmailLanguage.cs" />
+    <Compile Include="Models\Enum_EmployeeAccountStatus.cs" />
+    <Compile Include="Models\Enum_EmployeeType.cs" />
+    <Compile Include="Models\Enum_EstablishmentStatus.cs" />
+    <Compile Include="Models\Enum_EstablishmentType.cs" />
+    <Compile Include="Models\Enum_EstablishmentVisaCreditJobOperationType.cs" />
+    <Compile Include="Models\Enum_EstablishmentVisaCreditOperationType.cs" />
+    <Compile Include="Models\Enum_EstablishmentVisaCreditTerminationReason.cs" />
+    <Compile Include="Models\Enum_EstablishmentVisaCreditType.cs" />
+    <Compile Include="Models\Enum_Gender.cs" />
+    <Compile Include="Models\Enum_IndividualProfileRequestStatus.cs" />
+    <Compile Include="Models\Enum_InspectionBillStatus.cs" />
+    <Compile Include="Models\Enum_JobApplicationRequesterType.cs" />
+    <Compile Include="Models\Enum_JobApplicationStatus.cs" />
+    <Compile Include="Models\Enum_JobAvailability.cs" />
+    <Compile Include="Models\Enum_JobVacancyStatus.cs" />
+    <Compile Include="Models\Enum_LaborerRejectionReason.cs" />
+    <Compile Include="Models\Enum_LaborerStatus.cs" />
+    <Compile Include="Models\Enum_LaborerType.cs" />
+    <Compile Include="Models\Enum_MessageMediaType.cs" />
+    <Compile Include="Models\Enum_NoteApplicability.cs" />
+    <Compile Include="Models\Enum_NoteSource.cs" />
+    <Compile Include="Models\Enum_NoteStatus.cs" />
+    <Compile Include="Models\Enum_NoteType.cs" />
+    <Compile Include="Models\Enum_NotificationMessageCreator.cs" />
+    <Compile Include="Models\Enum_NotificationMessageStatus.cs" />
+    <Compile Include="Models\Enum_PayementType.cs" />
+    <Compile Include="Models\Enum_PrivilegeLevel.cs" />
+    <Compile Include="Models\Enum_RequesterType.cs" />
+    <Compile Include="Models\Enum_SaudiCertificateApprovalStatus.cs" />
+    <Compile Include="Models\Enum_SaudiFlag.cs" />
+    <Compile Include="Models\Enum_SequenceEntity.cs" />
+    <Compile Include="Models\Enum_Service.cs" />
+    <Compile Include="Models\Enum_ServiceOfficeType.cs" />
+    <Compile Include="Models\Enum_SponsorTransferCommentType.cs" />
+    <Compile Include="Models\Enum_SponsorTransferRequestAction.cs" />
+    <Compile Include="Models\Enum_Srv_RequestType.cs" />
+    <Compile Include="Models\Enum_Srv_Status.cs" />
+    <Compile Include="Models\Enum_Srv_Validation.cs" />
+    <Compile Include="Models\Enum_STLaborerSource.cs" />
+    <Compile Include="Models\Enum_UserType.cs" />
+    <Compile Include="Models\Enum_VacancyStatus.cs" />
+    <Compile Include="Models\Enum_VisaRequestDecisionFlag.cs" />
+    <Compile Include="Models\Enum_VisaRequestStatuses.cs" />
+    <Compile Include="Models\Enum_WorkingHoursPreference.cs" />
+    <Compile Include="Models\Enum_WorkPermitReason.cs" />
+    <Compile Include="Models\Establishment_Type.cs" />
+    <Compile Include="Models\EWV_Online_Requests.cs" />
+    <Compile Include="Models\Gov_Agency.cs" />
+    <Compile Include="Models\InstanceState.cs" />
+    <Compile Include="Models\IstikdamRequestRejectionReason.cs" />
+    <Compile Include="Models\IST_Online_Appoval.cs" />
+    <Compile Include="Models\IST_Online_Requests.cs" />
+    <Compile Include="Models\Joining_Rule.cs" />
+    <Compile Include="Models\Joining_Rules_Validation_Log.cs" />
+    <Compile Include="Models\Joining_Rule_Establishment_Type.cs" />
+    <Compile Include="Models\Joining_Status.cs" />
+    <Compile Include="Models\Lookup_AdviceMessages.cs" />
+    <Compile Include="Models\Lookup_AgeRange.cs" />
+    <Compile Include="Models\Lookup_Bank.cs" />
+    <Compile Include="Models\Lookup_ChangeEstablishmentActivityReason.cs" />
+    <Compile Include="Models\Lookup_ChangeEstablishmentActivityRejectionReason.cs" />
+    <Compile Include="Models\Lookup_City.cs" />
+    <Compile Include="Models\Lookup_ComputerSkill.cs" />
+    <Compile Include="Models\Lookup_Country.cs" />
+    <Compile Include="Models\Lookup_DisabilityType.cs" />
+    <Compile Include="Models\Lookup_EconomicActivity.cs" />
+    <Compile Include="Models\Lookup_EducationalStatus.cs" />
+    <Compile Include="Models\Lookup_EstablishmentVisaCreditServiceConsumers.cs" />
+    <Compile Include="Models\Lookup_GC_ContractFields.cs" />
+    <Compile Include="Models\Lookup_GC_EstablishmentPermitsCheckExempted.cs" />
+    <Compile Include="Models\Lookup_GPASystem.cs" />
+    <Compile Include="Models\Lookup_Job.cs" />
+    <Compile Include="Models\Lookup_JobField.cs" />
+    <Compile Include="Models\Lookup_LawRepresentation.cs" />
+    <Compile Include="Models\Lookup_Municipality.cs" />
+    <Compile Include="Models\Lookup_Nationality.cs" />
+    <Compile Include="Models\Lookup_NewEconomicActivity.cs" />
+    <Compile Include="Models\Lookup_OpenId_Consumer.cs" />
+    <Compile Include="Models\Lookup_Origins.cs" />
+    <Compile Include="Models\Lookup_ProficiencyLevel.cs" />
+    <Compile Include="Models\Lookup_Qualification.cs" />
+    <Compile Include="Models\Lookup_Religion.cs" />
+    <Compile Include="Models\Lookup_SaudiCertificateDirectedTo.cs" />
+    <Compile Include="Models\Lookup_SaudiCertificatePurpose.cs" />
+    <Compile Include="Models\Lookup_SecurableEntityType.cs" />
+    <Compile Include="Models\Lookup_ServiceEndReason.cs" />
+    <Compile Include="Models\Lookup_StatementsType.cs" />
+    <Compile Include="Models\Lookup_ViewerScope.cs" />
+    <Compile Include="Models\Lookup_Zone.cs" />
+    <Compile Include="Models\ManpowerMenu.cs" />
+    <Compile Include="Models\ManpowerMenu_Groups.cs" />
+    <Compile Include="Models\ManpowerMenu_Groups_EntityTypes.cs" />
+    <Compile Include="Models\ManpowerMenu_Sections.cs" />
+    <Compile Include="Models\Mapping\Active_Program_EstablishmentMap.cs" />
+    <Compile Include="Models\Mapping\Bill_StatusMap.cs" />
+    <Compile Include="Models\Mapping\ChannelMap.cs" />
+    <Compile Include="Models\Mapping\CJD_Online_RequestsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_CancelFinalExitWorkPermitMap.cs" />
+    <Compile Include="Models\Mapping\CLB_Online_RequestsMap.cs" />
+    <Compile Include="Models\Mapping\CRM_ContactsViewMap.cs" />
+    <Compile Include="Models\Mapping\Enum_AccomodationStatusMap.cs" />
+    <Compile Include="Models\Mapping\Enum_AccountManagerTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_AgentTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_AuditActionMap.cs" />
+    <Compile Include="Models\Mapping\Enum_ChangeEstablishmentActivityRequestActionMap.cs" />
+    <Compile Include="Models\Mapping\Enum_ChangeEstablishmentActivityRequestStatusMap.cs" />
+    <Compile Include="Models\Mapping\Enum_ChangeJobDescriptionCommentTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_ChangeJobDescriptionRequestActionMap.cs" />
+    <Compile Include="Models\Mapping\Enum_ChangeWorkerStatusCommentTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_CommissionerTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_CounterItemTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_CRStatusMap.cs" />
+    <Compile Include="Models\Mapping\Enum_DrivingLicenseSecondaryTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_DrivingLicenseTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_EmailLanguageMap.cs" />
+    <Compile Include="Models\Mapping\Enum_EmployeeAccountStatusMap.cs" />
+    <Compile Include="Models\Mapping\Enum_EmployeeTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_EstablishmentStatusMap.cs" />
+    <Compile Include="Models\Mapping\Enum_EstablishmentTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_EstablishmentVisaCreditJobOperationTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_EstablishmentVisaCreditOperationTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_EstablishmentVisaCreditTerminationReasonMap.cs" />
+    <Compile Include="Models\Mapping\Enum_EstablishmentVisaCreditTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_GenderMap.cs" />
+    <Compile Include="Models\Mapping\Enum_IndividualProfileRequestStatusMap.cs" />
+    <Compile Include="Models\Mapping\Enum_InspectionBillStatusMap.cs" />
+    <Compile Include="Models\Mapping\Enum_JobApplicationRequesterTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_JobApplicationStatusMap.cs" />
+    <Compile Include="Models\Mapping\Enum_JobAvailabilityMap.cs" />
+    <Compile Include="Models\Mapping\Enum_JobVacancyStatusMap.cs" />
+    <Compile Include="Models\Mapping\Enum_LaborerRejectionReasonMap.cs" />
+    <Compile Include="Models\Mapping\Enum_LaborerStatusMap.cs" />
+    <Compile Include="Models\Mapping\Enum_LaborerTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_MessageMediaTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_NoteApplicabilityMap.cs" />
+    <Compile Include="Models\Mapping\Enum_NoteSourceMap.cs" />
+    <Compile Include="Models\Mapping\Enum_NoteStatusMap.cs" />
+    <Compile Include="Models\Mapping\Enum_NoteTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_NotificationMessageCreatorMap.cs" />
+    <Compile Include="Models\Mapping\Enum_NotificationMessageStatusMap.cs" />
+    <Compile Include="Models\Mapping\Enum_PayementTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_PrivilegeLevelMap.cs" />
+    <Compile Include="Models\Mapping\Enum_RequesterTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_SaudiCertificateApprovalStatusMap.cs" />
+    <Compile Include="Models\Mapping\Enum_SaudiFlagMap.cs" />
+    <Compile Include="Models\Mapping\Enum_SequenceEntityMap.cs" />
+    <Compile Include="Models\Mapping\Enum_ServiceMap.cs" />
+    <Compile Include="Models\Mapping\Enum_ServiceOfficeTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_SponsorTransferCommentTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_SponsorTransferRequestActionMap.cs" />
+    <Compile Include="Models\Mapping\Enum_Srv_RequestTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_Srv_StatusMap.cs" />
+    <Compile Include="Models\Mapping\Enum_Srv_ValidationMap.cs" />
+    <Compile Include="Models\Mapping\Enum_STLaborerSourceMap.cs" />
+    <Compile Include="Models\Mapping\Enum_UserTypeMap.cs" />
+    <Compile Include="Models\Mapping\Enum_VacancyStatusMap.cs" />
+    <Compile Include="Models\Mapping\Enum_VisaRequestDecisionFlagMap.cs" />
+    <Compile Include="Models\Mapping\Enum_VisaRequestStatusesMap.cs" />
+    <Compile Include="Models\Mapping\Enum_WorkingHoursPreferenceMap.cs" />
+    <Compile Include="Models\Mapping\Enum_WorkPermitReasonMap.cs" />
+    <Compile Include="Models\Mapping\Establishment_TypeMap.cs" />
+    <Compile Include="Models\Mapping\EWV_Online_RequestsMap.cs" />
+    <Compile Include="Models\Mapping\Gov_AgencyMap.cs" />
+    <Compile Include="Models\Mapping\InstanceStateMap.cs" />
+    <Compile Include="Models\Mapping\IstikdamRequestRejectionReasonMap.cs" />
+    <Compile Include="Models\Mapping\IST_Online_AppovalMap.cs" />
+    <Compile Include="Models\Mapping\IST_Online_RequestsMap.cs" />
+    <Compile Include="Models\Mapping\Joining_RuleMap.cs" />
+    <Compile Include="Models\Mapping\Joining_Rules_Validation_LogMap.cs" />
+    <Compile Include="Models\Mapping\Joining_Rule_Establishment_TypeMap.cs" />
+    <Compile Include="Models\Mapping\Joining_StatusMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_AdviceMessagesMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_AgeRangeMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_BankMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_ChangeEstablishmentActivityReasonMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_ChangeEstablishmentActivityRejectionReasonMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_CityMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_ComputerSkillMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_CountryMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_DisabilityTypeMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_EconomicActivityMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_EducationalStatusMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_EstablishmentVisaCreditServiceConsumersMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_GC_ContractFieldsMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_GC_EstablishmentPermitsCheckExemptedMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_GPASystemMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_JobFieldMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_JobMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_LawRepresentationMap.cs" />
+    <Compile Include="Models\Lookup_MCIPartyRelationType.cs" />
+    <Compile Include="Models\Mapping\Lookup_MunicipalityMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_NationalityMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_NewEconomicActivityMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_OpenId_ConsumerMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_OriginsMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_ProficiencyLevelMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_QualificationMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_ReligionMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_SaudiCertificateDirectedToMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_SaudiCertificatePurposeMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_SecurableEntityTypeMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_ServiceEndReasonMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_StatementsTypeMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_ViewerScopeMap.cs" />
+    <Compile Include="Models\Mapping\Lookup_ZoneMap.cs" />
+    <Compile Include="Models\Mapping\ManpowerMenuMap.cs" />
+    <Compile Include="Models\Mapping\ManpowerMenu_GroupsMap.cs" />
+    <Compile Include="Models\Mapping\ManpowerMenu_Groups_EntityTypesMap.cs" />
+    <Compile Include="Models\Mapping\ManpowerMenu_SectionsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_AccountManagerMap.cs" />
+    <Compile Include="Models\Mapping\MOL_AgentMap.cs" />
+    <Compile Include="Models\Mapping\MOL_AuditTrailsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_CancelVisaRequestMap.cs" />
+    <Compile Include="Models\Mapping\MOL_CEAInboxMap.cs" />
+    <Compile Include="Models\Mapping\MOL_CEAReferenceSequenceMap.cs" />
+    <Compile Include="Models\Mapping\MOL_CEAUserServiceMap.cs" />
+    <Compile Include="Models\Mapping\MOL_ChangeEstablishmentActivityRequestMap.cs" />
+    <Compile Include="Models\Mapping\MOL_ChangeLaborerBranchInMOIMap.cs" />
+    <Compile Include="Models\Mapping\MOL_DownloadMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EconomicActivityStatementMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EconomicActivity_Jobs_GenderMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EEF_OnlineRequestsMap.cs" />
+    <Compile Include="Models\Mapping\Mol_EstablishmentActivityCorrectionMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentAgentMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentAgentServiceMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentChangeStatusMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentCommissionerMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentCommissionerServiceMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentEconomicActivityMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentExceptionalWPMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentMCIActivitiesMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentMCIPartiesMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentModifiedJobsHistoryMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentNoteMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentNoteServiceMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentProfileMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentSaudiCertificateMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentSelectLogMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentStatementMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentVisaCreditJobsHistoryMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentVisaCreditJobsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmentVisaCreditMap.cs" />
+    <Compile Include="Models\Mapping\MOL_EstablishmnetEligibleToTakeAppointmentMap.cs" />
+    <Compile Include="Models\Mapping\MOL_FakeEmploymentReportCommentOwnerMap.cs" />
+    <Compile Include="Models\Mapping\MOL_FakeEmploymentReportCommentsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_FakeEmploymentReportMap.cs" />
+    <Compile Include="Models\Mapping\MOL_FakeEmploymentReportStatusMap.cs" />
+    <Compile Include="Models\Mapping\MOL_GC_AssentJobsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_GC_AssentsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_GC_AssentTrackingLogMap.cs" />
+    <Compile Include="Models\Mapping\MOL_GC_ContractEstablishmentsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_GC_ContractsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_GenderActivityNationalityJobMatrixMap.cs" />
+    <Compile Include="Models\Mapping\MOL_HajOmraTransferRequestsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_IssuedVisasMap.cs" />
+    <Compile Include="Models\Mapping\MOL_LaborerExceptionalWPMap.cs" />
+    <Compile Include="Models\Mapping\MOL_LaborerMap.cs" />
+    <Compile Include="Models\Mapping\MOL_LaborerMOIRunawayMap.cs" />
+    <Compile Include="Models\Mapping\MOL_LaborerStatusServiceEndReasonMap.cs" />
+    <Compile Include="Models\Mapping\MOL_Laborer_MOI_AuditMap.cs" />
+    <Compile Include="Models\Mapping\MOL_LaborOfficeMap.cs" />
+    <Compile Include="Models\Mapping\MOL_MonitoredUsersActivityMap.cs" />
+    <Compile Include="Models\Mapping\MOL_NotificationMessageMap.cs" />
+    <Compile Include="Models\Mapping\MOL_NotificationMessageReceiverMap.cs" />
+    <Compile Include="Models\Mapping\MOL_OpenEstablishmentFileFromMCIMap.cs" />
+    <Compile Include="Models\Mapping\MOL_OpenEstablishmentFileFromSDMap.cs" />
+    <Compile Include="Models\Mapping\MOL_OpenIDLogsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_OracleTransactionLogMap.cs" />
+    <Compile Include="Models\Mapping\MOL_OwnerMap.cs" />
+    <Compile Include="Models\Mapping\MOL_ProgramBEstablishmentsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_RunAwayCancelRequestsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_Sec_GroupMap.cs" />
+    <Compile Include="Models\Mapping\MOL_Sec_PrivilegeMap.cs" />
+    <Compile Include="Models\Mapping\MOL_Sec_RoleMap.cs" />
+    <Compile Include="Models\Mapping\MOL_Sec_RolePrivilegeMap.cs" />
+    <Compile Include="Models\Mapping\MOL_Sec_SecurableEntityMap.cs" />
+    <Compile Include="Models\Mapping\MOL_Sec_UserEntityPrivilegeMap.cs" />
+    <Compile Include="Models\Mapping\MOL_Sec_UserRevokePrivilegeMap.cs" />
+    <Compile Include="Models\Mapping\MOL_Sec_UserRoleMap.cs" />
+    <Compile Include="Models\Mapping\MOL_Sec_VwUserRoleMap.cs" />
+    <Compile Include="Models\Mapping\MOL_Service_LogMap.cs" />
+    <Compile Include="Models\Mapping\MOL_Service_Log_ExtensionMap.cs" />
+    <Compile Include="RAMS\ComplexTypes\LaborOfficeInfo.cs" />
+    <Compile Include="RAMS\ComplexTypes\RequestContactInfo.cs" />
+    <Compile Include="RAMS\ComplexTypes\RunAwayApprovalRequestsInfo.cs" />
+    <Compile Include="RAMS\ComplexTypes\RunAwayCreateRequestInfo.cs" />
+    <Compile Include="RAMS\ComplexTypes\RunAwayCancelRequestInfo.cs" />
+    <Compile Include="RAMS\ComplexTypes\RunAwayReteriveRequestInfo.cs" />
+    <Compile Include="RAMS\ComplexTypes\RunAwayReviewRequestsInfo.cs" />
+    <Compile Include="RAMS\Models\Lookup_EconomicActivity.cs" />
+    <Compile Include="RAMS\Models\Lookup_RAMS_ComplaintTimes.cs" />
+    <Compile Include="RAMS\Models\Mapping\Lookup_RAMS_ComplaintTimesMap.cs" />
+    <Compile Include="RAMS\Models\Mapping\MOL_RAMS_ComplaintNotesMap.cs" />
+    <Compile Include="RAMS\Models\Mapping\MOL_RAMS_ComplaintTransactionsLogMap.cs" />
+    <Compile Include="RAMS\Models\Mapping\MOL_RAMS_Complaint_FilesMap.cs" />
+    <Compile Include="RAMS\Models\Mapping\MOL_RAMS_CancelRunAway_FilesMap.cs" />
+    <Compile Include="RAMS\Models\Mapping\MOL_RAMS_RunAwayTransactionsLogMap.cs" />
+    <Compile Include="RAMS\Models\Mapping\MOL_RAMS_RunAway_FilesMap.cs" />
+    <Compile Include="RAMS\Models\Mapping\MOL_RunAwayComplaintsMap.cs" />
+    <Compile Include="RAMS\Models\Mapping\MOL_Srv_ServiceConfigurationMap.cs" />
+    <Compile Include="Models\Mapping\MOL_Srv_TransactionMap.cs" />
+    <Compile Include="Models\Mapping\MOL_TransferRequestMap.cs" />
+    <Compile Include="Models\Mapping\MOL_UnifiedNumberMap.cs" />
+    <Compile Include="Models\Mapping\MOL_UserLoginHistoryMap.cs" />
+    <Compile Include="Models\Mapping\MOL_UserMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VisaActivityPeriodMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VisaBalanceRejectReasonMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VisaIssuePrivateContractMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VisaIssueRejectReasonsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VisaIssueRequestDetailsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VisaIssueRequestsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VisaPrerequisitesDocsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VisaRequestDetailsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VisaRequestImmediateApproveDetailsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VisaRequestImmediateApproveInfoMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VisaRequestsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VwAccountManagerMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VwCEAEstablishmentDetailsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VwCEAInboxMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VwCEAJobLaborersCountMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VwCEARequestViewDetailsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VwChangeEstablishmentActivityApprovalUsersMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VwEstablishmentCRMComplaintDataMap.cs" />
+    <Compile Include="Models\Mapping\Mol_VwLaborersHasUnusedWPMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VwLaborer_Audit_GetEstablishmentsHistoryMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VwOEFElectronicInquiriesMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VwUnpaidWP200ViolationsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VwUserEstablishmentsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_VwUserEstablishmentsNotesMap.cs" />
+    <Compile Include="Models\Mapping\MOL_WorkPermitMap.cs" />
+    <Compile Include="Models\Mapping\MOL_WP200ViolatedUnifiedNumbersMap.cs" />
+    <Compile Include="Models\Mapping\MOL_WP200ViolationsCorrectionsMap.cs" />
+    <Compile Include="Models\Mapping\MOL_ZATNoteConfirmationLogMap.cs" />
+    <Compile Include="Models\Mapping\NitaqatActivity_EstablishmentMap.cs" />
+    <Compile Include="Models\Mapping\OEF_Online_RequestsMap.cs" />
+    <Compile Include="Models\Mapping\OpenId_AssociationMap.cs" />
+    <Compile Include="Models\Mapping\OpenId_AuthTokenMap.cs" />
+    <Compile Include="Models\Mapping\OpenId_NonceMap.cs" />
+    <Compile Include="Models\Mapping\OpenId_UserMap.cs" />
+    <Compile Include="Models\Mapping\Overdue_EstablishmentMap.cs" />
+    <Compile Include="Models\Mapping\Periodic_BillMap.cs" />
+    <Compile Include="Models\Mapping\Periodic_Bill_HistoryMap.cs" />
+    <Compile Include="Models\Mapping\Program_EstablishmentMap.cs" />
+    <Compile Include="Models\Mapping\Program_Establishment_HistoryMap.cs" />
+    <Compile Include="Models\Mapping\Program_StatusMap.cs" />
+    <Compile Include="Models\Mapping\RejectionReasonMap.cs" />
+    <Compile Include="Models\Mapping\ST_Online_ApprovalMap.cs" />
+    <Compile Include="Models\Mapping\ST_Online_RequestsMap.cs" />
+    <Compile Include="Models\Mapping\UnifiedNumber_NitaqatActivity_EstablishmentMap.cs" />
+    <Compile Include="Models\Mapping\Unrejected_Joining_RequestMap.cs" />
+    <Compile Include="Models\Mapping\VwManpowerMenuMap.cs" />
+    <Compile Include="Models\Mapping\VW_EstablishmentActivityCorrectionMap.cs" />
+    <Compile Include="Models\Mapping\Vw_UNPaidExtraFeesUnitesMap.cs" />
+    <Compile Include="Models\MOL_AccountManager.cs" />
+    <Compile Include="Models\MOL_Agent.cs" />
+    <Compile Include="Models\MOL_AuditTrails.cs" />
+    <Compile Include="Models\MOL_CancelFinalExitWorkPermit.cs" />
+    <Compile Include="Models\MOL_CancelVisaRequest.cs" />
+    <Compile Include="Models\MOL_CEAInbox.cs" />
+    <Compile Include="Models\MOL_CEAReferenceSequence.cs" />
+    <Compile Include="Models\MOL_CEAUserService.cs" />
+    <Compile Include="Models\MOL_ChangeEstablishmentActivityRequest.cs" />
+    <Compile Include="Models\MOL_ChangeLaborerBranchInMOI.cs" />
+    <Compile Include="Models\MOL_Download.cs" />
+    <Compile Include="Models\MOL_EconomicActivityStatement.cs" />
+    <Compile Include="Models\MOL_EconomicActivity_Jobs_Gender.cs" />
+    <Compile Include="Models\MOL_EEF_OnlineRequests.cs" />
+    <Compile Include="Models\MOL_Establishment.cs" />
+    <Compile Include="Models\Mol_EstablishmentActivityCorrection.cs" />
+    <Compile Include="Models\MOL_EstablishmentAgent.cs" />
+    <Compile Include="Models\MOL_EstablishmentAgentService.cs" />
+    <Compile Include="Models\MOL_EstablishmentChangeStatus.cs" />
+    <Compile Include="Models\MOL_EstablishmentCommissioner.cs" />
+    <Compile Include="Models\MOL_EstablishmentCommissionerService.cs" />
+    <Compile Include="Models\MOL_EstablishmentEconomicActivity.cs" />
+    <Compile Include="Models\MOL_EstablishmentExceptionalWP.cs" />
+    <Compile Include="Models\MOL_EstablishmentMCIActivities.cs" />
+    <Compile Include="Models\MOL_EstablishmentMCIParties.cs" />
+    <Compile Include="Models\MOL_EstablishmentModifiedJobsHistory.cs" />
+    <Compile Include="Models\MOL_EstablishmentNote.cs" />
+    <Compile Include="Models\MOL_EstablishmentNoteService.cs" />
+    <Compile Include="Models\MOL_EstablishmentProfile.cs" />
+    <Compile Include="Models\MOL_EstablishmentSaudiCertificate.cs" />
+    <Compile Include="Models\MOL_EstablishmentSelectLog.cs" />
+    <Compile Include="Models\MOL_EstablishmentStatement.cs" />
+    <Compile Include="Models\MOL_EstablishmentVisaCredit.cs" />
+    <Compile Include="Models\MOL_EstablishmentVisaCreditJobs.cs" />
+    <Compile Include="Models\MOL_EstablishmentVisaCreditJobsHistory.cs" />
+    <Compile Include="Models\MOL_EstablishmnetEligibleToTakeAppointment.cs" />
+    <Compile Include="Models\MOL_FakeEmploymentReport.cs" />
+    <Compile Include="Models\MOL_FakeEmploymentReportCommentOwner.cs" />
+    <Compile Include="Models\MOL_FakeEmploymentReportComments.cs" />
+    <Compile Include="Models\MOL_FakeEmploymentReportStatus.cs" />
+    <Compile Include="Models\MOL_GC_AssentJobs.cs" />
+    <Compile Include="Models\MOL_GC_Assents.cs" />
+    <Compile Include="Models\MOL_GC_AssentTrackingLog.cs" />
+    <Compile Include="Models\MOL_GC_ContractEstablishments.cs" />
+    <Compile Include="Models\MOL_GC_Contracts.cs" />
+    <Compile Include="Models\MOL_GenderActivityNationalityJobMatrix.cs" />
+    <Compile Include="Models\MOL_HajOmraTransferRequests.cs" />
+    <Compile Include="Models\MOL_IssuedVisas.cs" />
+    <Compile Include="Models\MOL_Laborer.cs" />
+    <Compile Include="Models\MOL_LaborerExceptionalWP.cs" />
+    <Compile Include="Models\MOL_LaborerMOIRunaway.cs" />
+    <Compile Include="Models\MOL_LaborerStatusServiceEndReason.cs" />
+    <Compile Include="Models\MOL_Laborer_MOI_Audit.cs" />
+    <Compile Include="Models\MOL_LaborOffice.cs" />
+    <Compile Include="Models\MOL_MonitoredUsersActivity.cs" />
+    <Compile Include="Models\MOL_NotificationMessage.cs" />
+    <Compile Include="Models\MOL_NotificationMessageReceiver.cs" />
+    <Compile Include="Models\MOL_OpenEstablishmentFileFromMCI.cs" />
+    <Compile Include="Models\MOL_OpenEstablishmentFileFromSD.cs" />
+    <Compile Include="Models\MOL_OpenIDLogs.cs" />
+    <Compile Include="Models\MOL_OracleTransactionLog.cs" />
+    <Compile Include="Models\MOL_Owner.cs" />
+    <Compile Include="Models\MOL_ProgramBEstablishments.cs" />
+    <Compile Include="Models\MOL_RunAwayCancelRequests.cs" />
+    <Compile Include="Models\MOL_Sec_Group.cs" />
+    <Compile Include="Models\MOL_Sec_Privilege.cs" />
+    <Compile Include="Models\MOL_Sec_Role.cs" />
+    <Compile Include="Models\MOL_Sec_RolePrivilege.cs" />
+    <Compile Include="Models\MOL_Sec_SecurableEntity.cs" />
+    <Compile Include="Models\MOL_Sec_UserEntityPrivilege.cs" />
+    <Compile Include="Models\MOL_Sec_UserRevokePrivilege.cs" />
+    <Compile Include="Models\MOL_Sec_UserRole.cs" />
+    <Compile Include="Models\MOL_Sec_VwUserRole.cs" />
+    <Compile Include="Models\MOL_Service_Log.cs" />
+    <Compile Include="Models\MOL_Service_Log_Extension.cs" />
+    <Compile Include="RAMS\Models\MOL_LaborerMOIRunaway.cs" />
+    <Compile Include="RAMS\Models\MOL_RAMS_ComplaintNotes.cs" />
+    <Compile Include="RAMS\Models\MOL_RAMS_ComplaintTransactionsLog.cs" />
+    <Compile Include="RAMS\Models\MOL_RAMS_Complaint_Files.cs" />
+    <Compile Include="RAMS\Models\MOL_RAMS_CancelRunAway_Files.cs" />
+    <Compile Include="RAMS\Models\MOL_RAMS_RunAwayTransactionsLog.cs" />
+    <Compile Include="RAMS\Models\MOL_RAMS_RunAway_Files.cs" />
+    <Compile Include="RAMS\Models\MOL_RunAwayComplaints.cs" />
+    <Compile Include="RAMS\Models\MOL_Srv_ServiceConfiguration.cs" />
+    <Compile Include="Models\MOL_Srv_Transaction.cs" />
+    <Compile Include="Models\MOL_TransferRequest.cs" />
+    <Compile Include="Models\MOL_UnifiedNumber.cs" />
+    <Compile Include="Models\MOL_User.cs" />
+    <Compile Include="Models\MOL_UserLoginHistory.cs" />
+    <Compile Include="Models\MOL_VisaActivityPeriod.cs" />
+    <Compile Include="Models\MOL_VisaBalanceRejectReason.cs" />
+    <Compile Include="Models\MOL_VisaIssuePrivateContract.cs" />
+    <Compile Include="Models\MOL_VisaIssueRejectReasons.cs" />
+    <Compile Include="Models\MOL_VisaIssueRequestDetails.cs" />
+    <Compile Include="Models\MOL_VisaIssueRequests.cs" />
+    <Compile Include="Models\MOL_VisaPrerequisitesDocs.cs" />
+    <Compile Include="Models\MOL_VisaRequestDetails.cs" />
+    <Compile Include="Models\MOL_VisaRequestImmediateApproveDetails.cs" />
+    <Compile Include="Models\MOL_VisaRequestImmediateApproveInfo.cs" />
+    <Compile Include="Models\MOL_VisaRequests.cs" />
+    <Compile Include="Models\MOL_VwAccountManager.cs" />
+    <Compile Include="Models\MOL_VwCEAEstablishmentDetails.cs" />
+    <Compile Include="Models\MOL_VwCEAInbox.cs" />
+    <Compile Include="Models\MOL_VwCEAJobLaborersCount.cs" />
+    <Compile Include="Models\MOL_VwCEARequestViewDetails.cs" />
+    <Compile Include="Models\MOL_VwChangeEstablishmentActivityApprovalUsers.cs" />
+    <Compile Include="Models\MOL_VwEstablishmentCRMComplaintData.cs" />
+    <Compile Include="Models\Mol_VwLaborersHasUnusedWP.cs" />
+    <Compile Include="Models\MOL_VwLaborer_Audit_GetEstablishmentsHistory.cs" />
+    <Compile Include="Models\MOL_VwOEFElectronicInquiries.cs" />
+    <Compile Include="Models\MOL_VwUnpaidWP200Violations.cs" />
+    <Compile Include="Models\MOL_VwUserEstablishments.cs" />
+    <Compile Include="Models\MOL_VwUserEstablishmentsNotes.cs" />
+    <Compile Include="Models\MOL_WorkPermit.cs" />
+    <Compile Include="Models\MOL_WP200ViolatedUnifiedNumbers.cs" />
+    <Compile Include="Models\MOL_WP200ViolationsCorrections.cs" />
+    <Compile Include="Models\MOL_ZATNoteConfirmationLog.cs" />
+    <Compile Include="Models\NitaqatActivity_Establishment.cs" />
+    <Compile Include="Models\OEF_Online_Requests.cs" />
+    <Compile Include="Models\OpenId_Association.cs" />
+    <Compile Include="Models\OpenId_AuthToken.cs" />
+    <Compile Include="Models\OpenId_Nonce.cs" />
+    <Compile Include="Models\OpenId_User.cs" />
+    <Compile Include="Models\Overdue_Establishment.cs" />
+    <Compile Include="Models\Periodic_Bill.cs" />
+    <Compile Include="Models\Periodic_Bill_History.cs" />
+    <Compile Include="Models\Program_Establishment.cs" />
+    <Compile Include="Models\Program_Establishment_History.cs" />
+    <Compile Include="Models\Program_Status.cs" />
+    <Compile Include="Models\RejectionReason.cs" />
+    <Compile Include="Models\SocialDevelopmentBeneficiaryDetails.cs" />
+    <Compile Include="Models\ST_Online_Approval.cs" />
+    <Compile Include="Models\ST_Online_Requests.cs" />
+    <Compile Include="Models\UnifiedNumber_NitaqatActivity_Establishment.cs" />
+    <Compile Include="Models\Unrejected_Joining_Request.cs" />
+    <Compile Include="Models\VwManpowerMenu.cs" />
+    <Compile Include="Models\VW_EstablishmentActivityCorrection.cs" />
+    <Compile Include="Models\Vw_UNPaidExtraFeesUnites.cs" />
+    <Compile Include="MOLEFEntities.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RAMS\Repository\Lookup_EconomicActivity_Repository.cs" />
+    <Compile Include="RAMS\Repository\Lookup_RAMS_ComplaintTimes_Repository.cs" />
+    <Compile Include="RAMS\Repository\Lookup_Zone_Repository.cs" />
+    <Compile Include="RAMS\Repository\MOL_Establishment_Repository.cs" />
+    <Compile Include="RAMS\Repository\MOL_LaborerMOIRunaway_Repository.cs" />
+    <Compile Include="RAMS\Repository\MOL_Laborer_Repository.cs" />
+    <Compile Include="RAMS\Repository\MOL_RAMS_ComplaintNotes_Repository.cs" />
+    <Compile Include="RAMS\Repository\MOL_RAMS_ComplaintTransactionsLog_Repository.cs" />
+    <Compile Include="RAMS\Repository\MOL_RAMS_Complaint_Files_Repository.cs" />
+    <Compile Include="RAMS\Repository\MOL_RAMS_CancelRunAway_Files_Repository.cs" />
+    <Compile Include="RAMS\Repository\MOL_RAMS_RunAwayTransactionsLog_Repository.cs" />
+    <Compile Include="RAMS\Repository\MOL_RAMS_RunAway_Files_Repository.cs" />
+    <Compile Include="RAMS\Repository\MOL_RunAwayComplaints_Repository.cs" />
+    <Compile Include="Repository\Active_Program_Establishment_Repository.cs" />
+    <Compile Include="Repository\Channels_Repository.cs" />
+    <Compile Include="Repository\CJD_Online_Requests_Repository.cs" />
+    <Compile Include="Repository\CLB_Online_Requests_Repository.cs" />
+    <Compile Include="Repository\Commissioner_Repository.cs" />
+    <Compile Include="Repository\CRM_ContactsView_Repository.cs" />
+    <Compile Include="Repository\CustomExecute.cs" />
+    <Compile Include="Repository\EconomicActivityStatementRepository.cs" />
+    <Compile Include="Repository\EFRepository.cs" />
+    <Compile Include="Repository\ELRRep.cs" />
+    <Compile Include="Repository\Enum_AccomodationStatus_Repository.cs" />
+    <Compile Include="Repository\Enum_AccountManagerType_Repository.cs" />
+    <Compile Include="Repository\Enum_AgentType_Repository.cs" />
+    <Compile Include="Repository\Enum_ChangeEstablishmentActivityRequestAction_Repository.cs" />
+    <Compile Include="Repository\Enum_ChangeEstablishmentActivityRequestStatus_Repository.cs" />
+    <Compile Include="Repository\Enum_ChangeJobDescriptionCommentType_Repository.cs" />
+    <Compile Include="Repository\Enum_ChangeJobDescriptionRequestAction_Repository.cs" />
+    <Compile Include="Repository\Enum_ChangeWorkerStatusCommentType_Repository.cs" />
+    <Compile Include="Repository\Enum_CommissionerType_Repository.cs" />
+    <Compile Include="Repository\Enum_CounterItemType_Repository.cs" />
+    <Compile Include="Repository\Enum_DrivingLicenseSecondaryType_Repository.cs" />
+    <Compile Include="Repository\Enum_DrivingLicenseType_Repository.cs" />
+    <Compile Include="Repository\Enum_EmailLanguage_Repository.cs" />
+    <Compile Include="Repository\Enum_EmployeeAccountStatus_Repository.cs" />
+    <Compile Include="Repository\Enum_EmployeeType_Repository.cs" />
+    <Compile Include="Repository\Enum_EstablishmentStatus_Repository.cs" />
+    <Compile Include="Repository\Enum_EstablishmentType_Repository.cs" />
+    <Compile Include="Repository\Enum_Gender_Repository.cs" />
+    <Compile Include="Repository\Enum_IndividualProfileRequestStatus_Repository.cs" />
+    <Compile Include="Repository\Enum_InspectionBillStatus_Repository.cs" />
+    <Compile Include="Repository\Enum_JobApplicationRequesterType_Repository.cs" />
+    <Compile Include="Repository\Enum_JobApplicationStatus_Repository.cs" />
+    <Compile Include="Repository\Enum_JobAvailability_Repository.cs" />
+    <Compile Include="Repository\Enum_JobVacancyStatus_Repository.cs" />
+    <Compile Include="Repository\Enum_LaborerRejectionReason_Repository.cs" />
+    <Compile Include="Repository\Enum_LaborerStatus_Repository.cs" />
+    <Compile Include="Repository\Enum_LaborerType_Repository.cs" />
+    <Compile Include="Repository\Enum_MessageMediaType_Repository.cs" />
+    <Compile Include="Repository\Enum_NoteApplicability_Repository.cs" />
+    <Compile Include="Repository\Enum_NoteSource_Repository.cs" />
+    <Compile Include="Repository\Enum_NoteStatus_Repository.cs" />
+    <Compile Include="Repository\Enum_NoteType_Repository.cs" />
+    <Compile Include="Repository\Enum_NotificationMessageCreator_Repository.cs" />
+    <Compile Include="Repository\Enum_NotificationMessageStatus_Repository.cs" />
+    <Compile Include="Repository\Enum_PayementType_Repository.cs" />
+    <Compile Include="Repository\Enum_PrivilegeLevel_Repository.cs" />
+    <Compile Include="Repository\Enum_RequesterType_Repository.cs" />
+    <Compile Include="Repository\Enum_SaudiCertificateApprovalStatus_Repository.cs" />
+    <Compile Include="Repository\Enum_SaudiFlag_Repository.cs" />
+    <Compile Include="Repository\Enum_SequenceEntity_Repository.cs" />
+    <Compile Include="Repository\Enum_ServiceOfficeType_Repository.cs" />
+    <Compile Include="Repository\Enum_Service_Repository.cs" />
+    <Compile Include="Repository\Enum_SponsorTransferCommentType_Repository.cs" />
+    <Compile Include="Repository\Enum_SponsorTransferRequestAction_Repository.cs" />
+    <Compile Include="Repository\Enum_Srv_RequestType_Repository.cs" />
+    <Compile Include="Repository\Enum_Srv_Status_Repository.cs" />
+    <Compile Include="Repository\Enum_Srv_Validation_Repository.cs" />
+    <Compile Include="Repository\Enum_STLaborerSource_Repository.cs" />
+    <Compile Include="Repository\Enum_UserType_Repository.cs" />
+    <Compile Include="Repository\Enum_VacancyStatus_Repository.cs" />
+    <Compile Include="Repository\Enum_VisaRequestDecisionFlag_Repository.cs" />
+    <Compile Include="Repository\Enum_VisaRequestStatuses_Repository.cs" />
+    <Compile Include="Repository\Enum_WorkingHoursPreference_Repository.cs" />
+    <Compile Include="Repository\Enum_WorkPermitReason_Repository.cs" />
+    <Compile Include="Repository\EstablishmentRep.cs" />
+    <Compile Include="Repository\Establishment_Type_Repository.cs" />
+    <Compile Include="Repository\EWV_Online_Requests_Repository.cs" />
+    <Compile Include="Repository\FinancialNitaqatRepository.cs" />
+    <Compile Include="Repository\Gov_Agency_Repository.cs" />
+    <Compile Include="Repository\InstanceState_Repository.cs" />
+    <Compile Include="Repository\IRepository.cs" />
+    <Compile Include="Repository\IstikdamRequestRejectionReason_Repository.cs" />
+    <Compile Include="Repository\IST_Online_Appoval_Repository.cs" />
+    <Compile Include="Repository\IST_Online_Requests_Repository.cs" />
+    <Compile Include="Repository\Job_Repository.cs" />
+    <Compile Include="Repository\Joining_Rules_Validation_Log_Repository.cs" />
+    <Compile Include="Repository\Joining_Rule_Establishment_Type_Repository.cs" />
+    <Compile Include="Repository\Joining_Rule_Repository.cs" />
+    <Compile Include="Repository\Joining_Status_Repository.cs" />
+    <Compile Include="Repository\LaborerRep.cs" />
+    <Compile Include="Repository\Lookup_AdviceMessages_Repository.cs" />
+    <Compile Include="Repository\Lookup_AgeRange_Repository.cs" />
+    <Compile Include="Repository\Lookup_Bank_Repository.cs" />
+    <Compile Include="Repository\Lookup_ChangeEstablishmentActivityReason_Repository.cs" />
+    <Compile Include="Repository\Lookup_ChangeEstablishmentActivityRejectionReason_Repository.cs" />
+    <Compile Include="Repository\Lookup_City_Repository.cs" />
+    <Compile Include="Repository\Lookup_ComputerSkill_Repository.cs" />
+    <Compile Include="Repository\Lookup_Country_Repository.cs" />
+    <Compile Include="Repository\Lookup_DisabilityType_Repository.cs" />
+    <Compile Include="Repository\Lookup_EconomicActivity.cs" />
+    <Compile Include="Repository\Lookup_EconomicActivity_Repository.cs" />
+    <Compile Include="Repository\Lookup_EducationalStatus_Repository.cs" />
+    <Compile Include="Repository\Lookup_EstablishmentVisaCreditServiceConsumers_Repository.cs" />
+    <Compile Include="Repository\Lookup_GC_ContractFields_Repository.cs" />
+    <Compile Include="Repository\Lookup_GC_EstablishmentPermitsCheckExempted_Repository.cs" />
+    <Compile Include="Repository\Lookup_GPASystem_Repository.cs" />
+    <Compile Include="Repository\Lookup_JobField_Repository.cs" />
+    <Compile Include="Repository\Lookup_Job_Repository.cs" />
+    <Compile Include="Repository\Lookup_LawRepresentation_Repository.cs" />
+    <Compile Include="Repository\Lookup_Municipality_Repository.cs" />
+    <Compile Include="Repository\Lookup_Nationality_Repository.cs" />
+    <Compile Include="Repository\Lookup_NewEconomicActivity_Repository.cs" />
+    <Compile Include="Repository\Lookup_OpenId_Consumer_Repository.cs" />
+    <Compile Include="Repository\Lookup_Origins_Repository.cs" />
+    <Compile Include="Repository\Lookup_ProficiencyLevel_Repository.cs" />
+    <Compile Include="Repository\Lookup_Qualification_Repository.cs" />
+    <Compile Include="Repository\Lookup_Religion_Repository.cs" />
+    <Compile Include="Repository\Lookup_SaudiCertificateDirectedTo_Repository.cs" />
+    <Compile Include="Repository\Lookup_SaudiCertificatePurpose_Repository.cs" />
+    <Compile Include="Repository\Lookup_SecurableEntityType_Repository.cs" />
+    <Compile Include="Repository\Lookup_ServiceEndReason_Repository.cs" />
+    <Compile Include="Repository\Lookup_StatementsType_Repository.cs" />
+    <Compile Include="Repository\Lookup_ViewerScope_Repository.cs" />
+    <Compile Include="Repository\Lookup_Zone_Repository.cs" />
+    <Compile Include="Repository\MOL_AccountManager.cs" />
+    <Compile Include="Repository\MOL_AccountManager_Repository.cs" />
+    <Compile Include="Repository\MOL_Agent_Repository.cs" />
+    <Compile Include="Repository\MOL_AuditTrails_Repository.cs" />
+    <Compile Include="Repository\MOL_CancelFinalExitWorkPermit_Repository.cs" />
+    <Compile Include="Repository\MOL_CancelVisaRequest_Repository.cs" />
+    <Compile Include="Repository\MOL_CEAInbox_Repository.cs" />
+    <Compile Include="Repository\MOL_CEAReferenceSequence_Repository.cs" />
+    <Compile Include="Repository\MOL_CEAUserService_Repository.cs" />
+    <Compile Include="Repository\MOL_ChangeEstablishmentActivityRequest_Repository.cs" />
+    <Compile Include="Repository\MOL_ChangeLaborerBranchInMOI_Repository.cs" />
+    <Compile Include="Repository\MOL_Download_Repository.cs" />
+    <Compile Include="Repository\MOL_EconomicActivityStatement_Repository.cs" />
+    <Compile Include="Repository\MOL_EconomicActivity_Jobs_Gender_Repository.cs" />
+    <Compile Include="Repository\MOL_EEF_OnlineRequests_Repository.cs" />
+    <Compile Include="Repository\Mol_EstablishmentActivityCorrection_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentAgentService_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentAgent_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentChangeStatus_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentCommissionerService_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentCommissioner_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentEconomicActivity_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentExceptionalWP_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentMCIActivities_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentMCIParties_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentNoteService_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentNote_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentProfile_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentSaudiCertificate_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentSelectLog_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentStatement_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentVisaCreditJobsHistory_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentVisaCreditJobs_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmentVisaCredit_Repository.cs" />
+    <Compile Include="Repository\MOL_Establishment_Repository.cs" />
+    <Compile Include="Repository\MOL_EstablishmnetEligibleToTakeAppointment_Repository.cs" />
+    <Compile Include="Repository\MOL_FakeEmploymentReportCommentOwner_Repository.cs" />
+    <Compile Include="Repository\MOL_FakeEmploymentReportComments_Repository.cs" />
+    <Compile Include="Repository\MOL_FakeEmploymentReportStatus_Repository.cs" />
+    <Compile Include="Repository\MOL_FakeEmploymentReport_Repository.cs" />
+    <Compile Include="Repository\MOL_GC_AssentJobs_Repository.cs" />
+    <Compile Include="Repository\MOL_GC_Assents_Repository.cs" />
+    <Compile Include="Repository\MOL_GC_AssentTrackingLog_Repository.cs" />
+    <Compile Include="Repository\MOL_GC_ContractEstablishments_Repository.cs" />
+    <Compile Include="Repository\MOL_GC_Contracts_Repository.cs" />
+    <Compile Include="Repository\MOL_GenderActivityNationalityJobMatrix_Repository.cs" />
+    <Compile Include="Repository\MOL_HajOmraTransferRequests_Repository.cs" />
+    <Compile Include="Repository\MOL_IssuedVisas_Repository.cs" />
+    <Compile Include="Repository\MOL_LaborerExceptionalWP_Repository.cs" />
+    <Compile Include="Repository\MOL_LaborerMOIRunaway_Repository.cs" />
+    <Compile Include="Repository\MOL_LaborerStatusServiceEndReason_Repository.cs" />
+    <Compile Include="Repository\MOL_Laborer_MOI_Audit_Repository.cs" />
+    <Compile Include="Repository\MOL_Laborer_Repository.cs" />
+    <Compile Include="Repository\MOL_LaborOffice_Repository.cs" />
+    <Compile Include="Repository\MOL_MonitoredUsersActivity_Repository.cs" />
+    <Compile Include="Repository\MOL_NotificationMessageReceiver_Repository.cs" />
+    <Compile Include="Repository\MOL_NotificationMessage_Repository.cs" />
+    <Compile Include="Repository\MOL_OpenEstablishmentFileFromMCI_Repository.cs" />
+    <Compile Include="Repository\MOL_OpenEstablishmentFileFromSD_Repository.cs" />
+    <Compile Include="Repository\MOL_OpenIDLogs_Repository.cs" />
+    <Compile Include="Repository\MOL_OracleTransactionLog_Repository.cs" />
+    <Compile Include="Repository\MOL_Owner_Repository.cs" />
+    <Compile Include="Repository\MOL_Privilege.cs" />
+    <Compile Include="Repository\MOL_ProgramBEstablishments_Repository.cs" />
+    <Compile Include="Repository\MOL_RunAwayCancelRequests_Repository.cs" />
+    <Compile Include="Repository\MOL_Sec_Group_Repository.cs" />
+    <Compile Include="Repository\MOL_Sec_Privilege_Repository.cs" />
+    <Compile Include="Repository\MOL_Sec_RolePrivilege_Repository.cs" />
+    <Compile Include="Repository\MOL_Sec_Role_Repository.cs" />
+    <Compile Include="Repository\MOL_SEC_SecurableEntity_Repository.cs" />
+    <Compile Include="Repository\MOL_Sec_UserEntityPrivilege_Repository.cs" />
+    <Compile Include="Repository\MOL_Sec_UserRevokePrivilege.cs" />
+    <Compile Include="Repository\MOL_Sec_UserRevokePrivilege_Repository.cs" />
+    <Compile Include="Repository\MOL_Sec_UserRole_Repository.cs" />
+    <Compile Include="Repository\MOL_Sec_VwUserRole_Repository.cs" />
+    <Compile Include="Repository\MOL_Service_Log_Extension_Repository.cs" />
+    <Compile Include="Repository\MOL_Service_Log_Repository.cs" />
+    <Compile Include="RAMS\Repository\MOL_Srv_ServiceConfiguration_Repository.cs" />
+    <Compile Include="Repository\MOL_Srv_Transaction_Repository.cs" />
+    <Compile Include="Repository\MOL_TransferRequest_Repository.cs" />
+    <Compile Include="Repository\MOL_UnifiedNumber.cs" />
+    <Compile Include="Repository\MOL_UnifiedNumber_Repository.cs" />
+    <Compile Include="Repository\MOL_UserLoginHistory_Repository.cs" />
+    <Compile Include="Repository\MOL_User_Repository.cs" />
+    <Compile Include="Repository\MOL_VisaActivityPeriod_Repository.cs" />
+    <Compile Include="Repository\MOL_VisaBalanceRejectReason_Repository.cs" />
+    <Compile Include="Repository\MOL_VisaIssuePrivateContract_Repository.cs" />
+    <Compile Include="Repository\MOL_VisaIssueRejectReasons_Repository.cs" />
+    <Compile Include="Repository\MOL_VisaIssueRequestDetails_Repository.cs" />
+    <Compile Include="Repository\MOL_VisaIssueRequests_Repository.cs" />
+    <Compile Include="Repository\MOL_VisaPrerequisitesDocs_Repository.cs" />
+    <Compile Include="Repository\MOL_VisaRequestDetails_Repository.cs" />
+    <Compile Include="Repository\MOL_VisaRequestImmediateApproveDetails_Repository.cs" />
+    <Compile Include="Repository\MOL_VisaRequestImmediateApproveInfo_Repository.cs" />
+    <Compile Include="Repository\MOL_VisaRequests_Repository.cs" />
+    <Compile Include="Repository\MOL_VwAccountManager_Repository.cs" />
+    <Compile Include="Repository\MOL_VwCEAEstablishmentDetails_Repository.cs" />
+    <Compile Include="Repository\MOL_VwCEAInbox_Repository.cs" />
+    <Compile Include="Repository\MOL_VwCEAJobLaborersCount_Repository.cs" />
+    <Compile Include="Repository\MOL_VwCEARequestViewDetails_Repository.cs" />
+    <Compile Include="Repository\MOL_VwChangeEstablishmentActivityApprovalUsers_Repository.cs" />
+    <Compile Include="Repository\MOL_VwEstablishmentCRMComplaintData_Repository.cs" />
+    <Compile Include="Repository\MOL_VwLaborer_Audit_GetEstablishmentsHistory_Repository.cs" />
+    <Compile Include="Repository\MOL_VwOEFElectronicInquiries_Repository.cs" />
+    <Compile Include="Repository\MOL_VwUnpaidWP200Violations_Repository.cs" />
+    <Compile Include="Repository\MOL_VwUserEstablishmentsNotes_Repository.cs" />
+    <Compile Include="Repository\MOL_VwUserEstablishments_Repository.cs" />
+    <Compile Include="Repository\MOL_WorkPermit_Repository.cs" />
+    <Compile Include="Repository\MOL_WP200ViolatedUnifiedNumbers_Repository.cs" />
+    <Compile Include="Repository\MOL_WP200ViolationsCorrections_Repository.cs" />
+    <Compile Include="Repository\MOL_ZATNoteConfirmationLog_Repository.cs" />
+    <Compile Include="Repository\NitaqatActivity_Establishment_Repository.cs" />
+    <Compile Include="Repository\NLGRepository.cs" />
+    <Compile Include="Repository\OEF_Online_Requests_Repository.cs" />
+    <Compile Include="Repository\OpenId_Association_Repository.cs" />
+    <Compile Include="Repository\OpenId_AuthToken_Repository.cs" />
+    <Compile Include="Repository\OpenId_Nonce_Repository.cs" />
+    <Compile Include="Repository\OpenId_User_Repository.cs" />
+    <Compile Include="Repository\Overdue_Establishment_Repository.cs" />
+    <Compile Include="Repository\Periodic_Bill_Repository.cs" />
+    <Compile Include="Repository\Program_Establishment_Repository.cs" />
+    <Compile Include="Repository\Program_Status_Repository.cs" />
+    <Compile Include="Repository\RejectionReason_Repository.cs" />
+    <Compile Include="Repository\ServiceRepository.cs" />
+    <Compile Include="Repository\SrvTransactionRepository.cs" />
+    <Compile Include="Repository\ST_Online_Approval_Repository.cs" />
+    <Compile Include="Repository\ST_Online_Requests_Repository.cs" />
+    <Compile Include="Repository\UnifiedNumber_NitaqatActivity_Establishment_Repository.cs" />
+    <Compile Include="Repository\UnitOfWork.cs" />
+    <Compile Include="Repository\Unrejected_Joining_Request_Repository.cs" />
+    <Compile Include="Repository\VisaServicesRepository.cs" />
+    <Compile Include="Repository\VwManpowerMenu_Repository.cs" />
+    <Compile Include="Repository\VW_EstablishmentActivityCorrection_Repository.cs" />
+    <Compile Include="Repository\Vw_UNPaidExtraFeesUnites_Repository.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="MOL.snk" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="RAMS\Entities\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

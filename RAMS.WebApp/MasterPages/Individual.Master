@@ -1,0 +1,466 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Individual.master.cs" Inherits="EAPP.WebApp.MasterPages.Individual" %>
+
+<%--<%@ Register Src="~/UserControls/BreadCrumb.ascx" TagName="BreadCrumb" TagPrefix="uc3" %>--%>
+
+<!DOCTYPE html>
+
+<html  class="rtl" xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <asp:ContentPlaceHolder ID="title" runat="server">  
+        </asp:ContentPlaceHolder>
+    </title>
+    
+   
+
+  <link rel="icon" type="image/png" href="/Services/Twsl/assets/_con/images/icon.png">
+ 
+    <!-- RS5.0 Main Stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/assets/revolution/css/settings.css?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>">
+   
+    <!-- RS5.0 Layers and Navigation Styles -->
+    <link rel="stylesheet" type="text/css" href="/assets/revolution/css/layers.css?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>">
+    <link rel="stylesheet" type="text/css" href="/assets/revolution/css/navigation.css?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>">	
+
+    <!-- nanoScroller -->
+    <link rel="stylesheet" type="text/css" href="/assets/nanoScroller/nanoscroller.css?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>" />
+
+    <!--  Select Library with search -->
+    <link rel="stylesheet" type="text/css" href="/assets/select2/css/select2.min.css?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>" />
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" type="text/css" href="/assets/font-awesome/css/font-awesome.min.css?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>" />
+
+    <!-- Material Design Icons -->
+    <link rel="stylesheet" type="text/css" href="/assets/material-design-icons/css/material-design-icons.min.css?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>" />
+
+    <!-- IonIcons -->
+    <link rel="stylesheet" type="text/css" href="/assets/ionicons/css/ionicons.min.css?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>" />
+
+    <!-- WeatherIcons -->
+    <link rel="stylesheet" type="text/css" href="/assets/weatherIcons/css/weather-icons.min.css?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>" />
+
+    <!-- Rickshaw -->
+    <link rel="stylesheet" type="text/css" href="/assets/rickshaw/rickshaw.min.css?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>" />
+
+    <!-- jvectormap -->
+    <link rel="stylesheet" type="text/css" href="/assets/jquery-jvectormap/jquery-jvectormap.css?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>" />
+
+    <!-- Google Prettify -->
+    <link rel="stylesheet" type="text/css" href="/assets/google-code-prettify/prettify.css?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>" />
+    <!-- Main -->
+    <link rel="stylesheet" type="text/css" href="/assets/_con/css/_con-light-green.min.css?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>" />
+    <script type="text/javascript">
+        
+    </script>
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="/assets/jquery/jquery.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/assets/jquery/jquery-ui.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+
+    <!-- Javascript AutoComplete -->
+    <script type="text/javascript" src="/javascript/json3.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/javascript/jqueryAutocompleteText.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+
+    <!-- jQuery RAF (improved animation performance) -->
+    <script type="text/javascript" src="/assets/jqueryRAF/jquery.requestAnimationFrame.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+
+    <!-- nanoScroller -->
+    <script type="text/javascript" src="/assets/nanoScroller/jquery.nanoscroller.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+
+    <!-- Materialize -->
+    <script type="text/javascript" src="/assets/materialize/js/materialize.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+
+
+    <!-- Simple Weather -->
+    <script type="text/javascript" src="/assets/simpleWeather/jquery.simpleWeather.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+
+    <!-- Sparkline -->
+    <script type="text/javascript" src="/assets/sparkline/jquery.sparkline.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+
+	<script type="text/javascript" src="/Services/Twsl/Scripts/blockUI/jquery.blockUI.js"></script>
+		 
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+
+    </asp:ContentPlaceHolder>
+     
+   
+    <script type="text/javascript">
+
+        var webApiHost = '<%= ConfigurationManager.AppSettings["TWSLURL"].ToString() %>';
+        $(document).ajaxStop($.unblockUI);
+        $(function() {
+            $.ajax({
+                url: webApiHost+'/api/SideMenu/GenerateSideMenu?userid=' + $('#masterUserId').val(),
+                type: 'GET',
+                contentType: 'application/json; charset=utf-8'
+            }).success(function(menu) {
+                $.each(menu, function (i, item) {
+                    if (!item.IsHidden) {
+                       
+                        var html = '<li class="open" > <a class="yay-sub-toggle">' + '<i class="' + item.IconStylePath + '"></i>' + item.GroupTitle + '<span class="yay-collapse-icon mdi-navigation-expand-more"></span></a><ul>';
+                        for (var j = 0; j < item.GroupItems.length; j++)
+                        {
+                            var mItem = item.GroupItems[j];
+                            html += '<li><a href="' + mItem.ItemUrl + '" ><i class="' + mItem.Icon + '"></i>' + mItem.ItemName + '</a></li>';
+
+                        }
+
+                        html += '</ul></li>';
+
+                       
+                        console.log(html);
+                        $('.nano-content ul:first').append(html);
+                    }
+                });
+            });
+
+           var getCount = function() {
+                $.ajax({
+                    url: webApiHost + '/api/IndividualMailBox/UnreadedMessageCount?userid=' + $('#masterUserId').val(),
+                    type: 'GET',
+                    contentType: 'application/json; charset=utf-8'
+               }).success(function (count) {
+                    if (count > 0) {
+					
+					if(count>1000)
+					  count='999+';
+                        $('#count').show().closest("li").show();
+                        $('#count').text(count);
+
+                    } else {
+                       // $('#count').hide().closest("li").hide();  // commented
+                    }
+                }).error(function (xhr, status, err) {
+                    $('#count').text('0');
+                   // $('#count').hide().closest("li").hide(); // commented
+               });
+           }
+           getCount();
+            setInterval(function () { getCount(); }, 300000);
+        });
+    </script>
+</head>
+<body> 
+<div>
+    <form id="form1" runat="server">
+  <nav class="navbar-top">
+    <div class="nav-wrapper">
+
+      <!-- Sidebar toggle -->
+      <a href="#" class="yay-toggle">
+        <div class="burg1"></div>
+        <div class="burg2"></div>
+        <div class="burg3"></div>
+      </a>
+      <!-- Sidebar toggle -->
+
+      <!-- Logo -->
+      <a href="#!" class="brand-logo">
+       <!-- <img src="/Services/Twsl/assets/_con/images/logo-services.png" alt="logo" style="">-->
+       <h4>الخدمات الإلكترونية للأفراد</h4>
+      </a>
+      <!-- /Logo -->
+
+      <!-- Menu -->
+      <ul>
+      <%--  <li><a href="#!" class="search-bar-toggle"><i class="mdi-action-search"></i>
+            </a>
+        </li>--%>
+		 <li> <a id="establishmentLink" runat="server" href="/CIW/Dashboard.aspx" class=""><span  style="font-size: 1.0em;vertical-align: middle;"></span>بوابة المنشأت</a></li>
+         <li><span id="count" style="display: inline; background-color: red; border-radius: 17px; border-right: 8px solid red; border-left: 8px solid red; border-bottom: 2px solid red;">0</span> <a href="/Services/Twsl/Individual/MailBox.aspx/inbox/0" style="font-size: 1.0em;vertical-align: middle;display: inline">التنبيهات</a></li>
+
+
+        <li class="user">
+          <div class="dropdown-button" href="#!" data-activates="user-dropdown" >
+              <img id="userImage" src="~/assets/_con/images/loai.jpg" alt="Loai Labani" runat="server" class="circleimg"/>
+                 <asp:HiddenField runat="server" ID="masterUserId" ClientIDMode="Static"/>
+              <label style="cursor:pointer;color: #ffffff; font-size: 1.0em; font-family: frutigerlight, Roboto, sans-serif;" id="userNameLabel" runat="server">محمد سالم</label>
+              <i id="toggle" class="mdi-navigation-expand-more right no-margin"></i>
+          </div>
+
+          <ul id="user-dropdown" class="dropdown-content">
+            <li>
+			<a href="/Services/Twsl/Individual/MailBox.aspx/inbox/0"><i class="fa fa-user"></i> &nbsp; حسابي  </a>
+           </li>
+           
+            <li><a href="/Services/Twsl/Individual/IndividualUSPreferences.aspx"><i class="fa fa-user"></i> &nbsp;  إدارة قنوات التواصل  </a> 
+           </li>
+
+            <li><a href="/Services/UserProfile/Pages/EditUserProfile.aspx "><i class="fa fa-cogs"></i> &nbsp;   تعديل بيانات المستخدم  </a>
+            </li>
+              <li><a href="/IndividualUser/ChangePassword.aspx "><i class="fa fa-cogs"></i> &nbsp;   تغيير كلمة المرور  </a>
+            </li>
+            <li class="divider"></li>
+            <li><a href="/Services/Twsl/Individual/SignOut.aspx"><i class="fa fa-sign-out"></i> &nbsp;  تسجيل الخروج  </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- /Menu -->
+
+    </div>
+  </nav>
+  <!-- /Top Navbar -->
+
+  <aside class="yaybar yay-shrink yay-hide-to-small yay-gestures yay-light yay-static">
+    <div class="nano">
+      <div class="nano-content">
+
+        <ul>
+          <li class="" style="line-height: 5.7rem; border-left: 2px solid #e5e5e5; border-bottom: 1px solid #e5e5e5; overflow: hidden;">
+         <img src="/Services/Twsl/assets/_con/images/line-mol.png" alt="" style="width: 170px; vertical-align: middle;" />
+
+          </li>
+        </ul>
+
+      </div>
+    </div>
+
+      <%--    <div class="nano">
+      <div class="nano-content">
+          
+          <ul>
+          <li class="" style="text-align: center;line-height: 5.9;border-left: 2px solid #e5e5e5;border-bottom: 1px solid #e5e5e5;overflow: hidden;">
+          <img src="/Services/Twsl/assets/_con/images/line-mol.png" alt="" style="width: 170px;vertical-align: middle;" /></li>
+		
+          
+          <li>
+            <a class="yay-sub-toggle waves-effect waves-green"  href="#" ><i class="mdi-file-folder-shared"></i>منشآتي</a>
+            
+          </li>
+
+          <li>
+            <a class="yay-sub-toggle waves-effect waves-green"  href="#" ><i class="mdi-av-my-library-add"></i> أضف منشأة</a>
+            
+          </li>
+          
+        </ul>
+
+          <ul>
+             
+              <li>
+              <a class="yay-sub-toggle waves-effect waves-green">أدوات وروابط مهمة<span class="yay-collapse-icon mdi-navigation-expand-more"></span></a>
+        <ul>
+          <li>
+            <a class="waves-effect waves-green"  href="#" ><i class="mdi-editor-merge-type"></i>وزارة العمل</a>
+            
+          </li>
+
+          <li>
+            <a class="waves-effect waves-green"  href="#" ><i class="mdi-file-folder-open"></i> مكتب العمل</a>
+            
+          </li>
+              <li>
+            <a class="waves-effect waves-green"  href="#" ><i class="mdi-image-color-lens"></i> نطاقات</a>
+            
+          </li>
+        </ul>
+           </li>
+        </ul>
+
+        <ul>
+            <li>
+         <a class="yay-sub-toggle waves-effect waves-green">خدمات منصة تواصل<span class="yay-collapse-icon mdi-navigation-expand-more"></span></a>
+                <ul>
+          <li>
+            <a class="waves-effect waves-green"  href="/Services/Twsl/Establishment/EstablishmentMaiBox.aspx/inbox/0" ><i class="mdi-file-file-download"></i>صندوق الوارد</a>
+            
+          </li>
+
+          <li>
+            <a class=" waves-effect waves-green"  href="/Services/Twsl/Establishment/NotificationsSetting.aspx" ><i class="mdi-action-settings"></i> ادارة خواص التنبيهات</a>
+            
+          </li>
+                    </ul>
+          </li>
+        </ul>
+
+      </div>
+    </div>--%>
+
+  </aside>
+  <!-- /Yay Sidebar -->
+
+
+  <!-- Main Content -->
+  <section class="content-wrap">
+
+
+    <!-- Breadcrumb -->
+    <div class="page-title">
+       <div class="row">
+           <div class="col s12 m12 l12">
+          <asp:ContentPlaceHolder ID="PageTitle" runat="server">
+        </asp:ContentPlaceHolder>
+            </div>
+        </div>
+    </div>
+	<div class="page-title">
+
+
+                    <div class="row">
+                        <%--<uc3:breadcrumb id="BreadCrumb1" runat="server" />--%>
+                      <%--<div class="col s12 m3 l2 right-align">
+                            <!-- <a href="#!" class="btn grey lighten-3 grey-text z-depth-0 chat-toggle"><i class="fa fa-comments"></i></a>-->
+
+                        </div>--%>
+                    </div>
+                </div>
+    <!-- /Breadcrumb -->
+
+    <!-- Stats Panels -->
+    
+     
+      
+      
+      
+    
+    <!-- /Stats Panels -->
+
+   
+   <!--  Ads Slider -->
+
+
+<!-- / Ads Slider -->
+
+    
+
+<%--    <div class="row sortable">--%>
+        <asp:ContentPlaceHolder id="contentBody" runat="server">
+          
+            </asp:ContentPlaceHolder>
+      <!-- Mail Card -->
+      
+      <!-- /Mail Card -->
+      
+
+  <%--       </div>--%>
+
+    </section>
+  <!-- /Main Content -->
+  <footer class="main-footer"> 
+   <div class="row">
+                <div class="col s12 m6 l6">
+                    الموقع يدعم الإصدارات الأخيرة من:
+                        <img src="/assets/_con/images/browsers-icon.jpg" class="browsers-img">
+                </div>
+                <div class="col s12 m6 l6 right-align">
+                جميع الحقوق محفوظة لوزارة العمل بالمملكة العربية السعودية 2015
+                </div>
+                </div>
+  
+  </footer>
+  <!-- Search Bar -->
+  <div class="search-bar">
+    <div class="layer-overlay"></div>
+    <div class="layer-content">
+      <form action="#!">
+        <!-- Header -->
+        <a class="search-bar-toggle grey-text text-darken-2" href="#!"><i class="mdi-navigation-close"></i></a>
+
+        <!-- Search Input -->
+        <div class="input-field">
+          <i class="mdi-action-search prefix"></i>
+          <input type="text" name="con-search" placeholder="ابحث الآن ...">
+        </div>
+
+        <!-- Search Results -->
+        <div class="search-results">
+
+          
+
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <!-- /Search Bar -->
+
+
+    </form>
+</div>
+  <!-- DEMO [REMOVE IT ON PRODUCTION] -->
+<!--  <script type="text/javascript" src="/Services/Twsl/assets/_con/js/_demo.js"></script> -->
+
+  <!-- jQuery -->
+  <!--<script type="text/javascript" src="/Services/Twsl/assets/jquery/jquery.min.js"></script>
+    
+  <script type="text/javascript" src="/Services/Twsl/assets/"></script>-->
+  <!-- jQuery RAF (improved animation performance) -->
+   
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+    <!-- Flot -->
+    <script type="text/javascript" src="/assets/flot/jquery.flot.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/assets/flot/jquery.flot.time.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/assets/flot/jquery.flot.pie.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/assets/flot/jquery.flot.tooltip.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/assets/flot/jquery.flot.categories.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+
+    <!-- d3 -->
+    <script type="text/javascript" src="/assets/d3/d3.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+
+    <!-- Rickshaw -->
+    <script type="text/javascript" src="/assets/rickshaw/rickshaw.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+
+    <!-- jvectormap -->
+    <script type="text/javascript" src="/assets/jquery-jvectormap/jquery-jvectormap.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/assets/jquery-jvectormap/jquery-jvectormap-world-mill-en.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/assets/jquery-jvectormap/gdp-data.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <!-- Sortable -->
+    <script type="text/javascript" src="/assets/sortable/Sortable.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+
+    <!-- Main -->
+    <script type="text/javascript" src="/assets/_con/js/_con.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+
+    <!-- Calendar -->
+
+    <script type="text/javascript" src="/assets/js/jquery.plugin.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/assets/js/jquery.calendars.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/assets/js/jquery.calendars.plus.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/assets/js/jquery.calendars.picker.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/assets/js/jquery.calendars.ummalqura.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/assets/js/jquery.calendars.ummalqura-ar.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/assets/js/jquery.calendars-ar-EG.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+
+
+    <!-- Google Prettify -->
+    <script type="text/javascript" src="/assets/google-code-prettify/prettify.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+
+
+    <!-- Data Tables -->
+    <script type="text/javascript" src="/assets/dataTables/js/jquery.dataTables.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/assets/dataTables/extensions/TableTools/js/dataTables.tableTools.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/assets/dataTables/extensions/Scroller/js/dataTables.scroller.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <!-- Validate form -->
+    <script type="text/javascript" src="/assets/parsley/parsley.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <!--Select Library -->
+    <script type="text/javascript" src="/assets/select2/js/select2.full.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <!--Filter Menu Library - https://github.com/travishorn/jquery-filterList -->
+    <script type="text/javascript" src="/assets/js/jquery.filterList.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <!-- Google Prettify -->
+    <script type="text/javascript" src="/assets/google-code-prettify/prettify.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+      <!-- RS5.0 Core JS Files -->
+    <script type="text/javascript" src="/assets/revolution/js/jquery.themepunch.tools.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    <script type="text/javascript" src="/assets/revolution/js/jquery.themepunch.revolution.min.js?v=<%= ConfigurationManager.AppSettings["StaticContentVersion"] %>"></script>
+    
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+
+        });
+    </script>	 
+
+	 
+</body>
+       
+    
+</html>

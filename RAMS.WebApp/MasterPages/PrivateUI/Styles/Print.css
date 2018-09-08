@@ -1,0 +1,206 @@
+﻿/*
+Created by: Rehab Genena
+Sr. UI Developer, ITWorx Egypt
+for Minstry of Labor Saudi Arabia
+Version 1.0 
+June 2008
+*/
+
+@import url('General.css');
+@import url('Fonts.css');
+@import url('Forms.css');
+@import url('DynamicMenu.css');
+
+/* */
+
+.PrintDiv
+{
+	margin: 0px auto;
+	padding: 5px 0px;
+	direction: rtl;
+	width: 760px;
+	height: 98%;
+}
+
+.PrintTable
+{
+	width: 750px;
+	margin: 2px auto;
+	height: 98%;
+	border-collapse: collapse;
+
+}
+thead
+{
+	display: table-header-group;
+}
+tfoot
+{
+	display: table-footer-group;
+}
+
+td.PrintBody, td.PrintHead, td.PrintFoot
+{
+	padding: 0px 5px;
+	border: 1px solid #EEE;
+}
+td.PrintFoot
+{
+	height: 30px;
+}
+td.PrintHead
+{
+	height: 100px;
+
+
+}
+td.PrintBody
+{
+	vertical-align: top;
+	height: 450px;
+}
+
+ .PrintHeadDiv, .PrintFootDiv, .PrintBodyDiv
+{
+	padding: 0px 10px;
+	
+}
+.PrintBodyDiv
+{
+	width: 730px;
+	padding: 10px 10px;
+	background: #FFF;
+	clear: both;
+	display: block;
+	overflow: hidden;
+	
+}
+.Copyright
+{
+	text-align: left;
+	padding: 5px;
+	font-family: Calibri, Arial (Arabic) !important;
+	font-size:9pt;
+	font-weight: 700;
+	
+}
+.PrintTable a
+{
+	color: #000;
+}
+/* Grids */
+ .GridView
+{
+	border: 1px solid #DDD !important;
+
+}
+
+ .GridView .GridViewHeader th,  .GridView th
+{
+	background-color: #DDD;
+}
+ .GridView .GridViewRow td,  .GridView  td
+{
+	background-color: #FFF;
+}
+.GridView .GridViewAlt td
+{
+	
+	background-color: #EEE;
+}
+ .GridView a
+{
+	color: #000;
+}
+ .GridView a:hover
+{
+	text-decoration: none;
+}
+
+/* Home */
+.PrimaryZone
+{
+	width: 60%;
+	float: right;
+
+}
+.SecondaryZone
+{
+	width: 38%;
+	float: left;
+	margin-right: 10px;
+		clear: left;
+
+
+}
+.PrimaryZone td.WebPart, .SecondaryZone td.WebPart
+{
+
+	border: 1px solid #EEE;
+}
+.PrimaryZone img, .SecondaryZone img
+{
+	display: none;
+	
+}
+.WebPartTitle
+{
+	background: #EEE;
+	border: 1px solid #DDD;
+	padding: 2px 5px;
+}
+ td.WebPart
+
+{
+		width: 100%;
+	padding: 2px 10px !important;
+
+}
+/* **** overwriting sharepoint styles  **** */
+.ZonesBanners
+{
+text-align: center;
+}
+.ZonesBanners img
+{
+	margin-bottom: 3px;
+	margin-top: 3px;
+}
+.WebPartStyle
+{
+	font-size: 0px !important;
+}
+.ctl00_ContentPlaceHolder1_WebPartZone1_0, .ctl00_ContentPlaceHolder1_WebPartZone2_0, .ctl00_ContentPlaceHolder1_WebPartZone3_0
+{
+	border: none !important;
+}
+td.ms-WPBorder, .ms-WPBody, .ms-standardheader, .ms-WPTitle
+{
+	border: none !important;
+}
+.HeaderContainer .ms-standardheader, .HeaderContainer .ms-WPTitle, .NavigationCol .ms-standardheader, .FooterContainer2 .ms-WPTitle
+{
+	display: none;
+}
+td.ms-WPBorder
+{
+	border: none !important;
+}
+.NewsContainer .ms-WPHeader
+{
+	/* display: none; */
+}
+.ms-WPHeader td
+{
+	border-bottom: none !important;
+}
+
+#WebPart_gwpBanner1, #WebPart_gwpBanner1 .WebPartTitle,  .gwpBanner1 .WebPartTitle
+{
+	display: none;
+}
+#WebPart_gwpBanner1 .WebPart, .gwpBanner1 .WebPart
+{
+	background: none !important;
+}
+

@@ -1,0 +1,117 @@
+﻿
+
+/* */
+.Page
+{
+	/* background: url(Images/HeaderBG.jpg)  repeat-x top; */
+}
+.FooterContainer
+{
+		/* background: url(Images/FooterBG.jpg)  repeat-x top; */
+}
+/* */
+.StaticPartsContainer h3,  .StaticPartsFooter h4
+{
+	color: #496E24;
+	
+
+}
+.HomeNews div.NewsItem h3, .HomeNews div.NewsItem h3 a, .HomeAccomp div.NewsItem h3, .HomeAccomp div.NewsItem h3 a
+{
+	color: #496E24;
+}
+div.IconsMenu, li.IconLangSwitch
+{
+	background-image: url(Images/ThemeTopMenuSeparator.gif);
+}	
+/* */
+.PrimaryZone td.WebPartTitle, .SecondaryZone  td.WebPartTitle, .ThirdZone  td.WebPartTitle 
+{
+	
+	background:  #496E24 url(Images/MiddleTitleBG.jpg)  no-repeat right;
+}
+.SecondaryZone  td.WebPartTitle 
+{
+	background:  #496E24 url(Images/SideTitleBG.jpg)  no-repeat right;
+
+}
+.ThirdZone  td.WebPartTitle 
+{
+	background: url(Images/SideTitleBG.jpg)  no-repeat right;
+
+}
+/* */
+
+.PrimaryZone .More
+{
+	
+}
+.SecondaryZone .More
+{
+	
+}
+.ThridZone .More
+{
+	
+}
+
+
+/* Grids */
+ .GridView .GridViewHeader th,  .GridView th
+{
+	background-color: #496E24;
+}
+ .GridView .GridViewRow td,  .GridView  td
+{
+	background-color: #FFF;
+}
+.GridView .GridViewAlt td
+{
+	
+	background-color: #EBEFE7;
+}
+ .GridView a
+{
+	
+}
+ .GridView a:hover
+{
+	text-decoration: none;
+}
+/* Vote */
+
+
+/* News */
+.News, .News td
+{
+	border: 0px none #f3f5f8;
+}
+.PrimaryZone  .NewsItem h3 a
+{
+	color: #435302;	
+}
+.PrimaryZone  .NewsContainer h3
+{
+	color: #435302;	
+}
+
+/* */
+.PrimaryZone .NewsList h3 a, .PrimaryZone .NewsList .NewsItem h3 a,  .PrimaryZone table.NewsList div.NewsItem h3 a, .WhatsNewItem h3 a
+{
+	color: #496E24 !important;
+}
+
+.expandable1 h3 a, .expandable h3, .expandable h3 a
+{
+	color: #fff !important;
+}
+
+.ItemsListContainer .ListItem h3 a, .ItemsListContainer .ListItem h3 a:visited, .EventsLink a, .EventsLink a:visited
+{
+	color: #496E24 !important;
+}
+
+div.CIW h3, div.CIW legend, .Theme, .Theme a 
+{
+	color: #496E24 !important;
+}

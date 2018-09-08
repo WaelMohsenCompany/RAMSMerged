@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Lookup_Language">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lookup_Projects">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="150" />
+        </EntityType>
+        <EntityType Name="Table_WebMessages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FK_ProjectId" Type="int" Nullable="false" />
+          <Property Name="FK_LanguageId" Type="int" Nullable="false" />
+          <Property Name="MessageCode" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Body" Type="nvarchar" MaxLength="350" Nullable="false" />
+          <Property Name="IsActive" Type="bit" Nullable="false" />
+          <Property Name="CreatedBy" Type="int" />
+          <Property Name="CreatedDate" Type="datetime" />
+          <Property Name="ModifiedBy" Type="int" />
+          <Property Name="ModifiedDate" Type="datetime" />
+        </EntityType>
+        <Association Name="FK_Table_WebMessages_Lookup_Language">
+          <End Role="Lookup_Language" Type="Self.Lookup_Language" Multiplicity="1" />
+          <End Role="Table_WebMessages" Type="Self.Table_WebMessages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lookup_Language">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Table_WebMessages">
+              <PropertyRef Name="FK_LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_WebMessages_Lookup_Projects">
+          <End Role="Lookup_Projects" Type="Self.Lookup_Projects" Multiplicity="1" />
+          <End Role="Table_WebMessages" Type="Self.Table_WebMessages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lookup_Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Table_WebMessages">
+              <PropertyRef Name="FK_ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="Lookup_Language" EntityType="Self.Lookup_Language" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lookup_Projects" EntityType="Self.Lookup_Projects" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Table_WebMessages" EntityType="Self.Table_WebMessages" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Table_WebMessages_Lookup_Language" Association="Self.FK_Table_WebMessages_Lookup_Language">
+            <End Role="Lookup_Language" EntitySet="Lookup_Language" />
+            <End Role="Table_WebMessages" EntitySet="Table_WebMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_WebMessages_Lookup_Projects" Association="Self.FK_Table_WebMessages_Lookup_Projects">
+            <End Role="Lookup_Projects" EntitySet="Lookup_Projects" />
+            <End Role="Table_WebMessages" EntitySet="Table_WebMessages" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="ESBPublicEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Lookup_Language" EntityType="Model.Lookup_Language" />
+          <EntitySet Name="Lookup_Projects" EntityType="Model.Lookup_Projects" />
+          <EntitySet Name="Table_WebMessages" EntityType="Model.Table_WebMessages" />
+          <AssociationSet Name="FK_Table_WebMessages_Lookup_Language" Association="Model.FK_Table_WebMessages_Lookup_Language">
+            <End Role="Lookup_Language" EntitySet="Lookup_Language" />
+            <End Role="Table_WebMessages" EntitySet="Table_WebMessages" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Table_WebMessages_Lookup_Projects" Association="Model.FK_Table_WebMessages_Lookup_Projects">
+            <End Role="Lookup_Projects" EntitySet="Lookup_Projects" />
+            <End Role="Table_WebMessages" EntitySet="Table_WebMessages" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="Lookup_Language">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Table_WebMessages" Relationship="Model.FK_Table_WebMessages_Lookup_Language" FromRole="Lookup_Language" ToRole="Table_WebMessages" />
+        </EntityType>
+        <EntityType Name="Lookup_Projects">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="150" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Table_WebMessages" Relationship="Model.FK_Table_WebMessages_Lookup_Projects" FromRole="Lookup_Projects" ToRole="Table_WebMessages" />
+        </EntityType>
+        <EntityType Name="Table_WebMessages">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FK_ProjectId" Type="Int32" Nullable="false" />
+          <Property Name="FK_LanguageId" Type="Int32" Nullable="false" />
+          <Property Name="MessageCode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Body" Type="String" Nullable="false" MaxLength="350" FixedLength="false" Unicode="true" />
+          <Property Name="IsActive" Type="Boolean" Nullable="false" />
+          <Property Name="CreatedBy" Type="Int32" />
+          <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+          <Property Name="ModifiedBy" Type="Int32" />
+          <Property Name="ModifiedDate" Type="DateTime" Precision="3" />
+          <NavigationProperty Name="Lookup_Language" Relationship="Model.FK_Table_WebMessages_Lookup_Language" FromRole="Table_WebMessages" ToRole="Lookup_Language" />
+          <NavigationProperty Name="Lookup_Projects" Relationship="Model.FK_Table_WebMessages_Lookup_Projects" FromRole="Table_WebMessages" ToRole="Lookup_Projects" />
+        </EntityType>
+        <Association Name="FK_Table_WebMessages_Lookup_Language">
+          <End Type="Model.Lookup_Language" Role="Lookup_Language" Multiplicity="1" />
+          <End Type="Model.Table_WebMessages" Role="Table_WebMessages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lookup_Language">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Table_WebMessages">
+              <PropertyRef Name="FK_LanguageId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Table_WebMessages_Lookup_Projects">
+          <End Type="Model.Lookup_Projects" Role="Lookup_Projects" Multiplicity="1" />
+          <End Type="Model.Table_WebMessages" Role="Table_WebMessages" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lookup_Projects">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="Table_WebMessages">
+              <PropertyRef Name="FK_ProjectId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ESBPublicEntities">
+          <EntitySetMapping Name="Lookup_Language">
+            <EntityTypeMapping TypeName="Model.Lookup_Language">
+              <MappingFragment StoreEntitySet="Lookup_Language">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lookup_Projects">
+            <EntityTypeMapping TypeName="Model.Lookup_Projects">
+              <MappingFragment StoreEntitySet="Lookup_Projects">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Table_WebMessages">
+            <EntityTypeMapping TypeName="Model.Table_WebMessages">
+              <MappingFragment StoreEntitySet="Table_WebMessages">
+                <ScalarProperty Name="ModifiedDate" ColumnName="ModifiedDate" />
+                <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+                <ScalarProperty Name="CreatedDate" ColumnName="CreatedDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="Body" ColumnName="Body" />
+                <ScalarProperty Name="MessageCode" ColumnName="MessageCode" />
+                <ScalarProperty Name="FK_LanguageId" ColumnName="FK_LanguageId" />
+                <ScalarProperty Name="FK_ProjectId" ColumnName="FK_ProjectId" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

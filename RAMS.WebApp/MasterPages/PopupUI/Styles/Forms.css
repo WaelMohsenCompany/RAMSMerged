@@ -1,0 +1,60 @@
+﻿/*  Forms */
+.Button
+{
+	border: none;
+	background: #fbfbf8 url('../PublishingImages/Buttons/ButtonBG.gif') no-repeat top;
+	height: 24px;
+	text-align: center;
+	padding: 2px 4px;
+	width: 86px;
+
+}
+.ButtonSmall
+{
+	border: none;
+	background: #fbfbf8 url('../PublishingImages/Buttons/ButtonBG.gif') no-repeat top;
+	height: 24px;
+	text-align: center;
+	padding: 2px 4px;
+	width: 86px;
+
+}
+
+.Forms
+{
+	
+}
+.FormButtons
+{
+	margin-top: 20px;
+}
+.FormView
+{
+	width: 99%;
+}
+.FormView td
+{
+	padding: 4px 5px;
+	vertical-align: top;
+}
+.FormView em
+{
+	color: red;
+	margin: 1px 2px;
+}
+.Control
+{
+	border: 1px solid #DDD;
+}
+.Normal
+{
+	width: 200px;
+	border: 1px solid #DDD;
+
+}
+.Large
+{
+	width: 400px;
+	border: 1px solid #DDD;
+}
+

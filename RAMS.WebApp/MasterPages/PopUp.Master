@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="PopUp.master.cs" Inherits="Mol.Web.Common.UI.MasterPages.PopUp" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>المملكة العربية السعودية - وزارة العمل</title>
+    <!-- layout Css -->
+    <link id="lnkStyle1" href="/MasterPages/PopupUI/Styles/Print.css" rel="stylesheet"
+        type="text/css" />
+    <!-- CIW CSS -->
+    <link id="lnkStyle2" href="/UI/Styles/AR/CIW.css" rel="stylesheet"
+        type="text/css"/>
+    <link id="Link1" href="/UI/Styles/AR/CIWPages.css" rel="stylesheet"
+        type="text/css"/>       
+    <!-- General Script -->
+
+    <script language="javascript" type="text/javascript" src="/Javascript/General.js"></script>
+
+    <asp:ContentPlaceHolder ID="CPHHead" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form2" runat="server">
+    <div class="PrintDiv">
+    <table cellpadding="0" cellspacing="0" border="0" class="PrintTable">
+    <thead>
+    <tr><td class="PrintHead"> <div class="HeaderContainer">
+            <div class="Logo">
+                <asp:Image runat="server" ID="imglogo" ImageUrl="~/MasterPages/PopupUI/PublishingImages/Identity/logo.gif" />                
+            </div>
+        </div></td></tr>
+    </thead>
+    <tbody>
+    <tr><td class="PrintBody">
+     <div id="PrintableArea">
+            <div class="EmployeePage">
+                <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                </asp:ContentPlaceHolder>
+            </div>
+           
+        </div>
+        </td></tr>
+    </tbody>
+    </table>
+       
+       
+    </div>
+    </form>
+</body>
+</html>

@@ -1,0 +1,131 @@
+﻿/* Popups */
+body.popup
+{
+	background: #FFF !important;
+}
+
+div.popup
+{
+	background: #FFF;
+	direction: rtl;
+	border: 1px solid #DDD;
+	margin: 5px;
+	padding: 5px;
+}
+/* Vote Results */
+.Close
+{
+	text-align: left;
+	padding-left: 10px;
+	margin-top: 10px;
+}
+.Vote
+{
+}
+.MyVote, .VoteTitle
+{
+	width: 176px;
+}
+.MyVoteContainer
+{
+	background: url(../Images/Backgrounds/tasweet-grad.jpg) repeat-y center;
+	width: 176px;
+	margin-bottom: 5px;
+}
+.MyVoteContainer2
+{
+	background: url(  '../images/Backgrounds/tasweet-bttm-curve.jpg' ) no-repeat bottom center;
+	width: 176px;
+	padding-bottom: 3px;
+}
+.MyVoteContainer3
+{
+	padding: 2px 5px;
+	padding-top: 10px;
+}
+.VoteTitle th
+{
+	height: 22px;
+	background: url(../Images/Backgrounds/Tasweet-header.gif) no-repeat top right;
+	text-align: center;
+}
+.VoteTitle th div
+{
+	display: none;
+}
+.MyVote
+{
+	margin-top: 2px;
+	width: 100%;
+}
+.MyVote td
+{
+}
+.VoteButtonsTD
+{
+	text-align: center;
+}
+.VoteButtons
+{
+
+	vertical-align: middle;
+	margin-top: 2px;
+}
+.VoteButtons input
+{
+	
+}
+.VoteButtons a
+{
+}
+.VoteResult1
+{
+	background-color: #7ba694;
+}
+.VoteResult2
+{
+	background-color: #fd7b3d;
+}
+.VoteResult3
+{
+	background-color: #0672b8;
+}
+.VoteResults
+{
+	direction: rtl;
+	padding: 1px 5px;
+}
+.VotingResultsTableContainer
+{
+	text-align: center;
+}
+.VotingResultsTable
+{
+	width: 90%;
+	margin: 2px auto;
+	border: 1px solid #BBB;
+	overflow: hidden;
+}
+.VotingResultsTable td
+{
+	padding: 2px 4px;
+}
+.VotingResultsTable th
+{
+	text-align: right;
+	line-height: 17px;
+	padding: 2px 4px;
+	background: #AAA;
+}
+.VotingResultsTable tr.ALT td
+{
+	background: #EEE;
+}
+.MyVoteOptions
+{
+	margin-top: 6px;
+}
+.VoteButtonsTD
+{
+	padding-top: 2px;
+}

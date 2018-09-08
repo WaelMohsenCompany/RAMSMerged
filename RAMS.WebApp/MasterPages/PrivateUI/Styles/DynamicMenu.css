@@ -1,0 +1,173 @@
+﻿
+.arrowlistmenu
+{
+	width: 191px;
+}
+/* Level One */
+.arrowlistmenu .Level1Container
+{
+	background: url( '../publishingimages/DynamicMenu/Level1BG.jpg' ) repeat-y center right;
+	width: 191px;
+
+
+}
+.arrowlistmenu .Level1Container2
+{
+	background: url( '../publishingimages/DynamicMenu/Level1Top.jpg' ) no-repeat top right;
+	
+}
+
+.arrowlistmenu  div.expandable
+{
+	background: url( '../publishingimages/DynamicMenu/Level1Bottom.jpg' ) no-repeat bottom right;
+	height: 38px;
+
+}
+.arrowlistmenu  div.expandable1
+{
+	background: url( '../publishingimages/DynamicMenu/Level1Bottom.jpg' ) no-repeat bottom right;
+	height: 38px;
+
+}
+
+.arrowlistmenu div.openheader
+{
+	background: url( '../publishingimages/DynamicMenu/Level1BottomExpandable.jpg' ) no-repeat bottom right;
+	height: 38px;
+}
+html> body .arrowlistmenu div.openheader, html> body .arrowlistmenu div.expandable, html> body .arrowlistmenu div.expandable1
+{
+	min-height: 38px;
+	height: auto;
+}
+.arrowlistmenu h3.menuheader
+{
+	margin: 0px;
+	padding: 0px;
+	color: #496e24;
+	vertical-align: middle;
+	margin-left: 5px;
+	margin-right: 5px;	
+	margin-bottom: 15px;
+	line-height: 10pt;
+	font-size: 8pt;	
+	display: block;
+	clear: both;
+	margin-top: 15px;
+
+} 
+html > /**/ body .arrowlistmenu h3.menuheader
+{
+	padding-top: 15px;
+}
+div.expandable h3, div.expandable1 h3
+{
+	background: url( '../publishingimages/DynamicMenu/Level1Arrow.gif' ) no-repeat 3px right;
+	padding-right: 13px !important; 
+	
+}
+div.expandable1 h3
+{
+	background: none;
+}
+
+div.openheader  h3
+{
+	background: url( '../publishingimages/DynamicMenu/Level1Arrow2.gif' ) no-repeat 3px right;
+	padding-right: 15px;
+}
+html > /**/ body div.expandable h3, html > /**/ div.openheader  h3, html > /**/ body div.expandable1 h3
+{
+	background-position: right 15px;
+}
+/* Rest of Levels */
+.AllLevelsContainer
+{
+	background: url('../publishingimages/DynamicMenu/LevelsContainer.jpg') repeat-y center right;
+}
+.arrowlistmenu ul.categoryitems
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0px;
+	padding-top: 5px;
+	padding-bottom: 10px;
+	background: url(../publishingimages/DynamicMenu/Level1Bottom.jpg) no-repeat bottom right;
+	width: 191px;
+}
+/* Second level */
+
+
+.arrowlistmenu ul.categoryitems li a img
+{
+	vertical-align: top !important;
+	margin-left: 5px;
+	margin-right: 5px;
+	margin-top: 4px;
+	float: right;
+}
+.arrowlistmenu ul li
+{
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 10px;
+	margin-left: 5px;
+}
+
+a.selecteditem
+{
+	color: #000 !important;
+}
+
+.arrowlistmenu ul li a:visited
+{
+	color: #000;
+}
+
+.arrowlistmenu ul li a:hover
+{
+	color: #000;
+}
+
+.arrowlistmenu ul li ul
+{
+	margin: 0px;
+	margin-right: 20px;
+	margin-top: 10px;
+	padding: 0px;
+}
+.arrowlistmenu ul li ul li, .arrowlistmenu li.collapsed
+{
+	padding: 0px;
+	margin: 5px 0px;
+	margin-right: 0px;
+	padding-right: 15px;
+	list-style: none;
+	background: url(../publishingimages/DynamicMenu/leaf_node.gif) right 2px  no-repeat;
+}
+.arrowlistmenu li.collapsed
+{
+	margin-right: 15px;
+}
+.arrowlistmenu ul li ul li a, .arrowlistmenu li.collapsed a
+{
+	color: #000;
+
+}
+
+
+.expandable1 h3 a, .expandable h3, .expandable h3 a
+{
+	text-decoration: none;
+	font-family:  Arial (Arabic) !important;
+	font-size: 13pt;
+	font-weight: 700;
+
+}
+
+.expandable1 h3 a:hover,  .expandable h3 a:hover
+{
+	text-decoration: underline;
+}
+
+

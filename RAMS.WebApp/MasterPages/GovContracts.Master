@@ -1,0 +1,411 @@
+﻿<%@ master language="C#" autoeventwireup="true" codebehind="GovContracts.Master.cs" inherits="Mol.Web.Common.UI.MasterPages.MasterPages_GovContracts" %>
+
+<%@ register assembly="Mol.Web.Webparts" namespace="Mol.Web.Webparts" tagprefix="cc2" %>
+
+<%@ register src="PrivateUserControls/Footer.ascx" tagname="Footer" tagprefix="uc1" %>
+<%@ register src="PrivateUserControls/Header.ascx" tagname="Header" tagprefix="uc2" %>
+<%@ register src="PrivateUserControls/LoggedInView.ascx" tagname="LoggedInView" tagprefix="uc2" %>
+<%@ register src="~/UserControls/BreadCrumb.ascx" tagname="BreadCrumb" tagprefix="uc3" %>
+<%@ register src="PrivateUserControls/EservicesSideMenu.ascx" tagprefix="uc1" tagname="EservicesSideMenu" %>
+
+<%@ register src="PrivateUserControls/GovContractsTabs.ascx" tagname="GovContractsTabs" tagprefix="uc4" %>
+
+<!DOCTYPE html>
+<!--[if lt IE 7]>  <html class="lt-ie7"> <![endif]-->
+<!--[if IE 7]>     <html class="lt-ie8"> <![endif]-->
+<!--[if IE 8]>     <html class="lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="rtl">
+<!--<![endif]-->
+<head id="Head1" runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title runat="server" id="lblTitle"></title>
+    <meta name="description" id="lblDescription" />
+    <meta name="keywords" id="lblKeyWords" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css' />
+
+    <link rel="icon" type="image/png" href="/assets/_con/images/icon.png" />
+
+
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css' />
+    <link rel="icon" type="image/png" href="/assets/_con/images/icon.png" />
+    <!-- nanoScroller -->
+    <link rel="stylesheet" type="text/css" href="/assets/nanoScroller/nanoscroller.css" />
+    <!--  Select Library with search -->
+    <link rel="stylesheet" type="text/css" href="/assets/select2/css/select2.min.css" />
+    <!-- FontAwesome -->
+    <link rel="stylesheet" type="text/css" href="/assets/font-awesome/css/font-awesome.min.css" />
+    <!-- Material Design Icons -->
+    <link rel="stylesheet" type="text/css" href="/assets/material-design-icons/css/material-design-icons.min.css" />
+    <!-- IonIcons -->
+    <link rel="stylesheet" type="text/css" href="/assets/ionicons/css/ionicons.min.css" />
+    <!-- WeatherIcons -->
+    <link rel="stylesheet" type="text/css" href="/assets/weatherIcons/css/weather-icons.min.css" />
+    <!-- Rickshaw -->
+    <link rel="stylesheet" type="text/css" href="/assets/rickshaw/rickshaw.min.css" />
+    <!-- jvectormap -->
+    <link rel="stylesheet" type="text/css" href="/assets/jquery-jvectormap/jquery-jvectormap.css" />
+    <!-- Google Prettify -->
+    <link rel="stylesheet" type="text/css" href="/assets/google-code-prettify/prettify.css" />
+    <!-- Main -->
+    <link rel="stylesheet" type="text/css" href="/assets/_con/css/_con-light-green.min.css" />
+
+
+    <!-- jQuery -->
+    <script type="text/javascript" src="/assets/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery/jquery-ui.min.js"></script>
+    <!-- jQuery BlockUI Plugin -->
+    <script language="Javascript" type="text/javascript" src="/uniform/jquery.blockUI.js"></script>
+    <!-- jQuery Countdown Plugin -->
+    <script language="Javascript" type="text/javascript" src="/uniform/jquery.lwtCountdown-1.0.js"></script>
+    <!-- jQuery RAF (improved animation performance) -->
+    <script type="text/javascript" src="/assets/jqueryRAF/jquery.requestAnimationFrame.min.js"></script>
+    <!-- nanoScroller -->
+    <script type="text/javascript" src="/assets/nanoScroller/jquery.nanoscroller.min.js"></script>
+    <!-- Materialize -->
+    <script type="text/javascript" src="/assets/materialize/js/materialize.min.js"></script>
+    <!-- Simple Weather -->
+    <script type="text/javascript" src="/assets/simpleWeather/jquery.simpleWeather.min.js"></script>
+    <!-- Sparkline -->
+    <script type="text/javascript" src="/assets/sparkline/jquery.sparkline.min.js"></script>
+
+
+    <style type="text/css">
+        .AdminErrorContainer {
+            position: absolute;
+            z-index: 5000;
+        }
+
+        .grid_footer_label {
+            float: left;
+            font-weight: bold;
+        }
+
+        .grid_footer_paging table {
+            display: inline;
+        }
+
+        tr.grid_footer_paging td {
+            padding: 0px;
+        }
+
+        tr.grid_footer_paging table td {
+            padding: 5px;
+        }
+    </style>
+
+    <asp:ContentPlaceHolder ID="CPHHead" runat="server">
+    </asp:ContentPlaceHolder>
+
+    <script type="text/javascript"><!--     //--><![CDATA[//><!--
+    startList = function () {
+
+        //$('.jNiceInputWrapper').has('.SmartCalendarTextbox').css('border-left', '1px solid #c9cacc');
+        if (document.all && document.getElementById) {
+            cssdropdownRoot = document.getElementById("cssdropdown");
+            for (x = 0; x < cssdropdownRoot.childNodes.length; x++) {
+                node = cssdropdownRoot.childNodes[x];
+                if (node.nodeName == "LI") {
+                    node.onmouseover = function () {
+                        this.className += " over";
+                    }
+                    node.onmouseout = function () {
+                        this.className = this.className.replace(" over", "");
+                    }
+                }
+            }
+        }
+    }
+
+    if (window.attachEvent)
+        window.attachEvent("onload", startList)
+    else
+        window.onload = startList;
+
+    //--><!]]></script>
+    <script type="text/javascript">
+
+        $(function () {
+            $(".Grid").each(function () {
+                if ($(this).find(".emptyData").length == 0) {
+                    $(this).wrap("<div class='gb-note-grid'><div class='gl-note-grid'><div class='gr-note-grid'><div class='grid-container'></div></div></div>");
+                }
+            });
+        });
+
+    </script>
+
+
+</head>
+<body lang="ar">
+    <script language="javascript" type="text/javascript">
+        $(function () {
+            var ServerIP = '<%=HttpContext.Current.Server.MachineName%>';
+            //alert(ServerIP);
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+            var x = '<%=isLoggedIn%>';
+            if (x == 'False') {
+                $('.my-account').css("display", "none");
+            }
+            else {
+                $('.LoginLabel').css("display", "none");
+            }
+        });
+    </script>
+    <style>
+        .AdminErrorContainer {
+            position: absolute;
+            z-index: 5000;
+        }
+    </style>
+
+    <form id="form2" runat="server" class="jNice">
+
+        <div id="loginForm" style="display: none; text-align: center; padding: 5px;">
+
+            <center>
+                <h3 class="AdsContent">" تعتزم وزارة العمل ابتداء من تاريخ 25 شوال 1434هـ الموافق 1 سبتمبر 2013 مـ  الزام المنشآت من الحجم العملاق  (ثلاثة ألاف عامل فأكثر حسب الرقم الموحد للمنشأة) والمدارس الاهلية ذات النشاط الاقتصادي (مدارس اهلية بنين وبنات, مدارس أجنبية, مدارس اهلية بنين , مدارس اهلية بنات , رياض الأطفال)  بغض النظر عن حجمها، برفع ملف صرف الأجور الشهرية حسب الصيغة المعتمدة من وزارة العمل على بوابة الخدمات الإلكترونية للوزارة. لمزيد من المعلومات حول برنامج حماية الأجور والخطوات التي يتوجب عملها و ضوابط المرتبطة بإطلاق البرنامج الرجاء الدخول على البوابة التعريفية للبرنامج
+        <a href="http://emol.gov.sa/wps" target="_blank">http://emol.gov.sa/wps</a>
+                    أو التواصل مع فريق العمل على البريد الإلكتروني 
+        <a href="mailto:wps@mol.gov.sa?Subject=wps" target="_top">wps@mol.gov.sa</a>
+                </h3>
+            </center>
+            <br />
+            <br />
+            <center>
+                <a href="#" class="btn" id="closeLnk">إغلاق</a>
+            </center>
+        </div>
+
+        <div class="PageContainer">
+            <div class="Page">
+                <div class="ContentContainer">
+
+
+
+                    <div class="BacktoPortal" style='display: none;'>
+                        <asp:HyperLink ID="lnkBackToPortal" runat="server" meta:resourcekey="lnkBackToPortalResource1">[lnkBackToPortal]</asp:HyperLink>
+                    </div>
+                    <div class="TodayDateContainer" style="display: none;">
+                        <cc2:todaywebpart runat="server" id="todayWebPart" datecssclass="TodayDate" dateformat="dddd  dd MMMM yyyy"
+                            meta:resourcekey="todayWebPartResource1" postfix="" prefix="" />
+                    </div>
+
+
+
+
+
+                    <nav class="navbar-top">
+                        <div class="nav-wrapper">
+
+                            <!-- Sidebar toggle -->
+                            <a href="#" class="yay-toggle">
+                                <div class="burg1"></div>
+                                <div class="burg2"></div>
+                                <div class="burg3"></div>
+                            </a>
+                            <!-- Sidebar toggle -->
+
+
+
+                            <uc2:header id="Header1" runat="server" />
+
+
+                            <!-- LoggedInMenu -->
+                            <uc2:loggedinview id="LoggedInView1" runat="server" />
+                            <!-- /LoggedInMenu -->
+
+
+                        </div>
+                    </nav>
+
+                    <!-- SideMenu -->
+                    <aside class="yaybar yay-shrink yay-hide-to-small yay-gestures yay-light yay-static">
+                        <uc1:eservicessidemenu runat="server" id="EservicesSideMenu" />
+                    </aside>
+                    <!-- /SideMenu -->
+
+                    <!-- Main Content -->
+                    <section class="content-wrap">
+                        <!-- Breadcrumb -->
+                        <div class="page-title">
+
+                            <div class="row">
+                                <uc3:breadcrumb id="BreadCrumb1" runat="server" />
+
+                                <div class="col s12 m3 l2 right-align">
+                                    <!-- <a href="#!" class="btn grey lighten-3 grey-text z-depth-0 chat-toggle"><i class="fa fa-comments"></i></a>-->
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12">
+                                   <%-- <uc4:govcontractstabs id="GovContractsTabs1" runat="server" />--%>
+                                </div>
+                            </div>
+
+                        </div>
+                        <!-- /Breadcrumb -->
+
+                        <!-- Menu -->
+                        <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                        </asp:ContentPlaceHolder>
+
+                    </section>
+                    <!--Footer-->
+                    <%--   <uc1:footer id="Footer1" runat="server" />--%>
+
+
+            <footer class="main-footer">
+                <div class="row">
+                <div class="col s12 m6 l6">
+                    الموقع يدعم الإصدارات الأخيرة من:
+                        <img src="/assets/_con/images/browsers-icon.jpg" class="browsers-img">
+                </div>
+                <div class="col s12 m6 l6 right-align">
+                جميع الحقوق محفوظة لوزارة العمل بالمملكة العربية السعودية 2015
+                </div>
+                </div>
+            </footer>
+    </form>
+    </div>
+
+
+
+
+    <!-- Flot -->
+    <script type="text/javascript" src="/assets/flot/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="/assets/flot/jquery.flot.time.min.js"></script>
+    <script type="text/javascript" src="/assets/flot/jquery.flot.pie.min.js"></script>
+    <script type="text/javascript" src="/assets/flot/jquery.flot.tooltip.min.js"></script>
+    <script type="text/javascript" src="/assets/flot/jquery.flot.categories.min.js"></script>
+
+    <!-- d3 -->
+    <script type="text/javascript" src="/assets/d3/d3.min.js"></script>
+
+    <!-- Rickshaw -->
+    <script type="text/javascript" src="/assets/rickshaw/rickshaw.min.js"></script>
+
+    <!-- jvectormap -->
+    <script type="text/javascript" src="/assets/jquery-jvectormap/jquery-jvectormap.min.js"></script>
+    <script type="text/javascript" src="/assets/jquery-jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script type="text/javascript" src="/assets/jquery-jvectormap/gdp-data.js"></script>
+    <!-- Sortable -->
+    <script type="text/javascript" src="/assets/sortable/Sortable.min.js"></script>
+
+    <!-- Main -->
+    <script type="text/javascript" src="/assets/_con/js/_con.min.js"></script>
+
+    <!-- Calendar -->
+
+    <script type="text/javascript" src="/assets/js/jquery.plugin.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.calendars.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.calendars.plus.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.calendars.picker.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.calendars.ummalqura.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.calendars.ummalqura-ar.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.calendars-ar-EG.js"></script>
+
+
+    <!-- Google Prettify -->
+    <script type="text/javascript" src="/assets/google-code-prettify/prettify.js"></script>
+
+
+    <!-- Data Tables -->
+    <script type="text/javascript" src="/assets/dataTables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/assets/dataTables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+    <script type="text/javascript" src="/assets/dataTables/extensions/Scroller/js/dataTables.scroller.min.js"></script>
+    <!-- Validate form -->
+    <script type="text/javascript" src="/assets/parsley/parsley.min.js"></script>
+    <!--Select Library -->
+    <script type="text/javascript" src="/assets/select2/js/select2.full.min.js"></script>
+    <!--Filter Menu Library - https://github.com/travishorn/jquery-filterList -->
+    <script type="text/javascript" src="/assets/js/jquery.filterList.js"></script>
+    <!-- Google Prettify -->
+    <script type="text/javascript" src="/assets/google-code-prettify/prettify.js"></script>
+    <script type="text/javascript">
+        jQuery(document).ready(function ($) {
+
+        });
+    </script>
+
+    <script>
+
+        /*
+         * DataTable with Search
+         */
+        $('#table2').DataTable({
+            "iDisplayLength": 5,
+            "aLengthMenu": [
+              [5, 10, 25, 50, -1],
+              [5, 10, 25, 50, "الكل"]
+            ]
+        });
+        $('#full-width-slider').royalSlider({
+            arrowsNav: true,
+            loop: true,
+            keyboardNavEnabled: true,
+            controlsInside: false,
+            imageScaleMode: 'fill',
+            arrowsNavAutoHide: false,
+            autoScaleSlider: true,
+            autoScaleSliderWidth: 1033,
+            autoScaleSliderHeight: 120,
+            controlNavigation: 'bullets',
+            thumbsFitInViewport: false,
+            navigateByClick: true,
+            startSlideId: 1,
+            autoPlay: true,
+            transitionType: 'move',
+            globalCaption: false,
+            delay: 3000,
+            deeplinking: {
+                enabled: true,
+                change: false
+            },
+            autoPlay: {
+                // autoplay options go gere
+                enabled: true,
+                pauseOnHover: true
+            },
+            /* size of all images http://help.dimsemenov.com/kb/royalslider-jquery-plugin-faq/adding-width-and-height-properties-to-images */
+            imgWidth: 1033,
+            imgHeight: 120
+        });
+
+        jQuery(document).ready(function ($) {
+            $(".entmenu").select2({ width: '100%' });
+            $('#filter').filterList();
+        });
+    </script>
+    <script language="javascript" type="text/javascript">
+        $(function () {
+            var ServerIP = '<%=HttpContext.Current.Server.MachineName%>';
+            //alert(ServerIP);
+        });
+
+    </script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            //alert('<%=isLoggedIn%>');
+            var x = '<%=isLoggedIn%>';
+            if (x == 'False') {
+                $('.my-account').css("display", "none");
+            }
+            else {
+                $('.LoginLabel').css("display", "none");
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2042
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESBPublic.Business", "ESBPublic.Business\ESBPublic.Business.csproj", "{021CD033-3F85-4C61-AF95-16E377870116}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESBPublic.Core", "ESBPublic.Core\ESBPublic.Core.csproj", "{575C9906-96CC-431D-BCD3-99496004D500}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ESBPublic.Model", "ESBPublic.Model\ESBPublic.Model.csproj", "{7505F6A8-BEDE-428A-95B8-5F6750E8CE83}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MOL.EFDAL", "MOL.EFDAL\MOL.EFDAL.csproj", "{36CB900E-62AB-4CAA-AB2B-7A168BAFADAB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAMS.ApplicationServices", "RAMS.ApplicationServices\RAMS.ApplicationServices.csproj", "{AC7AC52B-7514-4BF3-AB8E-0B00AD05B8F7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAMS.BusinessServices", "RAMS.BusinessServices\RAMS.BusinessServices.csproj", "{93A65973-8CF5-44FC-B412-1296FB6AA831}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAMS.CrossCutting", "RAMS.CrossCutting\RAMS.CrossCutting.csproj", "{D8CDA9C4-7720-4284-BAA5-1A47ECF4C285}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAMS.EnterpriseServices", "RAMS.EnterpriseServices\RAMS.EnterpriseServices.csproj", "{039BEB3E-410D-44B1-A95C-7A1FAE937017}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAMS.InfrastructureService", "RAMS.InfrastructureService\RAMS.InfrastructureService.csproj", "{B3B49B98-112B-4C77-885B-80698D499BC0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAMS.OracleIntegrationServices", "RAMS.OracleIntegrationServices\RAMS.OracleIntegrationServices.csproj", "{09E0F81A-6CBA-46DE-8C72-BAF94AADF15E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAMS.SOA.Tester", "RAMS.SOA.Tester\RAMS.SOA.Tester.csproj", "{B24AD262-87DA-4D22-BFB3-8ABCB37FC6D9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ESB DAL", "ESB DAL", "{35F59928-9E5B-4F9C-94EC-AA59D2F75737}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Helpers", "Helpers", "{2E1165F0-F41F-4ABB-B2A1-DC863CFAAE95}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SOA", "SOA", "{62C2A6FB-B84C-460A-90A8-F337FE79110C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "System DB", "System DB", "{A9CC4C37-D3DB-43FD-BFCE-BDEA5076A290}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "WebApp", "WebApp", "{F0F32AAE-D71D-4F53-B9EE-683287E817AC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAMS.Web.CrossCutting", "RAMS.Web.CrossCutting\RAMS.Web.CrossCutting.csproj", "{3E16C362-E666-465D-8729-C66932DB78E7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RAMS.WebApp", "RAMS.WebApp\RAMS.WebApp.csproj", "{9C1860A3-D597-497D-8E65-B927AB91CC37}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{021CD033-3F85-4C61-AF95-16E377870116}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{021CD033-3F85-4C61-AF95-16E377870116}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{021CD033-3F85-4C61-AF95-16E377870116}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{021CD033-3F85-4C61-AF95-16E377870116}.Release|Any CPU.Build.0 = Release|Any CPU
+		{575C9906-96CC-431D-BCD3-99496004D500}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{575C9906-96CC-431D-BCD3-99496004D500}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{575C9906-96CC-431D-BCD3-99496004D500}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{575C9906-96CC-431D-BCD3-99496004D500}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7505F6A8-BEDE-428A-95B8-5F6750E8CE83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7505F6A8-BEDE-428A-95B8-5F6750E8CE83}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7505F6A8-BEDE-428A-95B8-5F6750E8CE83}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7505F6A8-BEDE-428A-95B8-5F6750E8CE83}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36CB900E-62AB-4CAA-AB2B-7A168BAFADAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36CB900E-62AB-4CAA-AB2B-7A168BAFADAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36CB900E-62AB-4CAA-AB2B-7A168BAFADAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36CB900E-62AB-4CAA-AB2B-7A168BAFADAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC7AC52B-7514-4BF3-AB8E-0B00AD05B8F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC7AC52B-7514-4BF3-AB8E-0B00AD05B8F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC7AC52B-7514-4BF3-AB8E-0B00AD05B8F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC7AC52B-7514-4BF3-AB8E-0B00AD05B8F7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{93A65973-8CF5-44FC-B412-1296FB6AA831}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{93A65973-8CF5-44FC-B412-1296FB6AA831}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{93A65973-8CF5-44FC-B412-1296FB6AA831}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{93A65973-8CF5-44FC-B412-1296FB6AA831}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8CDA9C4-7720-4284-BAA5-1A47ECF4C285}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8CDA9C4-7720-4284-BAA5-1A47ECF4C285}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8CDA9C4-7720-4284-BAA5-1A47ECF4C285}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8CDA9C4-7720-4284-BAA5-1A47ECF4C285}.Release|Any CPU.Build.0 = Release|Any CPU
+		{039BEB3E-410D-44B1-A95C-7A1FAE937017}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{039BEB3E-410D-44B1-A95C-7A1FAE937017}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{039BEB3E-410D-44B1-A95C-7A1FAE937017}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{039BEB3E-410D-44B1-A95C-7A1FAE937017}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3B49B98-112B-4C77-885B-80698D499BC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3B49B98-112B-4C77-885B-80698D499BC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3B49B98-112B-4C77-885B-80698D499BC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3B49B98-112B-4C77-885B-80698D499BC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09E0F81A-6CBA-46DE-8C72-BAF94AADF15E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09E0F81A-6CBA-46DE-8C72-BAF94AADF15E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09E0F81A-6CBA-46DE-8C72-BAF94AADF15E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09E0F81A-6CBA-46DE-8C72-BAF94AADF15E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B24AD262-87DA-4D22-BFB3-8ABCB37FC6D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B24AD262-87DA-4D22-BFB3-8ABCB37FC6D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B24AD262-87DA-4D22-BFB3-8ABCB37FC6D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B24AD262-87DA-4D22-BFB3-8ABCB37FC6D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E16C362-E666-465D-8729-C66932DB78E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E16C362-E666-465D-8729-C66932DB78E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E16C362-E666-465D-8729-C66932DB78E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E16C362-E666-465D-8729-C66932DB78E7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9C1860A3-D597-497D-8E65-B927AB91CC37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9C1860A3-D597-497D-8E65-B927AB91CC37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9C1860A3-D597-497D-8E65-B927AB91CC37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9C1860A3-D597-497D-8E65-B927AB91CC37}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{021CD033-3F85-4C61-AF95-16E377870116} = {35F59928-9E5B-4F9C-94EC-AA59D2F75737}
+		{575C9906-96CC-431D-BCD3-99496004D500} = {35F59928-9E5B-4F9C-94EC-AA59D2F75737}
+		{7505F6A8-BEDE-428A-95B8-5F6750E8CE83} = {35F59928-9E5B-4F9C-94EC-AA59D2F75737}
+		{36CB900E-62AB-4CAA-AB2B-7A168BAFADAB} = {A9CC4C37-D3DB-43FD-BFCE-BDEA5076A290}
+		{AC7AC52B-7514-4BF3-AB8E-0B00AD05B8F7} = {62C2A6FB-B84C-460A-90A8-F337FE79110C}
+		{93A65973-8CF5-44FC-B412-1296FB6AA831} = {62C2A6FB-B84C-460A-90A8-F337FE79110C}
+		{D8CDA9C4-7720-4284-BAA5-1A47ECF4C285} = {2E1165F0-F41F-4ABB-B2A1-DC863CFAAE95}
+		{039BEB3E-410D-44B1-A95C-7A1FAE937017} = {62C2A6FB-B84C-460A-90A8-F337FE79110C}
+		{B3B49B98-112B-4C77-885B-80698D499BC0} = {62C2A6FB-B84C-460A-90A8-F337FE79110C}
+		{09E0F81A-6CBA-46DE-8C72-BAF94AADF15E} = {62C2A6FB-B84C-460A-90A8-F337FE79110C}
+		{B24AD262-87DA-4D22-BFB3-8ABCB37FC6D9} = {2E1165F0-F41F-4ABB-B2A1-DC863CFAAE95}
+		{3E16C362-E666-465D-8729-C66932DB78E7} = {2E1165F0-F41F-4ABB-B2A1-DC863CFAAE95}
+		{9C1860A3-D597-497D-8E65-B927AB91CC37} = {F0F32AAE-D71D-4F53-B9EE-683287E817AC}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {22E6E213-508E-4A29-9F3B-0AFCC5A0C3E8}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 14
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tasleem-it.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ESBPublic.Business\\ESBPublic.Business.csproj
+		SccProjectTopLevelParentUniqueName1 = RAMS.System.sln
+		SccProjectName1 = ESBPublic.Business
+		SccLocalPath1 = ESBPublic.Business
+		SccProjectUniqueName2 = ESBPublic.Core\\ESBPublic.Core.csproj
+		SccProjectTopLevelParentUniqueName2 = RAMS.System.sln
+		SccProjectName2 = ESBPublic.Core
+		SccLocalPath2 = ESBPublic.Core
+		SccProjectUniqueName3 = ESBPublic.Model\\ESBPublic.Model.csproj
+		SccProjectTopLevelParentUniqueName3 = RAMS.System.sln
+		SccProjectName3 = ESBPublic.Model
+		SccLocalPath3 = ESBPublic.Model
+		SccProjectUniqueName4 = MOL.EFDAL\\MOL.EFDAL.csproj
+		SccProjectTopLevelParentUniqueName4 = RAMS.System.sln
+		SccProjectName4 = MOL.EFDAL
+		SccLocalPath4 = MOL.EFDAL
+		SccProjectUniqueName5 = RAMS.ApplicationServices\\RAMS.ApplicationServices.csproj
+		SccProjectTopLevelParentUniqueName5 = RAMS.System.sln
+		SccProjectName5 = RAMS.ApplicationServices
+		SccLocalPath5 = RAMS.ApplicationServices
+		SccProjectUniqueName6 = RAMS.BusinessServices\\RAMS.BusinessServices.csproj
+		SccProjectTopLevelParentUniqueName6 = RAMS.System.sln
+		SccProjectName6 = RAMS.BusinessServices
+		SccLocalPath6 = RAMS.BusinessServices
+		SccProjectUniqueName7 = RAMS.CrossCutting\\RAMS.CrossCutting.csproj
+		SccProjectTopLevelParentUniqueName7 = RAMS.System.sln
+		SccProjectName7 = RAMS.CrossCutting
+		SccLocalPath7 = RAMS.CrossCutting
+		SccProjectUniqueName8 = RAMS.EnterpriseServices\\RAMS.EnterpriseServices.csproj
+		SccProjectTopLevelParentUniqueName8 = RAMS.System.sln
+		SccProjectName8 = RAMS.EnterpriseServices
+		SccLocalPath8 = RAMS.EnterpriseServices
+		SccProjectUniqueName9 = RAMS.InfrastructureService\\RAMS.InfrastructureService.csproj
+		SccProjectTopLevelParentUniqueName9 = RAMS.System.sln
+		SccProjectName9 = RAMS.InfrastructureService
+		SccLocalPath9 = RAMS.InfrastructureService
+		SccProjectUniqueName10 = RAMS.OracleIntegrationServices\\RAMS.OracleIntegrationServices.csproj
+		SccProjectTopLevelParentUniqueName10 = RAMS.System.sln
+		SccProjectName10 = RAMS.OracleIntegrationServices
+		SccLocalPath10 = RAMS.OracleIntegrationServices
+		SccProjectUniqueName11 = RAMS.SOA.Tester\\RAMS.SOA.Tester.csproj
+		SccProjectTopLevelParentUniqueName11 = RAMS.System.sln
+		SccProjectName11 = RAMS.SOA.Tester
+		SccLocalPath11 = RAMS.SOA.Tester
+		SccProjectUniqueName12 = RAMS.Web.CrossCutting\\RAMS.Web.CrossCutting.csproj
+		SccProjectTopLevelParentUniqueName12 = RAMS.System.sln
+		SccProjectName12 = RAMS.Web.CrossCutting
+		SccLocalPath12 = RAMS.Web.CrossCutting
+		SccProjectUniqueName13 = RAMS.WebApp\\RAMS.WebApp.csproj
+		SccProjectTopLevelParentUniqueName13 = RAMS.System.sln
+		SccProjectName13 = RAMS.WebApp
+		SccLocalPath13 = RAMS.WebApp
+	EndGlobalSection
+EndGlobal

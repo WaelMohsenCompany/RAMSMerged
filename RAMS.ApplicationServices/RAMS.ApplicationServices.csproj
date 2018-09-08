@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AC7AC52B-7514-4BF3-AB8E-0B00AD05B8F7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>RAMS.ApplicationServices</RootNamespace>
+    <AssemblyName>RAMS.ApplicationServices</AssemblyName>
+    <TargetFrameworkVersion>v4.7.1</TargetFrameworkVersion>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <TargetFrameworkProfile />
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="log4net">
+      <HintPath>..\packages\MoL DLLs\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="LoggingUtilities">
+      <HintPath>..\packages\MoL DLLs\LoggingUtilities.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.ExceptionHandling">
+      <HintPath>..\packages\MoL DLLs\Microsoft.Practices.EnterpriseLibrary.ExceptionHandling.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Security">
+      <HintPath>..\packages\MoL DLLs\Microsoft.Practices.EnterpriseLibrary.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Mol.Common">
+      <HintPath>..\packages\MoL DLLs\Mol.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Mol.Common.Services">
+      <HintPath>..\packages\MoL DLLs\Mol.Common.Services.dll</HintPath>
+    </Reference>
+    <Reference Include="Mol.ComponentLayer">
+      <HintPath>..\packages\MoL DLLs\Mol.ComponentLayer.dll</HintPath>
+    </Reference>
+    <Reference Include="Mol.Entities, Version=1.0.0.0, Culture=neutral, PublicKeyToken=2a52a4fd59ad0507, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\MoL DLLs\Mol.Entities.dll</HintPath>
+    </Reference>
+    <Reference Include="Mol.Integration.Services.Lib">
+      <HintPath>..\packages\MoL DLLs\Mol.Integration.Services.Lib.dll</HintPath>
+    </Reference>
+    <Reference Include="Mol.Integration.ServiceWrapper.NoteService">
+      <HintPath>..\packages\MoL DLLs\Mol.Integration.ServiceWrapper.NoteService.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceModel.Web" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <None Include="app.config" />
+    <None Include="Service References\ExReferenceNICRunAway\configuration91.svcinfo" />
+    <None Include="Service References\ExReferenceNICRunAway\configuration.svcinfo" />
+    <None Include="Service References\ExReferenceNICRunAway\NICService1.wsdl" />
+    <None Include="Service References\ExReferenceNICRunAway\RAMS.ApplicationServices.ExReferenceNICRunAway.ChangeOccupationResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ExReferenceNICRunAway\RAMS.ApplicationServices.ExReferenceNICRunAway.ChangeSponsorResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ExReferenceNICRunAway\RAMS.ApplicationServices.ExReferenceNICRunAway.CitizenInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ExReferenceNICRunAway\RAMS.ApplicationServices.ExReferenceNICRunAway.DependentsData.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ExReferenceNICRunAway\RAMS.ApplicationServices.ExReferenceNICRunAway.IssueVisaResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ExReferenceNICRunAway\RAMS.ApplicationServices.ExReferenceNICRunAway.IssueWorkPermitResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ExReferenceNICRunAway\RAMS.ApplicationServices.ExReferenceNICRunAway.QueryWorkPermitResult.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ExReferenceNICRunAway\RAMS.ApplicationServices.ExReferenceNICRunAway.RunawayReplyInfo.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </None>
+    <None Include="Service References\ExReferenceNICRunAway\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Service References\ExReferenceSMSService\configuration91.svcinfo" />
+    <None Include="Service References\ExReferenceSMSService\configuration.svcinfo" />
+    <None Include="Service References\ExReferenceSMSService\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Common\Get\GetCommon.cs" />
+    <Compile Include="Establishment\Get\GetEstablishment.cs" />
+    <Compile Include="Laborer\Get\GetLaborer.cs" />
+    <Compile Include="MyClients\Get\GetMyClients.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RunAwayRequest\Get\GetRunAwayRequest.cs" />
+    <Compile Include="RunAwayRequest\Post\PostRunAwayRequest.cs" />
+    <Compile Include="Service References\ExReferenceNICRunAway\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+    <Compile Include="Service References\ExReferenceSMSService\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Service References\ExReferenceSMSService\NotificationService.wsdl" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MOL.EFDAL\MOL.EFDAL.csproj">
+      <Project>{36cb900e-62ab-4caa-ab2b-7a168bafadab}</Project>
+      <Name>MOL.EFDAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RAMS.CrossCutting\RAMS.CrossCutting.csproj">
+      <Project>{D8CDA9C4-7720-4284-BAA5-1A47ECF4C285}</Project>
+      <Name>RAMS.CrossCutting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\RAMS.InfrastructureService\RAMS.InfrastructureService.csproj">
+      <Project>{b3b49b98-112b-4c77-885b-80698d499bc0}</Project>
+      <Name>RAMS.InfrastructureService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Service References\ExReferenceNICRunAway\" />
+    <WCFMetadataStorage Include="Service References\ExReferenceSMSService\" />
+  </ItemGroup>
+  <ItemGroup />
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,375 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Establishment.Master.cs" Inherits="Tasleem.Twsl.WebApp.MasterPages.Establishment" %>
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html class="rtl" xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <meta charset="utf-8">
+    <title>
+        <asp:ContentPlaceHolder ID="title" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+    <script type="text/javascript" src="/Services/Twsl/Scripts/jquery-2.1.4.js"></script>
+
+    <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900' rel='stylesheet' type='text/css' />
+
+    <link rel="icon" type="image/png" href="/Services/Twsl/assets/_con/images/icon.png">
+
+    <!-- nanoScroller -->
+    <link rel="stylesheet" type="text/css" href="/Services/Twsl/assets/nanoScroller/nanoscroller.css" />
+
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" type="text/css" href="/Services/Twsl/assets/font-awesome/css/font-awesome.min.css" />
+
+    <!-- Material Design Icons -->
+    <link rel="stylesheet" type="text/css" href="/Services/Twsl/assets/material-design-icons/css/material-design-icons.min.css" />
+
+    <!-- IonIcons -->
+    <link rel="stylesheet" type="text/css" href="/Services/Twsl/assets/ionicons/css/ionicons.min.css" />
+
+    <!-- WeatherIcons -->
+    <link rel="stylesheet" type="text/css" href="/Services/Twsl/assets/weatherIcons/css/weather-icons.min.css" />
+
+    <!-- Rickshaw -->
+    <link rel="stylesheet" type="text/css" href="/Services/Twsl/assets/rickshaw/rickshaw.min.css" />
+
+    <!-- jvectormap -->
+    <link rel="stylesheet" type="text/css" href="/Services/Twsl/assets/jquery-jvectormap/jquery-jvectormap.css" />
+
+    <!-- Google Prettify -->
+    <link rel="stylesheet" type="text/css" href="/Services/Twsl/assets/google-code-prettify/prettify.css" />
+    <!-- Main -->
+    <link rel="stylesheet" type="text/css" href="/Services/Twsl/assets/_con/css/_con-light-green.min.css" />
+
+
+    <link rel="stylesheet" href="/Services/Twsl/assets/royalslider/royalslider.css">
+
+    <link rel="stylesheet" href="/Services/Twsl/assets/royalslider/skins/minimal-white/rs-minimal-white.css">
+
+
+    <script type="text/javascript" src="/Services/Twsl/Scripts/blockUI/jquery.blockUI.js"></script>
+
+    <script type="text/javascript">
+        
+        var webApiHost = '<%= ConfigurationManager.AppSettings["TWSLURL"].ToString() %>';
+
+        $(document).ajaxStop($.unblockUI);
+
+        var value = '@Request.RequestContext.HttpContext.Session["someKey"]';
+
+        $(function () {
+           
+            var getEstablishmentCount = function () {
+                $.ajax({
+                    url: webApiHost + '/api/EstablishmentMailBox/UnreadedMessageCount?userid=' + $('#masterUserId').val(),
+                    type: 'GET',
+                    contentType: 'application/json; charset=utf-8'
+                }).success(function (count) {
+
+                    if (count > 0) {
+                        $('#count').show().closest("li").show();
+                        $('#count').text(count);
+                       
+                    } else {
+                      //  $('#count').hide().closest("li").hide();
+                    }
+
+                }).error(function (xhr, status, err) {
+                    $('#count').text('0');
+                //    $('#count').hide().closest("li").hide();
+                });
+            }
+            getEstablishmentCount();
+            setInterval(function () { getEstablishmentCount(); }, 5000);
+        });
+
+    </script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server" >
+    
+        <asp:HiddenField runat="server" ID="masterUserId" ClientIDMode="Static"/>
+        <asp:HiddenField runat="server" ID="masterEstablishmentId" ClientIDMode="Static"/>
+        <nav class="navbar-top">
+    <div class="nav-wrapper">
+
+      <!-- Sidebar toggle -->
+      <a href="#" class="yay-toggle">
+        <div class="burg1"></div>
+        <div class="burg2"></div>
+        <div class="burg3"></div>
+      </a>
+      <!-- Sidebar toggle -->
+
+      <!-- Logo -->
+      <a href="#!" class="brand-logo">
+       <!-- <img src="/Services/Twsl/assets/_con/images/logo-services.png" alt="logo" style="">-->
+       <h5>الخدمات الإلكترونية للشركات</h5>
+      </a>
+      <!-- /Logo -->
+
+         <!-- Menu -->
+      <ul>
+        <%--<li><a href="#!" class="search-bar-toggle"><i class="mdi-action-search"></i>
+            </a>
+        </li>--%>
+       <li><span id="count" style="display: inline;">0</span> <a href="/Services/Twsl/Establishment/EstablishmentMaiBox.aspx/inbox/0" style="font-size: 1em;vertical-align: middle;display: inline">التنبيهات</a></li>
+
+          <li> <a href="/CIW/Dashboard.aspx" class=""><span  style="font-size: 1.5em;vertical-align: middle;"></span>الانتقال للمنشأة</a></li>
+
+        <li class="user">
+          <a class="dropdown-button" href="#!" data-activates="user-dropdown" id="user_dropdown" runat="server">
+              <img id="userImage" src="/Services/Twsl/assets/_con/images/loai.jpg" alt="Loai Labani" runat="server" class="circle"/>
+               <label style="color: #ffffff; font-size: 1.5em; font-family: frutigerlight, Roboto, sans-serif;" id="userNameLabel" runat="server">محمد سالم</label>
+              <i class="mdi-navigation-expand-more right"></i>
+          </a>
+
+         <ul id="user-dropdown" class="dropdown-content">
+            <li><a href="/Services/Twsl/Individual/Home.aspx"><i class="fa fa-user"></i> حسابي</a>
+           </li>
+           
+            <li><a href="/Services/UserProfile/Pages/EditUserProfile.aspx "><i class="fa fa-cogs"></i> تعديل بيانات المستخدم</a>
+            </li>
+              <li><a href="/IndividualUser/ChangePassword.aspx "><i class="fa fa-cogs"></i> تغيير كلمة المرور</a>
+            </li>
+            <li class="divider"></li>
+            <li><a href="/SecureSSL/Loginout.aspx"><i class="fa fa-sign-out"></i> تسجيل الخروج</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <!-- /Menu -->
+
+    </div>
+  </nav>
+        <!-- /Top Navbar -->
+
+        <aside class="yaybar yay-shrink yay-hide-to-small yay-gestures yay-light yay-static">
+
+    <div class="top">
+      <div>
+        <!-- Sidebar toggle -->
+        <a href="#" class="yay-toggle">
+          <div class="burg1"></div>
+          <div class="burg2"></div>
+          <div class="burg3"></div>
+        </a>
+        <!-- Sidebar toggle -->
+
+        <!-- Logo -->
+        <a href="#" class="brand-logo">
+          <img src="/Services/Twsl/assets/_con/images/logo-white.png" alt="Con" />
+        </a>
+        <!-- /Logo -->
+      </div>
+    </div>
+
+
+    <div class="nano">
+      <div class="nano-content">
+          
+          <ul>
+          <li class="" style="text-align: center;line-height: 5.9;border-left: 2px solid #e5e5e5;border-bottom: 1px solid #e5e5e5;overflow: hidden;">
+          <img src="/Services/Twsl/assets/_con/images/line-mol.png" alt="" style="width: 170px;vertical-align: middle;" /></li>
+		
+          
+          <li>
+            <a class="yay-sub-toggle waves-effect waves-green"  href="#" ><i class="mdi-file-folder-shared"></i>منشآتي</a>
+            
+          </li>
+
+          <li>
+            <a class="yay-sub-toggle waves-effect waves-green"  href="#" ><i class="mdi-av-my-library-add"></i> أضف منشأة</a>
+            
+          </li>
+          
+        </ul>
+
+          <ul>
+             
+              <li>
+              <a class="yay-sub-toggle waves-effect waves-green">أدوات وروابط مهمة<span class="yay-collapse-icon mdi-navigation-expand-more"></span></a>
+        <ul>
+          <li>
+            <a class="waves-effect waves-green"  href="#" ><i class="mdi-editor-merge-type"></i>وزارة العمل</a>
+            
+          </li>
+
+          <li>
+            <a class="waves-effect waves-green"  href="#" ><i class="mdi-file-folder-open"></i> مكتب العمل</a>
+            
+          </li>
+              <li>
+            <a class="waves-effect waves-green"  href="#" ><i class="mdi-image-color-lens"></i> نطاقات</a>
+            
+          </li>
+        </ul>
+           </li>
+        </ul>
+
+        <ul>
+            <li>
+         <a class="yay-sub-toggle waves-effect waves-green">خدمات منصة تواصل<span class="yay-collapse-icon mdi-navigation-expand-more"></span></a>
+                <ul>
+          <li>
+            <a class="waves-effect waves-green"  href="/Services/Twsl/Establishment/EstablishmentMaiBox.aspx/inbox/0" ><i class="mdi-file-file-download"></i>صندوق الوارد</a>
+            
+          </li>
+
+          <li>
+            <a class=" waves-effect waves-green"  href="/Services/Twsl/Establishment/EstablishmentUSPreferences.aspx" ><i class="mdi-action-settings"></i> ادارة خواص التنبيهات</a>
+            
+          </li>
+                    </ul>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </aside>
+        <!-- /Yay Sidebar -->
+
+
+        <!-- Main Content -->
+        <section class="content-wrap">
+
+
+    <!-- Breadcrumb -->
+    <div class="page-title">
+      
+          <asp:ContentPlaceHolder ID="PageTitle" runat="server">
+        </asp:ContentPlaceHolder>
+   
+
+    </div>
+    <!-- /Breadcrumb -->
+
+    <!-- Stats Panels --> 
+    <div class="row">
+     
+      
+      
+      
+    </div>
+    <!-- /Stats Panels -->
+   <!--  Ads Slider -->
+
+
+<!-- / Ads Slider -->
+
+    
+
+<%--    <div class="row sortable">--%>
+        <asp:ContentPlaceHolder id="contentBody" runat="server">
+            </asp:ContentPlaceHolder>
+      <!-- Mail Card -->
+      
+      <!-- /Mail Card -->
+      
+
+  <%--       </div>--%>
+
+    </section>
+        <!-- /Main Content -->
+
+        <!-- Search Bar -->
+        <div class="search-bar">
+            <div class="layer-overlay"></div>
+            <div class="layer-content">
+                <form action="#!">
+                    <!-- Header -->
+                    <a class="search-bar-toggle grey-text text-darken-2" href="#!"><i class="mdi-navigation-close"></i></a>
+
+                    <!-- Search Input -->
+                    <div class="input-field">
+                        <i class="mdi-action-search prefix"></i>
+                        <input type="text" name="con-search" placeholder="ابحث الآن ...">
+                    </div>
+
+                    <!-- Search Results -->
+                    <div class="search-results">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+        <!-- /Search Bar -->
+
+
+    </form>
+    <footer>جميع الحقوق محفوظة لوزارة العمل بالمملكة العربية السعودية 2015 <span class="grey-text text-lighten-2">|</span> <a href="#" class="brown-text text-lighten-2">شروط الاستخدام</a> <span class="grey-text text-lighten-2">|</span> <a href="#" class="brown-text text-lighten-2">سياسة الخصوصية</a>
+  
+  </footer>
+    <!-- DEMO [REMOVE IT ON PRODUCTION] -->
+    <script type="text/javascript" src="/Services/Twsl/assets/_con/js/_demo.js"></script>
+
+    <!-- jQuery 
+    <script type="text/javascript" src="/Services/Twsl/assets/jquery/jquery.min.js"></script>
+
+    <script type="text/javascript" src="/Services/Twsl/assets/"></script>-->
+    <!-- jQuery RAF (improved animation performance) -->
+    <script type="text/javascript" src="/Services/Twsl/assets/jqueryRAF/jquery.requestAnimationFrame.min.js"></script>
+
+    <!-- nanoScroller -->
+    <script type="text/javascript" src="/Services/Twsl/assets/nanoScroller/jquery.nanoscroller.min.js"></script>
+
+    <!-- Materialize -->
+    <script type="text/javascript" src="/Services/Twsl/assets/materialize/js/materialize.min.js"></script>
+
+
+    <!-- Simple Weather -->
+    <script type="text/javascript" src="/Services/Twsl/assets/simpleWeather/jquery.simpleWeather.min.js"></script>
+
+    <!-- Sparkline -->
+    <script type="text/javascript" src="/Services/Twsl/assets/sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Flot -->
+    <script type="text/javascript" src="/Services/Twsl/assets/flot/jquery.flot.min.js"></script>
+    <script type="text/javascript" src="/Services/Twsl/assets/flot/jquery.flot.time.min.js"></script>
+    <script type="text/javascript" src="/Services/Twsl/assets/flot/jquery.flot.pie.min.js"></script>
+    <script type="text/javascript" src="/Services/Twsl/assets/flot/jquery.flot.tooltip.min.js"></script>
+    <script type="text/javascript" src="/Services/Twsl/assets/flot/jquery.flot.categories.min.js"></script>
+
+    <!-- d3 -->
+    <script type="text/javascript" src="/Services/Twsl/assets/d3/d3.min.js"></script>
+
+    <!-- Rickshaw -->
+    <script type="text/javascript" src="/Services/Twsl/assets/rickshaw/rickshaw.min.js"></script>
+
+    <!-- jvectormap -->
+    <script type="text/javascript" src="/Services/Twsl/assets/jquery-jvectormap/jquery-jvectormap.min.js"></script>
+    <script type="text/javascript" src="/Services/Twsl/assets/jquery-jvectormap/jquery-jvectormap-world-mill-en.js"></script>
+    <script type="text/javascript" src="/Services/Twsl/assets/jquery-jvectormap/gdp-data.js"></script>
+    <!-- Sortable -->
+    <script type="text/javascript" src="/Services/Twsl/assets/sortable/Sortable.min.js"></script>
+
+    <!-- Main -->
+    <script type="text/javascript" src="/Services/Twsl/assets/_con/js/_con.min.js"></script>
+
+
+    <!-- Google Prettify -->
+    <script type="text/javascript" src="/Services/Twsl/assets/google-code-prettify/prettify.js"></script>
+
+
+    <%-- <script type="text/javascript" src="/scripts/jquery-2.1.4.js"></script>--%>
+    <!-- Data Tables -->
+    <script type="text/javascript" src="/Services/Twsl/assets/dataTables/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="/Services/Twsl/assets/dataTables/extensions/TableTools/js/dataTables.tableTools.min.js"></script>
+    <script type="text/javascript" src="/Services/Twsl/assets/dataTables/extensions/Scroller/js/dataTables.scroller.min.js"></script>
+    <!-- Slider -->
+    <script src="/Services/Twsl/assets/royalslider/jquery.royalslider.min.js"></script>
+
+    <!-- Google Prettify -->
+    <script type="text/javascript" src="/Services/Twsl/assets/google-code-prettify/prettify.js"></script>
+    
+
+    <script type="text/javascript" src="/Services/Twsl/assets/parsley/parsley.min.js"></script>
+</body>
+
+
+</html>

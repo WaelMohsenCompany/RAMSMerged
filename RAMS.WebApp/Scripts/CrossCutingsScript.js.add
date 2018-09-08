@@ -1,0 +1,86 @@
+﻿/// <summary>
+///     /just a sample of code
+/// </summary>
+loadCategories = function() {
+    $.ajax({
+        url: "/api/Northwind/GetCategories",
+        type: "GET"
+    }).success(function(cats) {
+        $.each(cats, function(i, item) {
+            $("tbody").append($("#catTmpl").html().replace("${item.CategoryName}", item.CategoryName)
+                .replace("${item.Description}", item.Description)
+                .replace("${item.CategoryID}", item.CategoryID)
+                .replace("${item.CategoryID}", item.CategoryID));
+        });
+        //$('table').dataTable();
+    }).error(function(xhr, err) {
+        console.log(xhr);
+    });
+};
+loadCategoryById = function(id) {
+    $.ajax({
+        url: "/api/Northwind/GetCategory/" + id,
+        type: "GET",
+        dataType: "Json"
+    }).success(function(category) {
+        $("#CategoryID").val(category.CategoryID);
+        $("#CategoryName").val(category.CategoryName);
+        $("#Description").val(category.Description);
+    }).error(function(xhr, err) {
+        console.log(xhr);
+    });
+};
+deleteCategory = function(id) {
+    var data = { id: id };
+    if (confirm("are you sure .. Delete??")) {
+        $.ajax({
+            url: "/api/Northwind/DeleteCategory/" + id,
+            type: "DELETE",
+            dataType: "Json",
+            data: JSON.stringify(data)
+        }).success(function(res) {
+            window.location.reload();
+        }).error(function(xhr, err) {
+            console.log(xhr);
+        });
+
+    }
+
+};
+createCategory = function(category) {
+    $.ajax({
+        url: "/api/Northwind/PostCategory",
+        type: "POST",
+        dataType: "Json",
+        data: { CategoryName: category.CategoryName, Description: category.Description }
+    }).success(function(res) {
+        window.location.href = "/Categories.aspx";
+        console.log("success");
+    }).error(function(xhr, err) {
+        console.log(xhr);
+    });
+};
+editCategory = function(category) {
+    $.ajax({
+        url: "/api/Northwind/PutCategory/" + category.CategoryID,
+        type: "PUT",
+        dataType: "Json",
+        data: { id: category.CategoryID, CategoryID: category.CategoryID, CategoryName: category.CategoryName, Description: category.Description }
+    }).success(function(res) {
+        window.location.href = "/Categories.aspx";
+    }).error(function(xhr, err) {
+        console.log(xhr);
+    });
+};
+fillDllCategories = function() {
+    $.ajax({
+        url: "/api/Northwind/FillCategoriesDDL",
+        type: "GET"
+    }).success(function(cats) {
+        $.each(cats, function(i, item) {
+            $("#ddlCategories").append("<option value=\"" + item.CategoryID + "\">" + item.CategoryName + "</option>");
+        });
+    }).error(function(xhr, err) {
+        console.log(xhr);
+    });
+};

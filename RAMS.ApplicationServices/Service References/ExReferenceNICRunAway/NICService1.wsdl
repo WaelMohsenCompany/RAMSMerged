@@ -1,0 +1,1202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://mol.gov.sa/services/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:q1="http://schemas.datacontract.org/2004/07/Mol.Integration.Services.Contracts" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="NICService" targetNamespace="http://mol.gov.sa/services/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NIC_EndPoint_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Lax />
+              </wsp:Policy>
+            </sp:Layout>
+            <sp:IncludeTimestamp />
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <sp:SignedSupportingTokens xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:UsernameToken sp:IncludeToken="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy/IncludeToken/AlwaysToRecipient">
+              <wsp:Policy>
+                <sp:WssUsernameToken10 />
+              </wsp:Policy>
+            </sp:UsernameToken>
+          </wsp:Policy>
+        </sp:SignedSupportingTokens>
+        <sp:Wss10 xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy />
+        </sp:Wss10>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xs:schema elementFormDefault="qualified" targetNamespace="http://mol.gov.sa/services/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://mol.gov/ManPowerService" />
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xs:import namespace="http://schemas.datacontract.org/2004/07/Mol.Integration.Services.Contracts.NIC" />
+      <xs:element name="CancelVisa">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="requestNumber" type="xs:double" />
+            <xs:element minOccurs="0" name="borderNumber" type="xs:double" />
+            <xs:element minOccurs="0" name="operatorId" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CancelVisaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CancelVisaResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ValidateAlienSponsorBusiness">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="alienId" type="xs:double" />
+            <xs:element minOccurs="0" name="sponsorId" type="xs:double" />
+            <xs:element minOccurs="0" name="laborOfficeId" type="xs:short" />
+            <xs:element minOccurs="0" name="sequenceNumber" type="xs:double" />
+            <xs:element minOccurs="0" name="isPrivate" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ValidateAlienSponsorBusinessResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ValidateAlienSponsorBusinessResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateAlienSponsorBusiness">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="alienId" type="xs:double" />
+            <xs:element minOccurs="0" name="sponsorId" type="xs:double" />
+            <xs:element minOccurs="0" name="laborOfficeId" type="xs:short" />
+            <xs:element minOccurs="0" name="sequenceNumber" type="xs:double" />
+            <xs:element minOccurs="0" name="isPrivate" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="UpdateAlienSponsorBusinessResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="UpdateAlienSponsorBusinessResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="QueryDependentsByID">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdNo" type="xs:double" />
+            <xs:element minOccurs="0" name="operatorId" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="QueryDependentsByIDResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="QueryDependentsByIDResult" nillable="true" type="tns:DependentsData" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="DependentsData">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://mol.gov/ManPowerService" minOccurs="0" name="BirthDate" nillable="true" type="q1:DateStructure" />
+          <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="MaritalStatus" nillable="true" type="tns:LookupStructure" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="tns:NameStructure" />
+          <xs:element minOccurs="0" name="Nationality" nillable="true" type="tns:LookupStructure" />
+          <xs:element minOccurs="0" name="Occupation" nillable="true" type="tns:LookupStructure" />
+          <xs:element minOccurs="0" name="Relationship" nillable="true" type="tns:LookupStructure" />
+          <xs:element minOccurs="0" name="Religion" nillable="true" type="tns:LookupStructure" />
+          <xs:element minOccurs="0" name="Residency" nillable="true" type="tns:ResidencyStructure" />
+          <xs:element minOccurs="0" name="Sponsor" nillable="true" type="tns:SponsorStructure" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="tns:StatusStructure" />
+          <xs:element minOccurs="0" name="Travel" nillable="true" type="tns:TravelStructure" />
+          <xs:element minOccurs="0" name="Visa" nillable="true" type="tns:VisaStructure" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DependentsData" nillable="true" type="tns:DependentsData" />
+      <xs:complexType name="LookupStructure">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:int" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="LookupStructure" nillable="true" type="tns:LookupStructure" />
+      <xs:complexType name="NameStructure">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FullName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="LastName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SecondName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ThirdName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="TranslatedName" nillable="true" type="tns:NameStructure" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="NameStructure" nillable="true" type="tns:NameStructure" />
+      <xs:complexType name="ResidencyStructure">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://mol.gov/ManPowerService" minOccurs="0" name="ExpiryDate" nillable="true" type="q2:DateStructure" />
+          <xs:element minOccurs="0" name="IdNo" type="xs:double" />
+          <xs:element minOccurs="0" name="IdType" nillable="true" type="xs:string" />
+          <xs:element xmlns:q3="http://mol.gov/ManPowerService" minOccurs="0" name="IssueDate" nillable="true" type="q3:DateStructure" />
+          <xs:element minOccurs="0" name="IssuePlace" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ResidencyStructure" nillable="true" type="tns:ResidencyStructure" />
+      <xs:complexType name="SponsorStructure">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdNo" type="xs:double" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Occupation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Type" nillable="true" type="tns:LookupStructure" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="SponsorStructure" nillable="true" type="tns:SponsorStructure" />
+      <xs:complexType name="StatusStructure">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FingerPrintStatus" type="xs:boolean" />
+          <xs:element minOccurs="0" name="PersonStatus" nillable="true" type="tns:LookupStructure" />
+          <xs:element minOccurs="0" name="PrisonerStatus" type="xs:boolean" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="StatusStructure" nillable="true" type="tns:StatusStructure" />
+      <xs:complexType name="TravelStructure">
+        <xs:sequence>
+          <xs:element xmlns:q4="http://mol.gov/ManPowerService" minOccurs="0" name="EntryDate" nillable="true" type="q4:DateStructure" />
+          <xs:element xmlns:q5="http://mol.gov/ManPowerService" minOccurs="0" name="LastEntryDate" nillable="true" type="q5:DateStructure" />
+          <xs:element xmlns:q6="http://mol.gov/ManPowerService" minOccurs="0" name="LastExitDate" nillable="true" type="q6:DateStructure" />
+          <xs:element xmlns:q7="http://mol.gov/ManPowerService" minOccurs="0" name="PassportExpiryDate" nillable="true" type="q7:DateStructure" />
+          <xs:element minOccurs="0" name="TravelStatus" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="TravelStructure" nillable="true" type="tns:TravelStructure" />
+      <xs:complexType name="VisaStructure">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="FinalExitVisaIssued" type="xs:boolean" />
+          <xs:element xmlns:q8="http://mol.gov/ManPowerService" minOccurs="0" name="VisaExpiryDate" nillable="true" type="q8:DateStructure" />
+          <xs:element minOccurs="0" name="VisaType" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="VisaStructure" nillable="true" type="tns:VisaStructure" />
+      <xs:element name="CheckVehicleOwner">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="vehicleSequenceNo" type="xs:double" />
+            <xs:element minOccurs="0" name="ownerId" type="xs:double" />
+            <xs:element minOccurs="0" name="operatorId" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckVehicleOwnerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CheckVehicleOwnerResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckVehiclePreviousOwner">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="vehicleSequenceNo" type="xs:double" />
+            <xs:element minOccurs="0" name="previousOwnerId" type="xs:double" />
+            <xs:element minOccurs="0" name="operatorId" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckVehiclePreviousOwnerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CheckVehiclePreviousOwnerResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckVehicleCoOwner">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="vehicleSequenceNo" type="xs:double" />
+            <xs:element minOccurs="0" name="coOwnerId" type="xs:double" />
+            <xs:element minOccurs="0" name="operatorId" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CheckVehicleCoOwnerResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CheckVehicleCoOwnerResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetLabrorPrisonStatus">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdNo" type="xs:double" />
+            <xs:element minOccurs="0" name="operatorId" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetLabrorPrisonStatusResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetLabrorPrisonStatusResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AuthenticateUserByMobile">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdNo" type="xs:double" />
+            <xs:element minOccurs="0" name="smsCode" nillable="true" type="xs:string" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="AuthenticateUserByMobileResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="AuthenticateUserByMobileResult" type="xs:boolean" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateRunaway">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="validate" type="xs:boolean" />
+            <xs:element minOccurs="0" name="runawayId" type="xs:double" />
+            <xs:element minOccurs="0" name="reporterId" type="xs:double" />
+            <xs:element minOccurs="0" name="dateHijri" type="xs:int" />
+            <xs:element minOccurs="0" name="operatorId" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CreateRunawayResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CreateRunawayResult" nillable="true" type="tns:RunawayReplyInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="RunawayReplyInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Code" type="xs:int" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ReporterName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Requester" nillable="true" type="tns:RunawayRequester" />
+          <xs:element minOccurs="0" name="Runaway" nillable="true" type="tns:RunawayInfo" />
+          <xs:element minOccurs="0" name="SeqNo" type="xs:double" />
+          <xs:element minOccurs="0" name="TotalRecords" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="RunawayReplyInfo" nillable="true" type="tns:RunawayReplyInfo" />
+      <xs:complexType name="RunawayRequester">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdNo" type="xs:double" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="RunawayRequester" nillable="true" type="tns:RunawayRequester" />
+      <xs:complexType name="RunawayInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Date" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstEntryDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="IdNo" type="xs:double" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Nationality" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Occupation" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="PassportNo" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ResidencyExpDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Sponsor" nillable="true" type="tns:SponsorStructure" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="RunawayInfo" nillable="true" type="tns:RunawayInfo" />
+      <xs:element name="CancelRunaway">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="validate" type="xs:boolean" />
+            <xs:element minOccurs="0" name="runawayId" type="xs:double" />
+            <xs:element minOccurs="0" name="reporterId" type="xs:double" />
+            <xs:element minOccurs="0" name="remark" nillable="true" type="xs:string" />
+            <xs:element minOccurs="0" name="operatorId" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="CancelRunawayResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="CancelRunawayResult" nillable="true" type="tns:RunawayReplyInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCitizenInfo">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdNo" type="xs:long" />
+            <xs:element minOccurs="0" name="birthDate" type="xs:int" />
+            <xs:element minOccurs="0" name="operatorId" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="GetCitizenInfoResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="GetCitizenInfoResult" nillable="true" type="tns:CitizenInfo" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="CitizenInfo">
+        <xs:sequence>
+          <xs:element xmlns:q9="http://mol.gov/ManPowerService" minOccurs="0" name="BirthDate" nillable="true" type="q9:DateStructure" />
+          <xs:element minOccurs="0" name="BirthPlace" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Gender" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Identity" nillable="true" type="tns:IdStructure" />
+          <xs:element minOccurs="0" name="MaritalStatus" nillable="true" type="tns:LookupStructure" />
+          <xs:element minOccurs="0" name="Name" nillable="true" type="tns:NameStructure" />
+          <xs:element minOccurs="0" name="Occupation" nillable="true" type="tns:LookupStructure" />
+          <xs:element minOccurs="0" name="Status" nillable="true" type="tns:StatusStructure" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="CitizenInfo" nillable="true" type="tns:CitizenInfo" />
+      <xs:complexType name="IdStructure">
+        <xs:sequence>
+          <xs:element xmlns:q10="http://mol.gov/ManPowerService" minOccurs="0" name="ExpiryDate" nillable="true" type="q10:DateStructure" />
+          <xs:element minOccurs="0" name="IdNo" type="xs:double" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IdStructure" nillable="true" type="tns:IdStructure" />
+      <xs:element name="IssueWorkPermit">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdNo" type="xs:long" />
+            <xs:element minOccurs="0" name="sponsoIdNo" type="xs:long" />
+            <xs:element minOccurs="0" name="permit" nillable="true" type="tns:WorkPermitInfo" />
+            <xs:element minOccurs="0" name="operatorId" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="WorkPermitInfo">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="DurationInMonths" type="xs:int" />
+          <xs:element minOccurs="0" name="EndDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Establishment" nillable="true" type="tns:FileNumber" />
+          <xs:element minOccurs="0" name="LaborOfficeId" type="xs:int" />
+          <xs:element minOccurs="0" name="Occupation" nillable="true" type="tns:LookupStructure" />
+          <xs:element minOccurs="0" name="PermitNo" type="xs:long" />
+          <xs:element minOccurs="0" name="StartDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Type" type="tns:WorkPermitType" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="WorkPermitInfo" nillable="true" type="tns:WorkPermitInfo" />
+      <xs:complexType name="FileNumber">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="LaborOfficeId" type="xs:int" />
+          <xs:element minOccurs="0" name="SequenceNumber" type="xs:long" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="FileNumber" nillable="true" type="tns:FileNumber" />
+      <xs:simpleType name="WorkPermitType">
+        <xs:restriction base="xs:string">
+          <xs:enumeration value="Unknown" />
+          <xs:enumeration value="Issue" />
+          <xs:enumeration value="Renew" />
+          <xs:enumeration value="Temp">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">7</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+          <xs:enumeration value="FinalExit">
+            <xs:annotation>
+              <xs:appinfo>
+                <EnumerationValue xmlns="http://schemas.microsoft.com/2003/10/Serialization/">8</EnumerationValue>
+              </xs:appinfo>
+            </xs:annotation>
+          </xs:enumeration>
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="WorkPermitType" nillable="true" type="tns:WorkPermitType" />
+      <xs:element name="IssueWorkPermitResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IssueWorkPermitResult" nillable="true" type="tns:IssueWorkPermitResult" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="IssueWorkPermitResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdNo" type="xs:double" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Permit" nillable="true" type="tns:WorkPermitInfo" />
+          <xs:element minOccurs="0" name="Status" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IssueWorkPermitResult" nillable="true" type="tns:IssueWorkPermitResult" />
+      <xs:element name="ValidateIssueWorkPermit">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IdNo" type="xs:long" />
+            <xs:element minOccurs="0" name="sponsoIdNo" type="xs:long" />
+            <xs:element minOccurs="0" name="permit" nillable="true" type="tns:WorkPermitInfo" />
+            <xs:element minOccurs="0" name="operatorId" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="ValidateIssueWorkPermitResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="ValidateIssueWorkPermitResult" nillable="true" type="tns:IssueWorkPermitResult" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="QueryWorkPermit">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="laborOfficeId" type="xs:int" />
+            <xs:element minOccurs="0" name="licenseNo" type="xs:int" />
+            <xs:element minOccurs="0" name="IdNo" type="xs:double" />
+            <xs:element minOccurs="0" name="operatorId" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="QueryWorkPermitResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element xmlns:q11="http://schemas.datacontract.org/2004/07/Mol.Integration.Services.Contracts.NIC" minOccurs="0" name="QueryWorkPermitResult" nillable="true" type="q11:QueryWorkPermitResult" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="NicWorkPermitDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdNo" type="xs:double" />
+          <xs:element minOccurs="0" name="Permit" nillable="true" type="tns:WorkPermitInfo" />
+          <xs:element minOccurs="0" name="Status" type="xs:int" />
+          <xs:element minOccurs="0" name="StatusDescription" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="NicWorkPermitDetails" nillable="true" type="tns:NicWorkPermitDetails" />
+      <xs:element name="SendChangeOccupationApproval">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="laborOfficeId" type="xs:int" />
+            <xs:element minOccurs="0" name="serialYear" type="xs:int" />
+            <xs:element minOccurs="0" name="serialNumber" type="xs:int" />
+            <xs:element minOccurs="0" name="IdNo" type="xs:double" />
+            <xs:element minOccurs="0" name="jobCode" type="xs:int" />
+            <xs:element minOccurs="0" name="effectiveDateHijri" type="xs:int" />
+            <xs:element minOccurs="0" name="expirationDateHijri" type="xs:int" />
+            <xs:element minOccurs="0" name="operatorId" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendChangeOccupationApprovalResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SendChangeOccupationApprovalResult" nillable="true" type="tns:ChangeOccupationResult" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ChangeOccupationResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="IdNo" type="xs:double" />
+          <xs:element minOccurs="0" name="IsNicError" type="xs:boolean" />
+          <xs:element minOccurs="0" name="LaborOfficeId" type="xs:int" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SerialNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="SerialYear" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ChangeOccupationResult" nillable="true" type="tns:ChangeOccupationResult" />
+      <xs:element name="SendChangeSponsorApproval">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="laborOfficeId" type="xs:int" />
+            <xs:element minOccurs="0" name="serialYear" type="xs:int" />
+            <xs:element minOccurs="0" name="serialNumber" type="xs:int" />
+            <xs:element minOccurs="0" name="IdNo" type="xs:double" />
+            <xs:element minOccurs="0" name="sponsorId" type="xs:double" />
+            <xs:element minOccurs="0" name="companyLaborOfficeId" type="xs:int" />
+            <xs:element minOccurs="0" name="companySequenceNumber" type="xs:int" />
+            <xs:element minOccurs="0" name="effectiveDateHijri" type="xs:int" />
+            <xs:element minOccurs="0" name="expirationDateHijri" type="xs:int" />
+            <xs:element minOccurs="0" name="operatorId" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:element name="SendChangeSponsorApprovalResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="SendChangeSponsorApprovalResult" nillable="true" type="tns:ChangeSponsorResult" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ChangeSponsorResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CompanyLaborOfficeId" type="xs:int" />
+          <xs:element minOccurs="0" name="CompanySequenceNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="EstablishmentOrCompanyId" type="xs:double" />
+          <xs:element minOccurs="0" name="IdNo" type="xs:double" />
+          <xs:element minOccurs="0" name="LaborOfficeId" type="xs:int" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="SerialNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="SerialYear" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ChangeSponsorResult" nillable="true" type="tns:ChangeSponsorResult" />
+      <xs:element name="IssueVisa">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="laborOfficeId" type="xs:int" />
+            <xs:element minOccurs="0" name="locationCode" type="xs:int" />
+            <xs:element minOccurs="0" name="orderYear" type="xs:int" />
+            <xs:element minOccurs="0" name="orderNo" type="xs:int" />
+            <xs:element minOccurs="0" name="orderDate" type="xs:int" />
+            <xs:element minOccurs="0" name="sponsorId" type="xs:double" />
+            <xs:element minOccurs="0" name="companyLaborOfficeId" type="xs:int" />
+            <xs:element minOccurs="0" name="companySequenceNumber" type="xs:int" />
+            <xs:element minOccurs="0" name="visaType" type="xs:int" />
+            <xs:element minOccurs="0" name="reasonNewCompany" type="xs:int" />
+            <xs:element minOccurs="0" name="reasonAddActivity" type="xs:int" />
+            <xs:element minOccurs="0" name="reasonFinalExit" type="xs:int" />
+            <xs:element minOccurs="0" name="reasonVisaNotUsed" type="xs:int" />
+            <xs:element minOccurs="0" name="reasonExtendedActivity" type="xs:int" />
+            <xs:element minOccurs="0" name="reasonGovernmentContract" type="xs:int" />
+            <xs:element minOccurs="0" name="reasonPrivateContract" type="xs:int" />
+            <xs:element minOccurs="0" name="reasonSeasonalEmployee" type="xs:int" />
+            <xs:element minOccurs="0" name="approvedByIDNumber" type="xs:decimal" />
+            <xs:element minOccurs="0" name="molTimeStamp" type="xs:dateTime" />
+            <xs:element minOccurs="0" name="visasDetailsCollection" nillable="true" type="tns:ArrayOfIssueVisaRequestDetails" />
+            <xs:element minOccurs="0" name="operatorId" type="xs:double" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="ArrayOfIssueVisaRequestDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="IssueVisaRequestDetails" nillable="true" type="tns:IssueVisaRequestDetails" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfIssueVisaRequestDetails" nillable="true" type="tns:ArrayOfIssueVisaRequestDetails" />
+      <xs:complexType name="IssueVisaRequestDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="JobCode" type="xs:int" />
+          <xs:element minOccurs="0" name="NationalityCode" type="xs:int" />
+          <xs:element minOccurs="0" name="ReligionCode" type="xs:int" />
+          <xs:element minOccurs="0" name="Sex" type="xs:int" />
+          <xs:element minOccurs="0" name="VisaIssuePlace" type="xs:int" />
+          <xs:element minOccurs="0" name="VisasRequested" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IssueVisaRequestDetails" nillable="true" type="tns:IssueVisaRequestDetails" />
+      <xs:element name="IssueVisaResponse">
+        <xs:complexType>
+          <xs:sequence>
+            <xs:element minOccurs="0" name="IssueVisaResult" nillable="true" type="tns:IssueVisaResult" />
+          </xs:sequence>
+        </xs:complexType>
+      </xs:element>
+      <xs:complexType name="IssueVisaResult">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Borders" nillable="true" type="tns:ArrayOfNicVisaBorderDetails" />
+          <xs:element minOccurs="0" name="LaborOfficeId" type="xs:int" />
+          <xs:element minOccurs="0" name="Message" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NICVisaDate" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NICVisaNumber" type="xs:double" />
+          <xs:element minOccurs="0" name="NicRefuseComments" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="NicRefuseReason" type="xs:int" />
+          <xs:element minOccurs="0" name="NicResult" type="xs:int" />
+          <xs:element minOccurs="0" name="OrderNumber" type="xs:int" />
+          <xs:element minOccurs="0" name="OrderYear" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="IssueVisaResult" nillable="true" type="tns:IssueVisaResult" />
+      <xs:complexType name="ArrayOfNicVisaBorderDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="NicVisaBorderDetails" nillable="true" type="tns:NicVisaBorderDetails" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfNicVisaBorderDetails" nillable="true" type="tns:ArrayOfNicVisaBorderDetails" />
+      <xs:complexType name="NicVisaBorderDetails">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="BorderNo" type="xs:double" />
+          <xs:element minOccurs="0" name="Job" nillable="true" type="tns:LookupStructure" />
+          <xs:element minOccurs="0" name="Nationality" nillable="true" type="tns:LookupStructure" />
+          <xs:element minOccurs="0" name="Religion" nillable="true" type="tns:LookupStructure" />
+          <xs:element minOccurs="0" name="Sex" nillable="true" type="tns:LookupStructure" />
+          <xs:element minOccurs="0" name="VisaIssuePlace" type="xs:int" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="NicVisaBorderDetails" nillable="true" type="tns:NicVisaBorderDetails" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/" attributeFormDefault="qualified" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="anyType" nillable="true" type="xs:anyType" />
+      <xs:element name="anyURI" nillable="true" type="xs:anyURI" />
+      <xs:element name="base64Binary" nillable="true" type="xs:base64Binary" />
+      <xs:element name="boolean" nillable="true" type="xs:boolean" />
+      <xs:element name="byte" nillable="true" type="xs:byte" />
+      <xs:element name="dateTime" nillable="true" type="xs:dateTime" />
+      <xs:element name="decimal" nillable="true" type="xs:decimal" />
+      <xs:element name="double" nillable="true" type="xs:double" />
+      <xs:element name="float" nillable="true" type="xs:float" />
+      <xs:element name="int" nillable="true" type="xs:int" />
+      <xs:element name="long" nillable="true" type="xs:long" />
+      <xs:element name="QName" nillable="true" type="xs:QName" />
+      <xs:element name="short" nillable="true" type="xs:short" />
+      <xs:element name="string" nillable="true" type="xs:string" />
+      <xs:element name="unsignedByte" nillable="true" type="xs:unsignedByte" />
+      <xs:element name="unsignedInt" nillable="true" type="xs:unsignedInt" />
+      <xs:element name="unsignedLong" nillable="true" type="xs:unsignedLong" />
+      <xs:element name="unsignedShort" nillable="true" type="xs:unsignedShort" />
+      <xs:element name="char" nillable="true" type="tns:char" />
+      <xs:simpleType name="char">
+        <xs:restriction base="xs:int" />
+      </xs:simpleType>
+      <xs:element name="duration" nillable="true" type="tns:duration" />
+      <xs:simpleType name="duration">
+        <xs:restriction base="xs:duration">
+          <xs:pattern value="\-?P(\d*D)?(T(\d*H)?(\d*M)?(\d*(\.\d*)?S)?)?" />
+          <xs:minInclusive value="-P10675199DT2H48M5.4775808S" />
+          <xs:maxInclusive value="P10675199DT2H48M5.4775807S" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:element name="guid" nillable="true" type="tns:guid" />
+      <xs:simpleType name="guid">
+        <xs:restriction base="xs:string">
+          <xs:pattern value="[\da-fA-F]{8}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{4}-[\da-fA-F]{12}" />
+        </xs:restriction>
+      </xs:simpleType>
+      <xs:attribute name="FactoryType" type="xs:QName" />
+      <xs:attribute name="Id" type="xs:ID" />
+      <xs:attribute name="Ref" type="xs:IDREF" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Mol.Integration.Services.Contracts" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Mol.Integration.Services.Contracts" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+      <xs:complexType name="NICFaultContract">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="ErrorCode" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="ErrorMessage" nillable="true" type="xs:string" />
+          <xs:element xmlns:q1="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Insert" nillable="true" type="q1:ArrayOfstring" />
+          <xs:element minOccurs="0" name="IsNicBusinessError" type="xs:boolean" />
+          <xs:element minOccurs="0" name="RaisedBy" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="NICFaultContract" nillable="true" type="tns:NICFaultContract" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.microsoft.com/2003/10/Serialization/Arrays" elementFormDefault="qualified" targetNamespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="ArrayOfstring">
+        <xs:sequence>
+          <xs:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="ArrayOfstring" nillable="true" type="tns:ArrayOfstring" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://mol.gov/ManPowerService" elementFormDefault="qualified" targetNamespace="http://mol.gov/ManPowerService" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:complexType name="DateStructure">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="GregorianDate" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="GregorianDateSpecified" type="xs:boolean" />
+          <xs:element minOccurs="0" name="HijriDate" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="DateStructure" nillable="true" type="tns:DateStructure" />
+    </xs:schema>
+    <xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/Mol.Integration.Services.Contracts.NIC" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Mol.Integration.Services.Contracts.NIC" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:import namespace="http://mol.gov.sa/services/" />
+      <xs:complexType name="QueryWorkPermitResult">
+        <xs:sequence>
+          <xs:element xmlns:q1="http://mol.gov.sa/services/" minOccurs="0" maxOccurs="unbounded" name="NicWorkPermitDetails" nillable="true" type="q1:NicWorkPermitDetails" />
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="QueryWorkPermitResult" nillable="true" type="tns:QueryWorkPermitResult" />
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="INICService_GetLabrorPrisonStatus_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetLabrorPrisonStatus" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CheckVehicleOwner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckVehicleOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_IssueVisa_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_GetCitizenInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetCitizenInfo" />
+  </wsdl:message>
+  <wsdl:message name="INICService_ValidateIssueWorkPermit_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateIssueWorkPermit" />
+  </wsdl:message>
+  <wsdl:message name="INICService_QueryWorkPermit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryWorkPermitResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_SendChangeOccupationApproval_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CreateRunaway_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRunawayResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_IssueWorkPermit_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_IssueVisa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IssueVisaResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CheckVehicleOwner_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_SendChangeOccupationApproval_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendChangeOccupationApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_IssueVisa_InputMessage">
+    <wsdl:part name="parameters" element="tns:IssueVisa" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CheckVehiclePreviousOwner_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CheckVehiclePreviousOwner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckVehiclePreviousOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_GetLabrorPrisonStatus_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CreateRunaway_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CancelRunaway_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelRunawayResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_IssueWorkPermit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:IssueWorkPermitResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_QueryDependentsByID_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryDependentsByID" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CheckVehicleCoOwner_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CancelVisa_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelVisa" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CheckVehicleCoOwner_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CheckVehicleCoOwnerResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_QueryWorkPermit_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_AuthenticateUserByMobile_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_SendChangeSponsorApproval_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SendChangeSponsorApprovalResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_ValidateAlienSponsorBusiness_InputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateAlienSponsorBusiness" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CancelRunaway_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_GetCitizenInfo_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CheckVehicleCoOwner_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckVehicleCoOwner" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CreateRunaway_InputMessage">
+    <wsdl:part name="parameters" element="tns:CreateRunaway" />
+  </wsdl:message>
+  <wsdl:message name="INICService_SendChangeSponsorApproval_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_UpdateAlienSponsorBusiness_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CancelVisa_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_ValidateAlienSponsorBusiness_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CheckVehiclePreviousOwner_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckVehiclePreviousOwner" />
+  </wsdl:message>
+  <wsdl:message name="INICService_QueryDependentsByID_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_IssueWorkPermit_InputMessage">
+    <wsdl:part name="parameters" element="tns:IssueWorkPermit" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CancelRunaway_InputMessage">
+    <wsdl:part name="parameters" element="tns:CancelRunaway" />
+  </wsdl:message>
+  <wsdl:message name="INICService_SendChangeOccupationApproval_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendChangeOccupationApproval" />
+  </wsdl:message>
+  <wsdl:message name="INICService_ValidateIssueWorkPermit_NICFaultContractFault_FaultMessage">
+    <wsdl:part name="detail" element="q1:NICFaultContract" />
+  </wsdl:message>
+  <wsdl:message name="INICService_UpdateAlienSponsorBusiness_OutputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAlienSponsorBusinessResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_ValidateAlienSponsorBusiness_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateAlienSponsorBusinessResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_QueryDependentsByID_OutputMessage">
+    <wsdl:part name="parameters" element="tns:QueryDependentsByIDResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CheckVehicleOwner_InputMessage">
+    <wsdl:part name="parameters" element="tns:CheckVehicleOwner" />
+  </wsdl:message>
+  <wsdl:message name="INICService_SendChangeSponsorApproval_InputMessage">
+    <wsdl:part name="parameters" element="tns:SendChangeSponsorApproval" />
+  </wsdl:message>
+  <wsdl:message name="INICService_QueryWorkPermit_InputMessage">
+    <wsdl:part name="parameters" element="tns:QueryWorkPermit" />
+  </wsdl:message>
+  <wsdl:message name="INICService_GetLabrorPrisonStatus_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetLabrorPrisonStatusResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_CancelVisa_OutputMessage">
+    <wsdl:part name="parameters" element="tns:CancelVisaResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_AuthenticateUserByMobile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateUserByMobileResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_ValidateIssueWorkPermit_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ValidateIssueWorkPermitResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_GetCitizenInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetCitizenInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="INICService_UpdateAlienSponsorBusiness_InputMessage">
+    <wsdl:part name="parameters" element="tns:UpdateAlienSponsorBusiness" />
+  </wsdl:message>
+  <wsdl:message name="INICService_AuthenticateUserByMobile_InputMessage">
+    <wsdl:part name="parameters" element="tns:AuthenticateUserByMobile" />
+  </wsdl:message>
+  <wsdl:portType name="INICService">
+    <wsdl:operation name="CancelVisa">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/CancelVisa" message="tns:INICService_CancelVisa_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/CancelVisaResponse" message="tns:INICService_CancelVisa_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/CancelVisaNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_CancelVisa_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAlienSponsorBusiness">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/ValidateAlienSponsorBusiness" message="tns:INICService_ValidateAlienSponsorBusiness_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/ValidateAlienSponsorBusinessResponse" message="tns:INICService_ValidateAlienSponsorBusiness_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/ValidateAlienSponsorBusinessNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_ValidateAlienSponsorBusiness_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAlienSponsorBusiness">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/UpdateAlienSponsorBusiness" message="tns:INICService_UpdateAlienSponsorBusiness_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/UpdateAlienSponsorBusinessResponse" message="tns:INICService_UpdateAlienSponsorBusiness_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/UpdateAlienSponsorBusinessNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_UpdateAlienSponsorBusiness_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryDependentsByID">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/QueryDependentsByID" message="tns:INICService_QueryDependentsByID_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/QueryDependentsByIDResponse" message="tns:INICService_QueryDependentsByID_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/QueryDependentsByIDNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_QueryDependentsByID_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckVehicleOwner">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/CheckVehicleOwner" message="tns:INICService_CheckVehicleOwner_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/CheckVehicleOwnerResponse" message="tns:INICService_CheckVehicleOwner_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/CheckVehicleOwnerNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_CheckVehicleOwner_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckVehiclePreviousOwner">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/CheckVehiclePreviousOwner" message="tns:INICService_CheckVehiclePreviousOwner_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/CheckVehiclePreviousOwnerResponse" message="tns:INICService_CheckVehiclePreviousOwner_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/CheckVehiclePreviousOwnerNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_CheckVehiclePreviousOwner_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CheckVehicleCoOwner">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/CheckVehicleCoOwner" message="tns:INICService_CheckVehicleCoOwner_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/CheckVehicleCoOwnerResponse" message="tns:INICService_CheckVehicleCoOwner_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/CheckVehicleCoOwnerNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_CheckVehicleCoOwner_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetLabrorPrisonStatus">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/GetLabrorPrisonStatus" message="tns:INICService_GetLabrorPrisonStatus_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/GetLabrorPrisonStatusResponse" message="tns:INICService_GetLabrorPrisonStatus_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/GetLabrorPrisonStatusNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_GetLabrorPrisonStatus_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUserByMobile">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/AuthenticateUserByMobile" message="tns:INICService_AuthenticateUserByMobile_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/AuthenticateUserByMobileResponse" message="tns:INICService_AuthenticateUserByMobile_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/AuthenticateUserByMobileNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_AuthenticateUserByMobile_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateRunaway">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/CreateRunaway" message="tns:INICService_CreateRunaway_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/CreateRunawayResponse" message="tns:INICService_CreateRunaway_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/CreateRunawayNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_CreateRunaway_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelRunaway">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/CancelRunaway" message="tns:INICService_CancelRunaway_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/CancelRunawayResponse" message="tns:INICService_CancelRunaway_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/CancelRunawayNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_CancelRunaway_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetCitizenInfo">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/GetCitizenInfo" message="tns:INICService_GetCitizenInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/GetCitizenInfoResponse" message="tns:INICService_GetCitizenInfo_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/GetCitizenInfoNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_GetCitizenInfo_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IssueWorkPermit">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/IssueWorkPermit" message="tns:INICService_IssueWorkPermit_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/IssueWorkPermitResponse" message="tns:INICService_IssueWorkPermit_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/IssueWorkPermitNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_IssueWorkPermit_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ValidateIssueWorkPermit">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/ValidateIssueWorkPermit" message="tns:INICService_ValidateIssueWorkPermit_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/ValidateIssueWorkPermitResponse" message="tns:INICService_ValidateIssueWorkPermit_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/ValidateIssueWorkPermitNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_ValidateIssueWorkPermit_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="QueryWorkPermit">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/QueryWorkPermit" message="tns:INICService_QueryWorkPermit_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/QueryWorkPermitResponse" message="tns:INICService_QueryWorkPermit_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/QueryWorkPermitNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_QueryWorkPermit_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendChangeOccupationApproval">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/SendChangeOccupationApproval" message="tns:INICService_SendChangeOccupationApproval_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/SendChangeOccupationApprovalResponse" message="tns:INICService_SendChangeOccupationApproval_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/SendChangeOccupationApprovalNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_SendChangeOccupationApproval_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="SendChangeSponsorApproval">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/SendChangeSponsorApproval" message="tns:INICService_SendChangeSponsorApproval_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/SendChangeSponsorApprovalResponse" message="tns:INICService_SendChangeSponsorApproval_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/SendChangeSponsorApprovalNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_SendChangeSponsorApproval_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="IssueVisa">
+      <wsdl:input wsaw:Action="http://mol.gov.sa/services/INICService/IssueVisa" message="tns:INICService_IssueVisa_InputMessage" />
+      <wsdl:output wsaw:Action="http://mol.gov.sa/services/INICService/IssueVisaResponse" message="tns:INICService_IssueVisa_OutputMessage" />
+      <wsdl:fault wsaw:Action="http://mol.gov.sa/services/INICService/IssueVisaNICFaultContractFault" name="NICFaultContractFault" message="tns:INICService_IssueVisa_NICFaultContractFault_FaultMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="NIC_EndPoint" type="tns:INICService">
+    <wsp:PolicyReference URI="#NIC_EndPoint_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CancelVisa">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/CancelVisa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateAlienSponsorBusiness">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/ValidateAlienSponsorBusiness" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateAlienSponsorBusiness">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/UpdateAlienSponsorBusiness" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryDependentsByID">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/QueryDependentsByID" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckVehicleOwner">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/CheckVehicleOwner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckVehiclePreviousOwner">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/CheckVehiclePreviousOwner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CheckVehicleCoOwner">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/CheckVehicleCoOwner" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetLabrorPrisonStatus">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/GetLabrorPrisonStatus" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="AuthenticateUserByMobile">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/AuthenticateUserByMobile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CreateRunaway">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/CreateRunaway" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="CancelRunaway">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/CancelRunaway" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="GetCitizenInfo">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/GetCitizenInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IssueWorkPermit">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/IssueWorkPermit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="ValidateIssueWorkPermit">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/ValidateIssueWorkPermit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="QueryWorkPermit">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/QueryWorkPermit" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendChangeOccupationApproval">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/SendChangeOccupationApproval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="SendChangeSponsorApproval">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/SendChangeSponsorApproval" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+    <wsdl:operation name="IssueVisa">
+      <soap:operation soapAction="http://mol.gov.sa/services/INICService/IssueVisa" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+      <wsdl:fault name="NICFaultContractFault">
+        <soap:fault use="literal" name="NICFaultContractFault" namespace="" />
+      </wsdl:fault>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="NICService">
+    <wsdl:port name="NIC_EndPoint" binding="tns:NIC_EndPoint">
+      <soap:address location="http://Localhost:6561/mockNIC_EndPoint" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

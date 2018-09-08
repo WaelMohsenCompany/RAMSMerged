@@ -1,0 +1,542 @@
+﻿/* **** Fonts **** */
+/* General */
+*
+{
+}
+ td, th, div
+{
+
+}
+
+/* forms */
+input, select, textarea
+{
+	font-family: Tahoma;
+	font-size: 8pt !important;
+}
+.Button, label
+{
+	font-family: Tahoma;
+	font-size: 8pt !important;
+}
+/* Grids */
+.GridView td, .GridView td a
+{
+	font-family: Tahoma;
+	font-size: 8pt !important;
+}
+.GridView .GridViewHeader th,  .GridView th
+{
+	font-family: Tahoma;
+	font-size: 8pt !important;
+	color: #FFF;
+
+}
+.GridView td a
+{
+	text-decoration: underline !important;
+	font-family: Tahoma;
+	font-size: 9pt !important;
+	color: #FFF;
+
+
+
+}
+.GridView td a:hover
+{
+	text-decoration: none !important;
+}
+
+.GridDate
+{
+	font-size: 8pt;
+}
+.Message
+{
+	font-family: Tahoma;
+	font-size: 9pt !important;
+
+}
+/* ** Header **  */
+/* Top Search */
+.SearchPart select
+{
+	font-weight: 500;
+	color: #404348;
+	font-size: 9pt;
+}
+.SearchPart, .SearchPart a
+{
+	font-family: Calibri, Arial (Arabic) !important;
+	color: #FFF !important;
+	font-size: 9.5pt;
+	font-weight: 700;
+}
+/* Date */
+.TodayDate
+{
+	font-family:  Arial (Arabic) !important;
+	color: #FFF;
+	font-size: 9.5pt;
+	font-weight: 700;
+}
+/* Icons Menu */
+.IconsMenu li a
+{
+	font-family: Arial !important;
+	font-size: 9pt;
+	font-weight: normal;
+	color: #FFF !important;
+	text-decoration: none;
+}
+li.IconLangSwitch a
+{
+	font-family: Arial !important;
+	font-size: 9pt;
+	font-weight: 700;
+
+}
+.IconsMenu li a:hover
+{
+
+}
+/* Top menu */
+.TopMenu li a
+{
+	color: #000 !important;
+	font-weight: bold !important;
+	font-family: Calibri, Arial (Arabic) !important;
+	font-size: 12pt !important;
+
+}
+/* ** Footer ** */
+.Footer
+{
+	font-family: Calibri, Arial (Arabic) !important;
+	font-size:10pt;
+	font-weight: 700;
+}
+.CopyRight
+{
+	color: #FFF;
+}
+/* ** Static Side **  */
+.StaticPartsContainer h3, .StaticPartsFooter h4
+{
+	font-family:  Arial (Arabic) !important;
+	font-size: 13pt;
+	font-weight: 700;
+}
+/* About & EServices  */
+.AboutMinistry ul li, .EServices ul li a
+{
+	font-family: Tahoma;
+	font-size: 8pt;
+	font-weight: normal;
+
+}
+/* Login */
+.LoginName, .LoginLabel, .LoginCheckBox
+{
+	font-family: Tahoma;
+	font-size: 8pt;
+	font-weight: normal;
+}
+.LoginStatus
+{
+	color: #c37600 !important;
+	font-family: Tahoma;
+	font-size: 8pt;
+	font-weight: normal;
+	text-decoration: none;
+}
+.LoginStatus:hover
+{
+	text-decoration: underline;
+}
+
+.LoginButton
+{
+	font-family: Tahoma;
+	font-size: 8pt;
+	font-weight: normal;
+}
+.LoginLink
+{
+	font-family: Tahoma;
+	font-size: 8pt;
+	font-weight: normal;
+	color: #c37600 !important;
+
+}
+.LoginLink a
+{
+	color: #c37600 !important;
+	line-height: 16pt;
+
+}
+.Loginpart a
+{
+	color: #c37600;
+}
+/* Vote */
+.VoteQuestion
+{
+	font-family: Tahoma;
+	font-size: 8pt;
+	font-weight: normal;
+	color: #c37600 !important;
+}
+.VoteAnswers
+{
+	font-family: Tahoma;
+	font-size: 8pt;
+	font-weight: normal;
+}
+th.VoteTitle
+{
+	font-family: Tahoma;
+	font-size: 8pt;
+	font-weight: normal;
+}
+/* ** Customization area ** */
+.CatalogZoneHeader
+{
+	font-weight: bold;
+}
+table.CatalogZone td, table.CatalogZone td label
+{
+	color: #FFF;
+	font-family: Tahoma;
+	font-size: 8pt;
+	font-weight: normal;
+
+}
+
+/* Themes */
+.PersonlizationButtons a
+{
+	font-family:  Tahoma !important;
+	font-size: 8pt;
+	text-decoration:none;
+	color: #FFF;
+}
+.PersonlizationButtons a:hover
+{
+	text-decoration: underline;
+}
+
+/* marquee */
+.Marque, .Marque a
+{
+	font-family: Calibri, Arial (Arabic) !important;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 10.5pt;
+	text-decoration:none;
+}
+.Marque a:hover
+{
+	text-decoration: none;
+	text-decoration:none;
+}
+/* ** Home Web Parts ** */
+.WebPartTitle, .WebPartTitle span
+{
+	font-size: 12pt;
+	font-weight: bold;
+}
+.PrimaryZone .More a, .SecondaryZone .More a
+{
+	font-family: Tahoma !important;
+	font-size: 9pt !important;
+	color: #c37700;
+}
+.SecondaryZone .NewsItem h3, .SecondaryZone .NewsItem h3 a, .SecondaryZone  .LinkItem h3 a,   .StatisticsItem h3 a, .SecondaryZone  .WhatsNew h3 a, .LinkItem a
+{
+	font-family: Tahoma;
+	font-size: 8pt;
+	font-weight: Normal ;
+	color: #000;
+}
+.NewsItem h3 a:hover, .LinkItem a:hover, .StatisticsItem a:hover, .WhatsNew a:hover
+
+
+{
+	text-decoration: underline;
+}
+.NewsItem p a
+{
+	color: #000;
+}
+.EventsDate 
+{
+	font-family: Tahoma !important;
+	font-size: 9pt !important;
+	color: #af3e1a;
+}
+.EventsLink a
+{
+	font-family: Tahoma !important;
+	font-size: 9pt !important;
+	color: #000;
+}
+
+/* News WebPart */
+.PrimaryZone .HomeNews div.NewsItem p, .PrimaryZone .HomeNews div.NewsItem div, .PrimaryZone .HomeAccomp div.NewsItem p, .PrimaryZone .HomeAccomp div.NewsItem div, .WhatsNew div
+{
+	font-family: Tahoma !important;
+	color: #000 !important;
+	font-weight: normal !important;
+	font-size: 9pt !important;
+	text-align: justify !important;
+}
+.PrimaryZone div.NewsItem h3 a, div.HomeNews div.NewsItem h3, .HomeNews div.NewsItem h3 a, .HomeAccomp div.NewsItem h3, .HomeAccomp div.NewsItem h3 a, .WhatsNew H3 a
+{
+	font-family:  Arial !important;
+	font-size: 12pt !important;
+	font-weight: 700 !important;
+}
+
+.PrimaryZone .HomeNews div.NewsItem p b, .PrimaryZone .HomeAccomp div.NewsItem p b
+{
+	font-weight: normal !important;	
+}
+.SecondaryZone .HomeNews div.NewsItem a, .SecondaryZone .HomeAccomp div.NewsItem a
+{
+	color: #000 !important;
+		font-family: Tahoma !important;
+	font-size: 9pt !important;
+	font-weight: normal !important;
+
+
+}
+/* */
+.DocumentLib h3 a 
+{
+	font-family: Tahoma !important;
+	font-weight: normal !important;
+	font-size: 9pt !important;
+	color: #000 !important;
+}
+.DocumentLib h3 a:hover
+{
+	text-decoration: none;
+}
+
+/* ** Inner pages ** */
+h4.InnerTitle
+{
+	color: #777;
+	font-size: 15pt;
+}
+.pageContent div, .pageContent p, .pageContent font
+{
+	font-family:: Tahoma  !important;
+	font-size: 9pt !important;
+	line-height: 14pt;
+	text-align: justify;
+}
+/* Registration */
+.LoginCreateUserButton
+{
+	float: left;
+}
+
+.LoginCreateUserButton, .LoginCancelButton
+{
+	border: 1px solid #888779;
+	background: #fbfbf8 url(  '../PublishingImages/Backgrounds/ButtonsBG.jpg' ) repeat-x;
+	height: 21px;
+}
+/* News */
+.InnerPagesContainer3 a
+{
+	color: #000;
+		font-family: Tahoma !important;
+	font-size: 8pt !important;
+	line-height: 12pt !important;
+	text-align: justify !important
+	
+}
+.NewsContainer h3, .NewsMainPage .NewsItem h3 a, .InnerPagesContainer3 .NewsItem h3 a
+{
+	font-family: Arial !important;
+	font-size: 12pt !important;
+
+}
+.NewsMainPage .NewsItem h3 a, .InnerPagesContainer3 .NewsItem h3 a
+
+{
+	text-decoration: underline;
+}
+.NewsMainPage .NewsItem h3 a:hover, .InnerPagesContainer3 .NewsItem h3 a:hover
+{
+	text-decoration: none;
+}
+.NewsMainPage .NewsItem p, .NewsMainPage .NewsItem div
+{
+	font-family: Tahoma !important;
+	font-size: 8pt !important;
+	line-height: 12pt !important;
+	text-align: justify !important;
+	font-weight: normal !important;
+
+}
+.NewsMainPage .NewsItem b
+{
+	font-weight: normal !important;	
+}
+/* FAQ */
+.InnerPagesContainer3 .NewsItem h3 a
+{
+	font-family: Arial !important;
+	font-size: 11pt !important;
+	font-weight: bold;
+	line-height: 14pt;
+	color: #000;
+
+}
+.InnerPagesContainer3 .NewsItem p, .InnerPagesContainer3 .NewsItem p span
+{
+	font-family: Tahoma !important;
+	font-size: 8.5pt !important;
+	line-height: 12pt;
+	color: #000;
+	text-align: justify;
+}
+/* Press Releases */
+.PressReleasesInner
+{
+	
+}
+.PressReleasesInner .PressItem h3, .PressReleasesInner .PressItem h3 a 
+{
+	font-family: Arial !important;
+	font-size: 11pt !important;
+	font-weight: bold;
+	line-height: 14pt;
+	color: #000;
+
+}
+.PressReleasesInner .PressItem p, .PressReleasesInner .PressItem span, .PressReleasesInner .PressItem font
+{
+	font-family: Tahoma !important;
+	font-size: 8.5pt !important;
+	line-height: 12pt !important;
+	color: #000 !important;
+	text-align: justify !important;
+	font-weight: normal !important; 
+
+}
+/* Search Results */
+.SearchItem h4
+{
+	font-family: Arial !important;
+	color: #999;
+	font-size: 12pt;
+
+}
+/* Survey  */
+.SurveyQuestion
+{
+	font-family: Tahoma !important;
+	font-size: 9pt !important;
+	font-weight: bold;
+
+}
+
+/* ** Popups ** */
+/* vote results */
+.VoteTitle th
+{
+	color: #FFF;
+	font-size: 9pt !important;
+	font-weight: bold;
+}
+.MyVote td
+{
+	font-size: 8.5pt;
+}
+.VotingResultsTable td
+{
+	font-size: 9pt;
+	line-height: 17px;
+}
+.VotingResultsTable th
+{
+	color: #333;
+	font-size: 9pt;
+	color: #FFF;
+}
+
+/* ** Static Side ** */
+
+.FormView td
+{
+	font-family: Tahoma !important;
+	font-size: 8.5pt !important;
+
+}
+.ErrorMessage
+{
+	color: red;
+}
+
+/* */
+.NewsList p a, .LinksList p a
+{
+	color: #000 !important;
+	
+}
+.LinksList
+{
+}
+.PrimaryZone .NewsList h3, .PrimaryZone .NewsList h3 a, .PrimaryZone .NewsList .NewsItem  h3 a
+{
+	font-family:  Arial !important;
+	font-size: 11.5pt !important;
+	font-weight: 700 !important;
+	text-decoration: none;
+
+}
+ .PrimaryZone .NewsList h3 a:hover
+ {
+	text-decoration: underline;
+
+}
+.PrimaryZone .NewsList p, .PrimaryZone .NewsList div
+{
+	font-family: Tahoma !important;
+	color: #000 !important;
+	font-weight: normal !important;
+	font-size: 9pt !important;
+	text-align: justify !important;
+}
+.SecondaryZone .NewsList h3, .SecondaryZone .NewsList h3 a
+{
+	font-family: Tahoma !important;
+	font-size: 8.5pt !important;
+	font-weight: Normal !important;
+	color: #000 !important;
+
+}
+
+ .LinksList h3, .LinksList h3 a, .LinksList div.NewsItem h3, .LinksList div.NewsItem h3 a, .LinksList a
+{
+	font-family: Tahoma !important;
+	font-size: 8.5pt !important;
+	font-weight: Normal !important;
+	color: #000 !important;
+}
+
+.GridView th a
+{
+	color: #FFF !important;
+}
+.GridView td a
+{
+	color: #000 !important;
+}
+
+

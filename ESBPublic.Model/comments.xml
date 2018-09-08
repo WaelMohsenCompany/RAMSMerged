@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doc>
+  <assembly>
+    <name>RAMS.ApplicationServices</name>
+  </assembly>
+  <members>
+    <member name="" />
+    <member name="N:RAMS.ApplicationServices.RunAwayRequest.Post" />
+    <member name="M:RAMS.ApplicationServices.RunAwayRequest.Post.PostRunAwayRequest.SendIndividualSMS(TypedObjects.MessageType,System.String,System.Nullable{System.Int64},System.Nullable{System.Int32},System.Nullable{System.Int32},UnitOfWork,dynamic[])"> <summary>
+ Sends the SMS.
+ </summary>
+ <param name="mesageType">Target message Type</param>
+ <param name="mobileNumber">Target Mobile Number</param>
+ <param name="userIdNumber">User Id Number</param>
+ <param name="complaintRequestId">The laborer Complaint Id</param>
+ <param name="runAwayRequestId">The runAway Request Id</param>
+ <param name="dbUnitOfWork">EFDAL Unit of Work</param>
+ <param name="messageInput">Optional Params for SMS</param>
+ <returns>True if it succeeds, false if it fails.</returns></member>
+  </members>
+</doc>

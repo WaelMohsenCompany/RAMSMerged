@@ -1,0 +1,205 @@
+/* Inner Pages */
+.InnerPagesContainer1
+{
+	
+	width: 777px;
+	margin-top: 14px;
+	background:  url(  '../PublishingImages/Backgrounds/InnerBG.gif' ) repeat-y right;
+	overflow-x: hidden;
+}
+html > body .InnerPagesContainer1
+{
+	margin-top: 14px;
+}
+html  >/* */ body .InnerPagesContainer1
+{
+	margin-top: 8px;
+}
+.InnerPagesContainer2
+{
+	
+	width: 777px;
+	background: url(  '../PublishingImages/Backgrounds/InnerTop.gif' ) no-repeat right top;
+}
+.InnerPagesContainer3
+{
+	background-color: Transparent;
+	height:  660px;	
+	padding: 10px;
+	width: 757px;
+	background: url(  '../PublishingImages/Backgrounds/InnerBottom.gif' ) no-repeat right bottom;
+}
+html > body .InnerPagesContainer3
+{
+	height: auto;
+	min-height: 660px;
+
+}
+h4.InnerTitle
+{
+	margin:5px 5px 1px 5px;
+	padding: 0;
+	padding-right: 18px;
+	padding-top: 3px;
+	background: url(../PublishingImages/icons/StaticElementsHeaderIcons.gif) no-repeat right center;
+	
+	height: 20px;
+	
+}
+.pageContent
+{
+	margin-top: 10px;
+}
+
+.NewsMainPage 
+{
+
+
+}
+.NewsMainPage .NewsItem
+{
+	margin-bottom: 25px;
+}
+.InnerPagesContainer3 .NewsItem 
+{
+	margin: 5px 0px;
+}
+
+/* */
+.PressReleasesInner .PressItem
+{
+	margin-bottom: 20px;
+}
+.PressReleasesInner .PressItem h3
+{
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 5px;
+}
+.PressReleasesInner .PressItem p
+{
+
+	padding: 0px;
+	margin: 0px;
+	margin-bottom: 5px;
+
+}
+/* Inner Search */
+.SearchControl table
+{
+	width: 99%;
+}
+.SearchItem
+{
+	margin: 10px auto;
+	width: 99%;
+	background: #FAFAFA;
+	border: 1px solid #EEE;
+}
+.SearchItem td
+{
+	padding: 5px;
+}
+.SearchPagging
+{
+	text-align: center;
+}
+.SearchPagging table
+{
+	width: auto;
+}
+.SearchPagging table td
+{
+	padding: 2px 8px;
+}
+.SearchControl a
+{
+	color: #000;
+}
+.SearchControl a:hover
+{
+	text-decoration: none;
+}
+.SearchItem h4
+{
+	margin: 0px;
+	padding: 0px;
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+/* Grids  */
+.GridView
+{
+	width: 99% !important;
+	margin: 0px auto;
+}
+.GridView th
+{
+	text-align: right !important;
+}
+.GridView td, .GridView td a
+{
+}
+.GridView th, .GridView td
+{
+	padding: 4px 2px !important;
+	border: none !important;
+}
+.InnerPagesContainer3 .GridView, .GridView
+{
+	border: 1px solid #DDD !important;
+}
+
+/* Login */
+/* Change password */
+.LoginControlContainer
+{
+	width: 100%;	
+}
+.LoginTitleText, .LoginInstructionText
+{
+	display: none;
+}
+.ChangePasswordB
+{
+	float: left;
+}
+/* Register */
+.LoginTitle
+{
+	display: none;
+}
+.LoginSubmit
+{
+	float: left;
+}
+.LoginCancel
+{
+	float: right;
+
+}
+/* Survey */
+.SurveyQuestion
+{
+	margin: 0px 0px 20px 0px;
+}
+
+/* Registeration */
+.SmartCalendar
+{
+	
+}
+.SmartCalendar input
+{
+	border: 1px solid #DDD;
+}
+.RegisterationForm, .NewPasswordForm, .ChangePasswordForm, .SearchUsersForm
+{
+	margin-top: 40px;	
+}
+.UpdatePanelTD
+{
+	padding-right: 12px !important;
+	
+}
+
